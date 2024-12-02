@@ -35,7 +35,7 @@ function getMarriageDuration(date) {
 }
 
 let handler = async (m, { command, usedPrefix, args }) => {
-    const topMarriagesCmd = /^(topcasados)$/i.test(command);
+    const topMarriagesCmd = /^(topmarry)$/i.test(command);
 
     switch (true) {
         case topMarriagesCmd:
