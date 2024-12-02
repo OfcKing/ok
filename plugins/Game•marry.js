@@ -53,6 +53,12 @@ let handler = async (m, { conn, command, usedPrefix, args }) => {
             break;
 
         case acceptCmd:
+            if (marriages[m.sender]) {
+                let currentPartner = conn.getName(marriages[m.sender]);
+                await m.reply(`Ya estás casado con ${currentPartner}. No puedes aceptar otra propuesta de matrimonio.`);
+                return;
+            }
+
             if (!m.quoted || !m.quoted.sender || !proposals[m.quoted.sender] || proposals[m.quoted.sender] !== m.sender) {
                 await m.reply('Debes responder al mensaje de propuesta de matrimonio para aceptarla.');
                 return;
@@ -60,12 +66,6 @@ let handler = async (m, { conn, command, usedPrefix, args }) => {
 
             let acceptProposee = m.sender;
             let proposerKey = m.quoted.sender;
-
-            if (marriages[acceptProposee]) {
-                let currentPartner = conn.getName(marriages[acceptProposee]);
-                await m.reply(`Ya estás casado con ${currentPartner}. No puedes aceptar otra propuesta de matrimonio.`);
-                return;
-            }
 
             delete proposals[proposerKey];
 
@@ -80,6 +80,12 @@ let handler = async (m, { conn, command, usedPrefix, args }) => {
             break;
 
         case rejectCmd:
+            if (marriages[m.sender]) {
+                let currentPartner = conn.getName(marriages[m.sender]);
+                await m.reply(`Ya estás casado con ${currentPartner}. No puedes rechazar otra propuesta de matrimonio.`);
+                return;
+            }
+
             if (!m.quoted || !m.quoted.sender || !proposals[m.quoted.sender] || proposals[m.quoted.sender] !== m.sender) {
                 await m.reply('Debes responder al mensaje de propuesta de matrimonio para rechazarla.');
                 return;
@@ -131,9 +137,9 @@ let handler = async (m, { conn, command, usedPrefix, args }) => {
             await conn.reply(m.chat, `💔 ${divorcingUserName} y ${partnerName} se han divorciado. 💔`, m);
             break;
 
-      //  default:
-           // await m.reply(`Comando no reconocido. Usa *${usedPrefix}proponermatrimonio* para proponer matrimonio, *${usedPrefix}aceptarmatrimonio* para aceptar una propuesta, *${usedPrefix}rechazarmatrimonio* para rechazar una propuesta y *${usedPrefix}divorciarse* para divorciarse.`);
-          //  break;
+       // default:
+          //  await m.reply(`Comando no reconocido. Usa *${usedPrefix}proponermatrimonio* para proponer matrimonio, *${usedPrefix}aceptarmatrimonio* para aceptar una propuesta, *${usedPrefix}rechazarmatrimonio* para rechazar una propuesta y *${usedPrefix}divorciarse* para divorciarse.`);
+           // break;
     }
 }
 
