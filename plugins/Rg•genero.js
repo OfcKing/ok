@@ -3,20 +3,17 @@ import fetch from 'node-fetch';
 
 const handler = async (m, { conn, command, usedPrefix, text }) => {
 
-if (!text) return conn.reply(m.chat, `✎ Selecciona el genero.\n1 » Masuculino "Hombre"\n2 » Femenino "Mujer"\n3 » Anónimo "Omitir"\n> Ejemplo: ${usedPrefix + command} 3`, m, fake)
+if (!text) return conn.reply(m.chat, `✧ Debes ingresar un genero valido.\n> Ejemplo » *${usedPrefix + command} hombre*`, m);
 
 function asignarGenero(text) {
-if (text == 0 || text > 3) return conn.reply(m.chat, `✧ *${text}* no es válido.`, m);
+if (text == 0 || text > 3) return conn.reply(m.chat, `✧ Debes ingresar un genero valido.\n> Ejemplo » *${usedPrefix + command} hombre*`, m);
 let genero;
 switch (text) {
-case "1":
+case "hombre":
 genero = "Hombre";
 break;
-case "2":
+case "mujer":
 genero = "Mujer";
-break;
-case "3":
-genero = "Anónimo";
 break;
 default:
 return conn.reply(m.chat, `✦ Recuerda elegir el genero.\n> Ejemplo: ${usedPrefix + command} 3`, m);
@@ -30,11 +27,10 @@ let user = global.db.data.users[m.sender];
 user.genero = genero;
 
 if (user.genero) {
-return conn.sendMessage(m.chat, { text: `✎ Genero actualizado, genero:\n> » ${user.genero}`
-}, { quoted: m });
+return conn.reply(m.chat, `✐ Se ha establecido tu genero como: *${user.genero}*!`, m)
 }};
 
-handler.help = ['genero']
+handler.help = ['setgenre']
 handler.tags = ['rg']
-handler.command = ['genero', 'género', 'gender'];
+handler.command = ['setgenero', 'setgenre']
 export default handler;
