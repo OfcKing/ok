@@ -8,7 +8,7 @@ if (!text) return conn.reply(m.chat, `✧ Debes ingresar un genero válido.\n> E
 let user = global.db.data.users[m.sender];
 
 if (user.genre) {
-return conn.reply(m.chat, `✧ Ya tienes un genero establecido: *${user.genre}*. Si deseas cambiarlo, por favor borra tu género actual primero con el comando *${usedPrefix}delgenero*`, m);
+return conn.reply(m.chat, `✧ Ya tienes un genero establecido, si quieres borrar el genero actual usa:\n> » ${usedPrefix}delgenre`, m);
 }
 
 function asignarGenre(text) {
@@ -35,7 +35,7 @@ if (user.genre) {
 return conn.reply(m.chat, `✐ Se ha establecido tu genero como: *${user.genre}*!`, m);
 }};
 
-handler.help = ['setgenero']
+handler.help = ['setgenre']
 handler.tags = ['rg']
 handler.command = ['setgenero', 'setgenre']
 export default handler;
