@@ -16,12 +16,20 @@ return {};
 let marriages = loadMarriages();
 
 let handler = async (m, { conn, command, usedPrefix, args }) => {
-const topMarryCmd = /^(topmarry)$/i.test(command);
+//const topMarryCmd = /^(topmarry)$/i.test(command);
 
-switch (true) {
-case topMarryCmd:
+if (topMarryCmd) {
+let marriedCouples = Object.keys(marriages)
+.filter(jid => marriages[jid].partner) 
+.map(jid => {
+return {
+user: jid,
+partner: marriages[jid].partner
+};
+});
+
 if (marriedCouples.length === 0) {
-await conn.reply(m.chat, '✎ No hay parejas casadas.', m);
+await conn.reply(m.chat, '✎ No hay parejas casadas, intente mas tarde.', m);
 return;
 }
 
@@ -31,8 +39,8 @@ message += `✨ *${index + 1}.* @${couple.user.split('@')[0]} y @${couple.partne
 });
 
 await conn.reply(m.chat, message, m, { mentions: marriedCouples.flatMap(couple => [couple.user, couple.partner]) });
-break;
-}}
+}
+//}
 
 handler.tags = ['fun']
 handler.help = ['topmarry']
