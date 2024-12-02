@@ -3,13 +3,13 @@ import fetch from 'node-fetch';
 
 const handler = async (m, { conn, command, usedPrefix, text }) => {
 
-if (!text) return conn.reply(m.chat, `✧ Debes ingresar un genero válido.\n> Ejemplo » *${usedPrefix + command} hombre*`, m);
-
 let user = global.db.data.users[m.sender];
 
 if (user.genre) {
 return conn.reply(m.chat, `✧ Ya tienes un genero establecido, si quieres borrar el genero actual usa:\n> » ${usedPrefix}delgenre`, m);
 }
+
+if (!text) return conn.reply(m.chat, `✧ Debes ingresar un genero válido.\n> Ejemplo » *${usedPrefix + command} hombre*`, m);
 
 function asignarGenre(text) {
 let genre;
