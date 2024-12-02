@@ -5,7 +5,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
   let chat = global.db.data.chats[m.chat];
   let user = global.db.data.users[m.sender];
   let bot = global.db.data.settings[conn.user.jid] || {};
-  let type = (args[0] || command).toLowerCase();
+  let type = command.toLowerCase();
   let isAll = false, isUser = false;
   let isEnable = false;
 
@@ -296,9 +296,11 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
       }
       isEnable = chat.modohorny = !chat.modohorny;
       break;
- }
-return await m.reply(`la función ${type} se ${isEnable ? 'activó' : 'desactivó'}`)
-}
+  }
 
-handler.command =['welcome', 'detect']
-export default handler
+  conn.reply(m.chat, `🚩 La función *${type}* se *${isEnable ? 'activó' : 'desactivó'}* ${isAll ? 'para este Bot' : isUser ? '' : 'para este chat'}`, m);
+};
+
+handler.help = ['welcome', 'bv', 'bienvenida', 'antiprivado', 'antipriv', 'antiprivate', 'restrict', 'restringir', 'autolevelup', 'autonivel', 'antibot', 'antibots', 'autoaceptar', 'aceptarauto', 'autorechazar', 'rechazarauto', 'antisubbots', 'antisub', 'antisubot', 'antibot2', 'antifake', 'antifakes', 'autoresponder', 'autorespond', 'modoadmin', 'soloadmin', 'autoread', 'autoleer', 'autover', 'antiver', 'antiocultar', 'antiviewonce', 'reaction', 'reaccion', 'emojis', 'audios', 'audiosbot', 'botaudios', 'antispam', 'antiSpam', 'antispamosos', 'antidelete', 'antieliminar', 'delete', 'autobio', 'status', 'bio', 'jadibotmd', 'serbot', 'subbots', 'detect', 'configuraciones', 'avisodegp', 'simi', 'autosimi', 'simsimi', 'document', 'documento', 'antilink', 'nsfw', 'modohorny']
+handler.tags = ['nable'];
+handler.command = ['welcome', 'bv', 'bienvenida', 'antiprivado', 'antipriv', 'antiprivate', 'restrict', 'restringir', 'autolevelup', 'autonivel', 'antibot', 'antibots', 'autoaceptar', 'aceptarauto', 'autorechazar', 'rechazarauto', 'antisubbots', 'antisub', 'antisubot', 'antibot2', 'antifake', 'antifakes', 'autoresponder', 'autorespond', 'modoadmin', 'soloadmin', 'autoread', 'autoleer', 'autover', 'antiver', 'antiocultar', 'antiviewonce', 'reaction', 'reaccion', 'emojis', 'audios', 'audiosbot', 'botaudios', 'antispam', 'antiSpam', 'antispamosos', 'antidelete', 'antieliminar', 'delete', 'autobio', 'status', 'bio', 'jadibotmd', 'serbot', 'subbots', 'detect', 'configuraciones', 'avisodegp', 'simi', 'autosimi', 'simsimi', 'document', 'documento', 'antilink', 'nsfw', 'modohorny']
