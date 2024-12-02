@@ -16,7 +16,7 @@ case "mujer":
 genre = "Mujer";
 break;
 default:
-return conn.reply(m.chat, `✦ Recuerda elegir el genero.\n> Ejemplo: ${usedPrefix + command} 3`, m);
+return conn.reply(m.chat, `✦ Recuerda elegir el genero.\n> Ejemplo: ${usedPrefix + command} hombre`, m);
 }
 return genre;
     }
@@ -27,7 +27,7 @@ let user = global.db.data.users[m.sender];
 user.genre = genre;
 
 if (user.genero) {
-return conn.reply(m.chat, `✐ Se ha establecido tu genero como: *${user.genero}*!`, m)
+return conn.reply(m.chat, `✐ Se ha establecido tu genero como: *${user.genre}*!`, m)
 }};
 
 handler.help = ['setgenre']
