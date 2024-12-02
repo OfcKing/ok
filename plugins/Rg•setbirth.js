@@ -12,7 +12,13 @@ const opcionesFecha = [
 ];
 
 let esValida = opcionesFecha.some(regex => regex.test(text));
-if (!esValida) return conn.reply(m.chat, `✧ Debes ingresar una fecha de nacimiento válida.\n> Ejemplo » *${usedPrefix + command} 1/12/2024*`, m);
+if (!esValida) return conn.reply(m.chat, `✧ Debes ingresar una fecha de nacimiento válida.\n> Ejemplo » *${usedPrefix + command} 01/12/2024*`, m);
+
+if (/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(text)) {
+const [dia, mes, año] = text.split('/');
+const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+return `${parseInt(dia)} de ${meses[parseInt(mes) - 1]} de ${año}`;
+}
 return text;
 }
 
