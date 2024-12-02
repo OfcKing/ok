@@ -296,5 +296,6 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
       }
       isEnable = chat.modohorny = !chat.modohorny;
       break;
+ }
 
 export default handler
