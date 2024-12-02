@@ -330,7 +330,7 @@ if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
 let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
 let setting = global.db.data.settings[this.user.jid]
-if (name != 'Grupo•unbanchat.js' && chat?.isBanned)
+if (name != 'Config•nable.js' && chat?.isBanned)
 return 
 if (name != 'Owner•unbanuser.js' && user?.banned)
 return
