@@ -28,7 +28,7 @@ txt += `✨ *Pais* :: *${userNationality}*\n`
 txt += `☁️ *Link* :: *wa.me/${who.split`@`[0]}*\n`
 txt += `🍫 *Chocolates* :: *${chocolates}*\n`
 txt += `🍁 *Nivel* :: *${level}*\n`
-txt += `🌸 *XP* :: Total ${exp}\n`
+txt += `🌸 *XP* :: *Total ${exp}*\n`
 txt += `🍄 *Registrado* :: *${registered ? `Si*\n✅ *Verificación::* *${name}`: 'No'}*\n`
 txt += `💐 *Premium* :: *${prem ? 'Si' : 'No'}*\n`
 
