@@ -33,21 +33,6 @@ user.genre = genre;
 
 if (user.genre) {
 return conn.reply(m.chat, `✐ Se ha establecido tu genero como: *${user.genre}*!`, m);
-let chtxt = `
-👤 *Usuario* » ${m.pushName || 'Anónimo'}
-♻️ *Género* » ${user.genre}
-📆 *Fecha* » ${moment.tz('America/Bogota').format('DD/MM/YY')}
-`.trim()
-await conn.sendMessage(global.channelid, { text: chtxt, contextInfo: {
-externalAdReply: {
-title: "【 🔔 𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗖𝗜𝗢́𝗡 🔔 】",
-body: '🙌 ¡Set Genre!',
-thumbnailUrl: icons,
-sourceUrl: redes,
-mediaType: 1,
-showAdAttribution: false,
-renderLargerThumbnail: false
-}}}, { quoted: null })
 }};
 
 handler.help = ['setgenre']
