@@ -18,7 +18,7 @@ let marriages = loadMarriages();
 let handler = async (m, { conn, command, usedPrefix, args }) => {
 //const topMarryCmd = /^(topmarry)$/i.test(command);
 
-if (topMarryCmd) {
+//if (topMarryCmd) {
 let marriedCouples = Object.keys(marriages)
 .filter(jid => marriages[jid].partner) 
 .map(jid => {
