@@ -15,5 +15,5 @@ return conn.reply(m.chat, `✐ Tu descripción ha sido eliminada.`, m);
 
 handler.help = ['deldescription']
 handler.tags = ['rg']
-handler.command = ['deldescription']
+handler.command = ['deldescription', 'deldesc']
 export default handler;
