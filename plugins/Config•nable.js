@@ -297,5 +297,8 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
       isEnable = chat.modohorny = !chat.modohorny;
       break;
  }
+return await m.reply(`la función ${type} se ${isEnable ? 'activó' : 'desactivó'}`)
+}
 
+handler.command =['welcome', 'detect']
 export default handler
