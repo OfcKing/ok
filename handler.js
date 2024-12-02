@@ -50,6 +50,10 @@ if (!('registered' in user))
 user.registered = false
 if (!('genre' in user))
 user.genre = ''
+if (!('birth' in user))
+user.birth = ''
+if (!('setdescription' in user))
+user.setdescription = ''
 if (!user.registered) {
 if (!('name' in user))
 user.name = m.name
@@ -82,6 +86,8 @@ regTime: -1,
 afk: -1,
 afkReason: '',
 genre: '',
+birth: '',
+setdescription: '',
 banned: false,
 useDocument: false,
 bank: 0,
