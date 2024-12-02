@@ -13,10 +13,10 @@ if (!text) return conn.reply(m.chat, `♲︎ Debes especificar una descripcion v
 
 user.description = text;
 
-return conn.reply(m.chat, `✐ Se ha establecido tu descripcion.\n\n> *${user.descripcion}*`, m);
+return conn.reply(m.chat, `✐ Se ha establecido tu descripcion.\n\n> *${user.description}*`, m);
 };
 
 handler.help = ['setdescription']
 handler.tags = ['rg']
-handler.command = ['setdescription']
+handler.command = ['setdescription', 'setdesc']
 export default handler;
