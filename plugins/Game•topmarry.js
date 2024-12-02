@@ -43,14 +43,14 @@ duration: getMarriageDuration(marriages[jid].date)
 .sort((a, b) => new Date(marriages[a.user].date) - new Date(marriages[b.user].date)); // Ordenar por la fecha de matrimonio
 
 if (marriedCouples.length === 0) {
-await conn.reply(m.chat, '✎ No hay parejas casadas, intente mas tarde.', m);
+await conn.reply(m.chat, '✎ No hay parejas casadas.', m);
 return;
 }
 
 let message = '💍 *Lista de Parejas Casadas* 💍\n\n';
 marriedCouples.forEach((couple, index) => {
 message += `✨ *${index + 1}.* @${couple.user.split('@')[0]} y @${couple.partner.split('@')[0]}\n📅 *Desde:* ${new Date(couple.date).toLocaleDateString()}\n🕒 *Duración:* ${couple.duration}\n\n`;
-            });
+});
 
 await conn.reply(m.chat, message, m, { mentions: marriedCouples.flatMap(couple => [couple.user, couple.partner]) });
 break;
