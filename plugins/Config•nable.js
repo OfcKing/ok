@@ -5,7 +5,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
   let chat = global.db.data.chats[m.chat];
   let user = global.db.data.users[m.sender];
   let bot = global.db.data.settings[conn.user.jid] || {};
-  let type = command.toLowerCase();
+  let type = (args[0] || command).toLowerCase();
   let isAll = false, isUser = false;
   let isEnable = false;
 
