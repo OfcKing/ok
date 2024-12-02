@@ -25,7 +25,7 @@ return text;
 let user = global.db.data.users[m.sender];
 
 if (user.birth) {
-return conn.reply(m.chat, `✧ Ya tienes una fecha de nacimiento establecida, si deseas cambiarla borre su fecha de nacimiento actual.\n> Usando: ${usedPrefix}delbirth`, m);
+return conn.reply(m.chat, `✧ Ya tienes una fecha establecida, si quieres borrar la fecha actual usa:\n> » ${usedPrefix}delbirth`, m);
 }
 
 let birth = validarFechaNacimiento(text);
