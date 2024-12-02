@@ -3,24 +3,18 @@
 import fs from 'fs';
 import path from 'path';
 
-const databaseFile = path.resolve('./src/database/casados.json');
+const marriagesFile = path.resolve('./src/database/casados.json');
 
-let database = {};
-
-function loadData(file) {
-    if (fs.existsSync(file)) {
-        const data = fs.readFileSync(file, 'utf8');
+function loadMarriages() {
+    if (fs.existsSync(marriagesFile)) {
+        const data = fs.readFileSync(marriagesFile, 'utf8');
         return JSON.parse(data);
     } else {
-        return { users: {}, marriages: {}, adoptions: {}, subbots: {} };
+        return {};
     }
 }
 
-function saveData(file, data) {
-    fs.writeFileSync(file, JSON.stringify(data, null, 2));
-}
-
-database = loadData(databaseFile);
+let marriages = loadMarriages();
 
 function getMarriageDuration(date) {
     const now = new Date();
@@ -34,26 +28,27 @@ function getMarriageDuration(date) {
     return `${days} días, ${hours} horas y ${minutes} minutos`;
 }
 
-let handler = async (m, { command, usedPrefix, args }) => {
-    const topMarriagesCmd = /^(topmarry)$/i.test(command);
+let handler = async (m, { conn, command, usedPrefix, args }) => {
+    const topMarryCmd = /^(topmarry)$/i.test(command);
 
     switch (true) {
-        case topMarriagesCmd:
-            let marriedCouples = Object.keys(database.marriages)
-                .filter(jid => database.marriages[jid].partner) 
+        case topMarryCmd:
+            let marriedCouples = Object.keys(marriages)
+                .filter(jid => marriages[jid].partner) 
                 .map(jid => {
                     return {
                         user: jid,
-                        partner: database.marriages[jid].partner,
-                        date: database.marriages[jid].date,
-                        duration: getMarriageDuration(database.marriages[jid].date)
+                        partner: marriages[jid].partner,
+                        date: marriages[jid].date,
+                        duration: getMarriageDuration(marriages[jid].date)
                     };
                 })
-                .sort((a, b) => new Date(database.marriages[a.user].date) - new Date(database.marriages[b.user].date))
+                .sort((a, b) => new Date(marriages[a.user].date) - new Date(marriages[b.user].date))
                 .slice(0, 10); // Mostrar el top 10 de casados
 
+            let message = '💍 *Top 10 de Parejas Casadas* 💍\n\n';
             marriedCouples.forEach((couple, index) => {
-                let message = `💍 *Top 10 de Parejas Casadas* 💍\n\n✨ *${index + 1}.* @${couple.user.split('@')[0]} y @${couple.partner.split('@')[0]}\n📅 *Desde:* ${new Date(couple.date).toLocaleDateString()}\n🕒 *Duración:* ${couple.duration}\n\n`;
+                message += `✨ *${index + 1}.* @${couple.user.split('@')[0]} y @${couple.partner.split('@')[0]}\n📅 *Desde:* ${new Date(couple.date).toLocaleDateString()}\n🕒 *Duración:* ${couple.duration}\n\n`;
             });
 
             await conn.reply(m.chat, message, m, { mentions: marriedCouples.flatMap(couple => [couple.user, couple.partner]) });
