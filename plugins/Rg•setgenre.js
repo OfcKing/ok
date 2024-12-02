@@ -26,7 +26,7 @@ if (!genre) return;
 let user = global.db.data.users[m.sender];
 user.genre = genre;
 
-if (user.genero) {
+if (user.genre) {
 return conn.reply(m.chat, `✐ Se ha establecido tu genero como: *${user.genre}*!`, m)
 }};
 
