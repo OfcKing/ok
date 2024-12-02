@@ -108,7 +108,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('owner', m, conn);
         throw false;
       }
-      isEnable = chat.banned = !chat.banned;
+      isEnable = chat.isBanned = !chat.isBanned;
       break;
 
     case 'antifake':
