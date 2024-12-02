@@ -1,331 +1,300 @@
-let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
-  let isEnable = /true|enable|(turn)?on|1/i.test(command)
-  let chat = global.db.data.chats[m.chat]
-  let user = global.db.data.users[m.sender]
-  let bot = global.db.data.settings[conn.user.jid] || {}
-  let type = (args[0] || '').toLowerCase()
-  let isAll = false, isUser = false
+import { createHash } from 'crypto';  
+import fetch from 'node-fetch';
+
+const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
+  let chat = global.db.data.chats[m.chat];
+  let user = global.db.data.users[m.sender];
+  let bot = global.db.data.settings[conn.user.jid] || {};
+  let type = (args[0] || command).toLowerCase();
+  let isAll = false, isUser = false;
+  let isEnable = false;
+
   switch (type) {
-  case 'welcome':
+    case 'welcome':
     case 'bv':
     case 'bienvenida':
       if (!m.isGroup) {
         if (!isOwner) {
-          global.dfail('group', m, conn)
-          throw false
+          global.dfail('group', m, conn);
+          throw false;
         }
       } else if (!isAdmin) {
-        global.dfail('admin', m, conn)
-        throw false
+        global.dfail('admin', m, conn);
+        throw false;
       }
-      chat.welcome = isEnable
-      break
+      isEnable = chat.welcome = !chat.welcome;
+      break;
 
-  case 'antiPrivate':
     case 'antiprivado':
     case 'antipriv':
-     isAll = true
-        if (!isOwner) {
-          global.dfail('rowner', m, conn)
-          throw false
+    case 'antiprivate':
+      isAll = true;
+      if (!isOwner) {
+        global.dfail('rowner', m, conn);
+        throw false;
       }
-      bot.antiPrivate = isEnable
-      break
+      isEnable = bot.antiPrivate = !bot.antiPrivate;
+      break;
 
-  case 'restrict':
+    case 'restrict':
     case 'restringir':
-     isAll = true
-        if (!isOwner) {
-          global.dfail('rowner', m, conn)
-          throw false
+      isAll = true;
+      if (!isOwner) {
+        global.dfail('rowner', m, conn);
+        throw false;
       }
-      bot.restrict = isEnable
-      break
+      isEnable = bot.restrict = !bot.restrict;
+      break;
 
- case 'autolevelup':
+    case 'autolevelup':
     case 'autonivel':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
+          global.dfail('admin', m, conn);
+          throw false;
         }
       }
-      chat.autolevelup = isEnable
-      break
+      isEnable = chat.autolevelup = !chat.autolevelup;
+      break;
 
- case 'antibot':
+    case 'antibot':
     case 'antibots':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
+          global.dfail('admin', m, conn);
+          throw false;
         }
       }
-      chat.antiBot = isEnable
-      break
+      isEnable = chat.antiBot = !chat.antiBot;
+      break;
 
- case 'autoaceptar':
+    case 'autoaceptar':
     case 'aceptarauto':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
+          global.dfail('admin', m, conn);
+          throw false;
         }
       }
-      chat.autoAceptar = isEnable
-      break
+      isEnable = chat.autoAceptar = !chat.autoAceptar;
+      break;
 
- case 'autorechazar':
+    case 'autorechazar':
     case 'rechazarauto':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
+          global.dfail('admin', m, conn);
+          throw false;
         }
       }
-      chat.autoRechazar = isEnable
-      break
+      isEnable = chat.autoRechazar = !chat.autoRechazar;
+      break;
 
- case 'antisubbots':
+    case 'antisubbots':
     case 'antisub':
     case 'antisubot':
     case 'antibot2':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
+          global.dfail('admin', m, conn);
+          throw false;
         }
       }
-      chat.antiBot2 = isEnable
-      break
+      isEnable = chat.antiBot2 = !chat.antiBot2;
+      break;
 
- case 'antifake':
+    case 'antifake':
     case 'antifakes':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
+          global.dfail('admin', m, conn);
+          throw false;
         }
       }
-      chat.antifake = isEnable
-      break
+      isEnable = chat.antifake = !chat.antifake;
+      break;
 
-  case 'autoresponder':
+    case 'autoresponder':
     case 'autorespond':
       if (!m.isGroup) {
         if (!isOwner) {
-          global.dfail('group', m, conn)
-          throw false
+          global.dfail('group', m, conn);
+          throw false;
         }
       } else if (!isAdmin) {
-        global.dfail('admin', m, conn)
-        throw false
+        global.dfail('admin', m, conn);
+        throw false;
       }
-      chat.autoresponder = isEnable
-      break
+      isEnable = chat.autoresponder = !chat.autoresponder;
+      break;
 
- case 'modoadmin':
+    case 'modoadmin':
     case 'soloadmin':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
+          global.dfail('admin', m, conn);
+          throw false;
         }
       }
-      chat.modoadmin = isEnable
-      break
+      isEnable = chat.modoadmin = !chat.modoadmin;
+      break;
 
- case 'autoread':
+    case 'autoread':
     case 'autoleer':
     case 'autover':
-      isAll = true
-       if (!isROwner) {
-         global.dfail('rowner', m, conn)
-         throw false
+      isAll = true;
+      if (!isROwner) {
+        global.dfail('rowner', m, conn);
+        throw false;
       }
-      global.opts['autoread'] = isEnable
-      break
+      isEnable = global.opts['autoread'] = !global.opts['autoread'];
+      break;
 
-  case 'antiver':
+    case 'antiver':
     case 'antiocultar':
     case 'antiviewonce':
       if (!m.isGroup) {
         if (!isOwner) {
-          global.dfail('group', m, conn)
-          throw false
+          global.dfail('group', m, conn);
+          throw false;
         }
       } else if (!isAdmin) {
-        global.dfail('admin', m, conn)
-        throw false
+        global.dfail('admin', m, conn);
+        throw false;
       }
-      chat.antiver = isEnable
-      break
+      isEnable = chat.antiver = !chat.antiver;
+      break;
 
-  case 'reaction':
+    case 'reaction':
     case 'reaccion':
     case 'emojis':
       if (!m.isGroup) {
         if (!isOwner) {
-          global.dfail('group', m, conn)
-          throw false
+          global.dfail('group', m, conn);
+          throw false;
         }
       } else if (!isAdmin) {
-        global.dfail('admin', m, conn)
-        throw false
+        global.dfail('admin', m, conn);
+        throw false;
       }
-      chat.reaction = isEnable
-      break
+      isEnable = chat.reaction = !chat.reaction;
+      break;
 
-  case 'audios':
+    case 'audios':
     case 'audiosbot':
     case 'botaudios':
       if (!m.isGroup) {
         if (!isOwner) {
-          global.dfail('group', m, conn)
-          throw false
+          global.dfail('group', m, conn);
+          throw false;
         }
       } else if (!isAdmin) {
-        global.dfail('admin', m, conn)
-        throw false
+        global.dfail('admin', m, conn);
+        throw false;
       }
-      chat.audios = isEnable
-      break
+      isEnable = chat.audios = !chat.audios;
+      break;
 
-  case 'antiSpam':
     case 'antispam':
+    case 'antiSpam':
     case 'antispamosos':
-     isAll = true
+      isAll = true;
       if (!isOwner) {
-      global.dfail('rowner', m, conn)
-      throw false
+        global.dfail('rowner', m, conn);
+        throw false;
       }
-      bot.antiSpam = isEnable
-      break
+      isEnable = bot.antiSpam = !bot.antiSpam;
+      break;
 
-  case 'antidelete': 
+    case 'antidelete': 
     case 'antieliminar': 
     case 'delete':
-     if (m.isGroup) {
-     if (!(isAdmin || isOwner)) {
-     global.dfail('admin', m, conn)
-     throw false
-     }}
-     chat.delete = isEnable
-     break
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn);
+          throw false;
+        }
+      }
+      isEnable = chat.delete = !chat.delete;
+      break;
 
-  case 'autobio':
+    case 'autobio':
     case 'status':
     case 'bio':
-     isAll = true
-        if (!isOwner) {
-          global.dfail('rowner', m, conn)
-          throw false
-        }
-      bot.autobio = isEnable
-      break
+      isAll = true;
+      if (!isOwner) {
+        global.dfail('rowner', m, conn);
+        throw false;
+      }
+      isEnable = bot.autobio = !bot.autobio;
+      break;
 
-  case 'jadibotmd':
+    case 'jadibotmd':
     case 'serbot':
     case 'subbots':
-     isAll = true
-        if (!isOwner) {
-          global.dfail('rowner', m, conn)
-          throw false
+      isAll = true;
+      if (!isOwner) {
+        global.dfail('rowner', m, conn);
+        throw false;
       }
-      bot.jadibotmd = isEnable
-      break
+      isEnable = bot.jadibotmd = !bot.jadibotmd;
+      break;
 
-  case 'detect':
+    case 'detect':
     case 'configuraciones':
     case 'avisodegp':
       if (!m.isGroup) {
         if (!isOwner) {
-          global.dfail('group', m, conn)
-          throw false
+          global.dfail('group', m, conn);
+          throw false;
         }
       } else if (!isAdmin) {
-        global.dfail('admin', m, conn)
-        throw false
+        global.dfail('admin', m, conn);
+        throw false;
       }
-      chat.detect = isEnable
-      break
+      isEnable = chat.detect = !chat.detect;
+      break;
 
-  case 'simi':
+    case 'simi':
     case 'autosimi':
     case 'simsimi':
       if (!m.isGroup) {
         if (!isOwner) {
-          global.dfail('group', m, conn)
-          throw false
+          global.dfail('group', m, conn);
+          throw false;
         }
       } else if (!isAdmin) {
-        global.dfail('admin', m, conn)
-        throw false
+        global.dfail('admin', m, conn);
+        throw false;
       }
-      chat.simi = isEnable
-      break
+      isEnable = chat.simi = !chat.simi;
+      break;
 
     case 'document':
     case 'documento':
-    isUser = true
-    user.useDocument = isEnable
-    break
+      isUser = true;
+      isEnable = user.useDocument = !user.useDocument;
+      break;
 
     case 'antilink':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
+          global.dfail('admin', m, conn);
+          throw false;
         }
       }
-      chat.antiLink = isEnable
-      break
+      isEnable = chat.antiLink = !chat.antiLink;
+      break;
 
-      case 'nsfw':
-      case 'modohorny':
-       if (m.isGroup) {
-         if (!(isAdmin || isOwner)) {
-           global.dfail('admin', m, conn)
-            throw false
-           }}
-    chat.modohorny = isEnable          
-    break
-    default:
-      if (!/[01]/.test(command)) return conn.reply(m.chat, `
-*👑 Funciones solo para owner*
-
-${usedPrefix + command} antispam
-${usedPrefix + command} antiprivado
-${usedPrefix + command} status
-${usedPrefix + command} autoread
-${usedPrefix + command} restrict
-
-*🚩 Funciones de grupos*
-
-${usedPrefix + command} welcome 
-${usedPrefix + command} autoaceptar
-${usedPrefix + command} autorechazar
-${usedPrefix + command} autoresponder
-${usedPrefix + command} autolevelup
-${usedPrefix + command} antibot
-${usedPrefix + command} subbots
-${usedPrefix + command} reaccion
-${usedPrefix + command} simi
-${usedPrefix + command} audios
-${usedPrefix + command} antiver
-${usedPrefix + command} detect 
-${usedPrefix + command} delete
-${usedPrefix + command} nsfw 
-${usedPrefix + command} modoadmin 
-${usedPrefix + command} antifake
-${usedPrefix + command} antilink`, m, rcanal)
-      throw false
-  }
-  conn.reply(m.chat, `🚩 La función *${type}* se *${isEnable ? 'activó' : 'desactivó'}* ${isAll ? 'para este Bot' : isUser ? '' : 'para este chat'}`, m, rcanal)
-}
-
-handler.help = ['enable', 'disable']
-handler.tags = ['nable', 'owner']
-handler.command = ['enable', 'disable', 'on', 'off', '1', '0']
+    case 'nsfw':
+    case 'modohorny':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn);
+          throw false;
+        }
+      }
+      isEnable = chat.modohorny = !chat.modohorny;
+      break;
 
 export default handler
