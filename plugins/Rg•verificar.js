@@ -38,7 +38,7 @@ fechaBio = biografia[0].setAt ? new Date(biografia[0].setAt).toLocaleDateString(
   if (age < 5) return m.reply('🚼  hay un abuelo bebé jsjsj. ')
   user.name = name + '✓'.trim()
   user.age = age
-  user.descripcion = bio 
+  user.desc = bio 
   user.regTime = + new Date      
   user.registered = true
   global.db.data.users[m.sender].money += 100
@@ -74,7 +74,7 @@ let chtxt = `
 🌎 *Pais* » ${mundo}
 🗃 *Verificación* » ${user.name}
 🌺 *Edad* » ${user.age} años
-👀 *Descripción* » ${user.descripcion} 
+👀 *Descripción* » ${user.desc} 
 ⏳ *Modificación de descripción* » ${fechaBio}
 📆 *Fecha* » ${moment.tz('America/Bogota').format('DD/MM/YY')}
 ☁️ *Número de registro* »
