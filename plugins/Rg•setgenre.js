@@ -33,6 +33,7 @@ user.genre = genre;
 
 if (user.genre) {
 return conn.reply(m.chat, `✐ Se ha establecido tu genero como: *${user.genre}*!`, m);
+let chtxt = `
 👤 *Usuario* » ${m.pushName || 'Anónimo'}
 ♻️ *Género* » ${user.genre}
 📆 *Fecha* » ${moment.tz('America/Bogota').format('DD/MM/YY')}
