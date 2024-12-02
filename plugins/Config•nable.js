@@ -215,8 +215,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
       break;
 
     case 'jadibotmd':
-    case 'serbot':
-    case 'subbots':
+    case 'modejadibot':
       isAll = true;
       if (!isOwner) {
         global.dfail('rowner', m, conn);
