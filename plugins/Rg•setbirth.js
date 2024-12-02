@@ -22,6 +22,8 @@ return `${parseInt(dia)} de ${meses[parseInt(mes) - 1]} de ${año}`;
 return text;
 }
 
+let user = global.db.data.users[m.sender];
+
 if (user.birth) {
 return conn.reply(m.chat, `✧ Ya tienes una fecha de nacimiento establecida, si deseas cambiarla borre su fecha de nacimiento actual.\n> ${usedPrefix}delbirth`, m);
 }
@@ -29,7 +31,6 @@ return conn.reply(m.chat, `✧ Ya tienes una fecha de nacimiento establecida, si
 let birth = validarFechaNacimiento(text);
 if (!birth) return;
 
-let user = global.db.data.users[m.sender];
 user.birth = birth;
 
 if (user.birth) {
