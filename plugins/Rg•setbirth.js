@@ -3,6 +3,8 @@ import fetch from 'node-fetch';
 
 const handler = async (m, { conn, command, usedPrefix, text }) => {
 
+let user = global.db.data.users[m.sender];
+
 if (user.birth) {
 return conn.reply(m.chat, `✧ Ya tienes una fecha establecida, si quieres borrar la fecha actual usa:\n> » ${usedPrefix}delbirth`, m);
 }
@@ -25,8 +27,6 @@ return `${parseInt(dia)} de ${meses[parseInt(mes) - 1]} de ${año}`;
 }
 return text;
 }
-
-let user = global.db.data.users[m.sender];
 
 let birth = validarFechaNacimiento(text);
 if (!birth) return;
