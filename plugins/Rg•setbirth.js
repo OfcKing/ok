@@ -22,6 +22,10 @@ return `${parseInt(dia)} de ${meses[parseInt(mes) - 1]} de ${año}`;
 return text;
 }
 
+if (user.birth) {
+return conn.reply(m.chat, `✧ Ya tienes una fecha de nacimiento establecida, si deseas cambiarla borre su fecha de nacimiento actual.\n> ${usedPrefix}delbirth`, m);
+}
+
 let birth = validarFechaNacimiento(text);
 if (!birth) return;
 
