@@ -7,8 +7,8 @@ let nacimientos = [];
 
 for (let userId in users) {
 let user = users[userId];
-if (user.fechaNacimiento) {
-nacimientos.push(`@${userId.split('@')[0]}: ${user.fechaNacimiento}`);
+if (user.birth) {
+nacimientos.push(`@${userId.split('@')[0]}: ${user.birth}`);
 }
 }
 
