@@ -9,12 +9,11 @@ if (user.birth) {
 return conn.reply(m.chat, `✧ Ya tienes una fecha establecida, si quieres borrar la fecha actual usa:\n> » ${usedPrefix}delbirth`, m);
 }
 
-if (!text) return conn.reply(m.chat, `✧ Debes ingresar una fecha valida para tu cumpleaños.\n\n> ✐ Ejemplo » *${usedPrefix + command} 01/01/2000* (dia/mes/año)\n> ✐ Ejemplo 2 » *${usedPrefix + command} 01/01* (dia/mes)`, m);
+if (!text) return conn.reply(m.chat, `✧ Debes ingresar una fecha valida para tu cumpleaños.\n\n> ✐ Ejemplo » *${usedPrefix + command} 01/01/2000* (dia/mes/año)`, m);
 
 function validarFechaNacimiento(text) {
 const opcionesFecha = [
-/^\d{1,2}\/\d{1,2}\/\d{4}$/, // dd/mm/yyyy or m/d/yyyy
-/^\d{1,2}\/\d{1,2}$/, // dd/mm or m/d
+/^\d{1,2}\/\d{1,2}\/\d{4}$/ // dd/mm/yyyy or m/d/yyyy
 ];
 
 let esValida = opcionesFecha.some(regex => regex.test(text));
