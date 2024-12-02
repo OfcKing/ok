@@ -20,11 +20,11 @@ let handler = async (m, { conn, command, usedPrefix, args }) => {
 
 //if (topMarryCmd) {
 let marriedCouples = Object.keys(marriages)
-.filter(jid => marriages[jid].partner) 
+.filter(jid => marriages[jid]) 
 .map(jid => {
 return {
 user: jid,
-partner: marriages[jid].partner
+partner: marriages[jid]
 };
 });
 
@@ -35,7 +35,7 @@ return;
 
 let message = '💍 *Lista de Parejas Casadas* 💍\n\n';
 marriedCouples.forEach((couple, index) => {
-message += `✨ *${index + 1}.* @${couple.user.split('@')[0]} y @${couple.partner.split('@')[0]}\n\n`;
+message += `✨ *${index + 1}.* @${couple.user} y @${couple.partner}\n\n`;
 });
 
 await conn.reply(m.chat, message, m, { mentions: marriedCouples.flatMap(couple => [couple.user, couple.partner]) });
