@@ -35,7 +35,10 @@ function getMarriageDuration(date) {
 }
 
 let handler = async (m, { command, usedPrefix, args }) => {
+    const topMarriagesCmd = /^(topcasados)$/i.test(command);
 
+    switch (true) {
+        case topMarriagesCmd:
             let marriedCouples = Object.keys(database.marriages)
                 .filter(jid => database.marriages[jid].partner) 
                 .map(jid => {
@@ -49,12 +52,13 @@ let handler = async (m, { command, usedPrefix, args }) => {
                 .sort((a, b) => new Date(database.marriages[a.user].date) - new Date(database.marriages[b.user].date))
                 .slice(0, 10); // Mostrar el top 10 de casados
 
-            let message = '💍 *Top 10 de Parejas Casadas* 💍\n\n';
+            let message = '💍 **Top 10 de Parejas Casadas** 💍\n\n';
             marriedCouples.forEach((couple, index) => {
-                message += `✨ *${index + 1}.* @${couple.user.split('@')[0]} y @${couple.partner.split('@')[0]}\n📅 *Desde:* ${new Date(couple.date).toLocaleDateString()}\n🕒 *Duración:* ${couple.duration}\n\n`;
+                message += `✨ **${index + 1}.** @${couple.user.split('@')[0]} y @${couple.partner.split('@')[0]}\n📅 **Desde:** ${new Date(couple.date).toLocaleDateString()}\n🕒 **Duración:** ${couple.duration}\n\n`;
             });
 
             await conn.reply(m.chat, message, m, { mentions: marriedCouples.flatMap(couple => [couple.user, couple.partner]) });
+            break;
     }
 }
 
