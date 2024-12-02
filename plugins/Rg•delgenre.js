@@ -2,11 +2,11 @@ const handler = async (m, { conn, command, usedPrefix }) => {
 
 const user = global.db.data.users[m.sender];
 
-if (!user.genero) {
+if (!user.genre) {
 return conn.reply(m.chat, '✎ No tienes un género asignado.', m)
 }
 
-user.genero = '';
+user.genre = '';
 
 return conn.reply(m.chat, '✐ Se ha eliminado tu genero', m)
 };
