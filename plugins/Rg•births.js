@@ -4,6 +4,7 @@ import fetch from 'node-fetch';
 const handler = async (m, { conn }) => {
 let users = global.db.data.users;
 let nacimientos = [];
+let mentions = [];
 
 for (let userId in users) {
 let user = users[userId];
