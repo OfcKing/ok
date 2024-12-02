@@ -20,13 +20,16 @@ let handler = async (m, { conn, command, usedPrefix, args }) => {
 
 //if (topMarryCmd) {
 let marriedCouples = Object.keys(marriages)
-.filter(jid => marriages[jid]) 
+.filter(jid => marriages[jid] && marriages[marriages[jid]] === jid) 
 .map(jid => {
 return {
 user: jid,
 partner: marriages[jid]
 };
-});
+}).filter((couple, index, self) => // Filtrar duplicados
+index === self.findIndex((t) => (
+t.user === couple.partner && t.partner === couple.user
+)));
 
 if (marriedCouples.length === 0) {
 await conn.reply(m.chat, '✎ No hay parejas casadas, intente mas tarde.', m);
