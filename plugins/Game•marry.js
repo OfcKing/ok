@@ -1,9 +1,24 @@
-import { readdirSync, statSync, unlinkSync, existsSync, readFileSync, watch, rmSync, promises as fsPromises } from "fs";
-const fs = { ...fsPromises, existsSync };
-import path, { join } from 'path';
+import fs from 'fs';
+import path from 'path';
 
-let proposals = {}; // Objeto para almacenar las propuestas de matrimonio
-let marriages = {}; // Objeto para almacenar los matrimonios
+const marriagesFile = path.resolve('src/database/casados.json');
+
+let proposals = {}; 
+
+function loadMarriages() {
+    if (fs.existsSync(marriagesFile)) {
+        const data = fs.readFileSync(marriagesFile, 'utf8');
+        return JSON.parse(data);
+    } else {
+        return {};
+    }
+}
+
+function saveMarriages(marriages) {
+    fs.writeFileSync(marriagesFile, JSON.stringify(marriages, null, 2));
+}
+
+let marriages = loadMarriages(); 
 
 let handler = async (m, { conn, command, usedPrefix, args }) => {
     const proposeCmd = /^(proponermatrimonio)$/i.test(command);
@@ -75,6 +90,7 @@ let handler = async (m, { conn, command, usedPrefix, args }) => {
             // Añadir el matrimonio a la lista de matrimonios
             marriages[proposerKey] = acceptProposee;
             marriages[acceptProposee] = proposerKey;
+            saveMarriages(marriages); // Guardar los matrimonios en el archivo
 
             await conn.reply(m.chat, `🎉 ¡Felicidades a ${proposerName} y ${proposeeName}! ¡Ahora están casados! 🎉`, m);
             break;
@@ -130,6 +146,7 @@ let handler = async (m, { conn, command, usedPrefix, args }) => {
 
             delete marriages[divorcingUser];
             delete marriages[partner];
+            saveMarriages(marriages); // Guardar los matrimonios en el archivo
 
             let divorcingUserName = conn.getName(divorcingUser);
             let partnerName = conn.getName(partner);
@@ -138,8 +155,8 @@ let handler = async (m, { conn, command, usedPrefix, args }) => {
             break;
 
        // default:
-          //  await m.reply(`Comando no reconocido. Usa *${usedPrefix}proponermatrimonio* para proponer matrimonio, *${usedPrefix}aceptarmatrimonio* para aceptar una propuesta, *${usedPrefix}rechazarmatrimonio* para rechazar una propuesta y *${usedPrefix}divorciarse* para divorciarse.`);
-           // break;
+         //   await m.reply(`Comando no reconocido. Usa *${usedPrefix}proponermatrimonio* para proponer matrimonio, *${usedPrefix}aceptarmatrimonio* para aceptar una propuesta, *${usedPrefix}rechazarmatrimonio* para rechazar una propuesta y *${usedPrefix}divorciarse* para divorciarse.`);
+          //  break;
     }
 }
 
