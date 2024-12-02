@@ -15,16 +15,6 @@ return {};
 
 let marriages = loadMarriages();
 
-function getMarriageDuration(date) {
-const now = new Date();
-const marriageDate = new Date(date);
-const duration = now - marriageDate;
-const days = Math.floor(duration / (1000 * 60 * 60 * 24));
-const hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-const minutes = Math.floor((duration / (1000 * 60)) % 60);
-return `${days} días, ${hours} horas y ${minutes} minutos`;
-}
-
 let handler = async (m, { conn, command, usedPrefix, args }) => {
 const topMarryCmd = /^(topmarry)$/i.test(command);
 
@@ -34,13 +24,9 @@ let marriedCouples = Object.keys(marriages)
 .filter(jid => marriages[jid].partner) 
 .map(jid => {
 return {
-user: jid,
-partner: marriages[jid].partner,
-date: marriages[jid].date,
-duration: getMarriageDuration(marriages[jid].date)
+user: jid
 };
 })
-.sort((a, b) => new Date(marriages[a.user].date) - new Date(marriages[b.user].date)); // Ordenar por la fecha de matrimonio
 
 if (marriedCouples.length === 0) {
 await conn.reply(m.chat, '✎ No hay parejas casadas.', m);
@@ -49,7 +35,7 @@ return;
 
 let message = '💍 *Lista de Parejas Casadas* 💍\n\n';
 marriedCouples.forEach((couple, index) => {
-message += `✨ *${index + 1}.* @${couple.user.split('@')[0]} y @${couple.partner.split('@')[0]}\n📅 *Desde:* ${new Date(couple.date).toLocaleDateString()}\n🕒 *Duración:* ${couple.duration}\n\n`;
+message += `✨ *${index + 1}.* @${couple.user.split('@')[0]} y @${couple.partner.split('@')[0]}\n\n`;
 });
 
 await conn.reply(m.chat, message, m, { mentions: marriedCouples.flatMap(couple => [couple.user, couple.partner]) });
