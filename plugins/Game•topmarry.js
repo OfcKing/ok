@@ -20,14 +20,6 @@ const topMarryCmd = /^(topmarry)$/i.test(command);
 
 switch (true) {
 case topMarryCmd:
-let marriedCouples = Object.keys(marriages)
-.filter(jid => marriages[jid].partner) 
-.map(jid => {
-return {
-user: jid
-};
-})
-
 if (marriedCouples.length === 0) {
 await conn.reply(m.chat, '✎ No hay parejas casadas.', m);
 return;
