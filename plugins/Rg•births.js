@@ -4,13 +4,11 @@ import fetch from 'node-fetch';
 const handler = async (m, { conn }) => {
 let users = global.db.data.users;
 let nacimientos = [];
-let mentions = [];
 
 for (let userId in users) {
 let user = users[userId];
 if (user.birth) {
-    nacimientos.push(`@${userId.split('@')[0]}: ${user.birth}`);
-mentions.push(userId + '@s.whatsapp.net');
+nacimientos.push(`@${userId.split('@')[0]}: ${user.birth}`);
 }
 }
 
@@ -22,7 +20,7 @@ let mensaje = `✐ Fechas de nacimiento en el grupo:\n\n${nacimientos.join('\n')
 return conn.reply(m.chat, mensaje, m, { mentions: [userId] });
 };
 
-handler.help = ['births']
+handler.help = ['listarnacimientos']
 handler.tags = ['rg']
-handler.command = ['births']
+handler.command = ['listarnacimientos', 'listdob']
 export default handler;
