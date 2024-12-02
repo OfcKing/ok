@@ -5,26 +5,26 @@ const handler = async (m, { conn, command, usedPrefix, text }) => {
 
 if (!text) return conn.reply(m.chat, `✧ Debes ingresar un genero valido.\n> Ejemplo » *${usedPrefix + command} hombre*`, m);
 
-function asignarGenero(text) {
+function asignarGenre(text) {
 if (text == 0 || text > 3) return conn.reply(m.chat, `✧ Debes ingresar un genero valido.\n> Ejemplo » *${usedPrefix + command} hombre*`, m);
-let genero;
+let genre;
 switch (text) {
 case "hombre":
-genero = "Hombre";
+genre = "Hombre";
 break;
 case "mujer":
-genero = "Mujer";
+genre = "Mujer";
 break;
 default:
 return conn.reply(m.chat, `✦ Recuerda elegir el genero.\n> Ejemplo: ${usedPrefix + command} 3`, m);
 }
-return genero;
+return genre;
     }
-let genero = asignarGenero(text);
-if (!genero) return;
+let genre = asignarGenre(text);
+if (!genre) return;
 
 let user = global.db.data.users[m.sender];
-user.genero = genero;
+user.genre = genre;
 
 if (user.genero) {
 return conn.reply(m.chat, `✐ Se ha establecido tu genero como: *${user.genero}*!`, m)
