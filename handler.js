@@ -48,6 +48,8 @@ if (!user.premium)
 user.premiumTime = 0
 if (!('registered' in user))
 user.registered = false
+if (!('genre' in user))
+user.genre = ''
 if (!user.registered) {
 if (!('name' in user))
 user.name = m.name
@@ -79,6 +81,7 @@ age: -1,
 regTime: -1,
 afk: -1,
 afkReason: '',
+genre: '',
 banned: false,
 useDocument: false,
 bank: 0,
