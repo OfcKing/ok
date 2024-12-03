@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 const handler = async (m, { conn, text }) => {
   if (!text) return conn.reply(m.chat, '✐ Ingresa la URL del video de TikTok.', m);
 
-  const tiktokAPI = `https://deliriussapi-oficial.vercel.app/download/tiktok?url=${encodeURIComponent(text)}`;
+  const tiktokAPI = `https://deliriussapi-oficial.vercel.app/download/tiktok?url=https://vm.tiktok.com/ZMk1ER1KF/`;
 
   try {
     const res = await fetch(tiktokAPI);
