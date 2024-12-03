@@ -19,7 +19,8 @@ const handler = async (m, { conn, text }) => {
 
     if (!downloadJson || !downloadJson.url) return conn.reply(m.chat, '✐ No se pudo descargar la canción. Verifica que la URL sea correcta.', m);
 
-    await conn.sendMessage(m.chat, { audio: { url: downloadJson.url }, caption: `✐ Título » ${downloadJson.title}\n✐ Artista » ${downloadJson.artist}\n❀ Álbum » ${downloadJson.album}\n♲︎ Duración » ${downloadJson.duration}` }, { quoted: m });
+    await m.reply`✐ Título » ${downloadJson.title}\n✐ Artista » ${downloadJson.artist}\n❀ Álbum » ${downloadJson.album}\n♲︎ Duración » ${downloadJson.duration}`)
+    await conn.sendMessage(m.chat, { audio: { url: downloadJson.url }}, { quoted: m });
 
   } catch (e) {
     conn.reply(m.chat, '✐ Ocurrió un error al descargar la canción.', m);
