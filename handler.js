@@ -522,6 +522,7 @@ this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 console.error(e)
 }}
 
+async (message, {command}) => {
 global.dfail = (type, m, conn) => {
 const msg = {
 rowner: `✐ El comando *${command}* solo puede ser usado por los creadores del bot.`, 
@@ -535,7 +536,7 @@ botAdmin: `✐ Para ejecutar el comando *${command}* debo ser administrador del 
 unreg: `✐ El comando *${command}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #verificar Anónimo.666`,
 restrict: `✐ Esta caracteristica está desactivada.`
 }[type];
-if (msg) return m.reply(msg).then(_ => m.react('✖️'))}
+if (msg) return m.reply(msg).then(_ => m.react('✖️'))}}
 
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
