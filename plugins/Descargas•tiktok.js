@@ -5,17 +5,17 @@ const handler = async (m, { conn, text, args }) => {
   if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) return conn.reply(m.chat, '✐ Enlace no válido.', m);
 
   try {
-    const tiktokAPI = `https://deliriussapi-oficial.vercel.app/download/tiktok?url=${text}`;
+    const tiktokAPI = `https://apis-starlights-team.koyeb.app/starlight/tiktok2?url=${text}`;
     const res = await fetch(tiktokAPI);
     const json = await res.json();
 
-    if (!json || !json.url) throw new Error('API deliriussapi no pudo obtener el video.');
+    if (!json || !json.url) throw new Error('API starlights no pudo obtener el video.');
 
-    await conn.sendMessage(m.chat, { video: { url: json.url }, caption: `✐ Likes » ${json.like}\n✐ Comentarios » ${json.comment}\n✐ Autor » ${json.username}` }, { quoted: m });
+    await conn.sendMessage(m.chat, { video: { url: json.video }, caption: `✐ Likes » ${json.likes}\n✐ Comentarios » ${json.comment}\n✐ Autor » ${json.creator}` }, { quoted: m });
   } catch (e) {
     try {
 
-      const dataFn = await conn.getFile(`${CFROSAPI}/api/tiktokv2?url=${args[0]}`);
+      const dataFn = await conn.getFile(`https://apis-starlights-team.koyeb.app/starlight/tiktok2?url=${args[0]}`);
       const successMessage = `✧ TikTok sin marca de agua descargado con éxito.`;
       await conn.sendMessage(m.chat, { video: dataFn.data, caption: successMessage }, { quoted: m });
     } catch (e2) {
