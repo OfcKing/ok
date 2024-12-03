@@ -15,7 +15,7 @@ await conn.reply(m.chat, `✧ No tienes token de sub-bot, crea uno usando: !serb
 }
 handler.help = ['token']
 handler.command = ['token']
-handler.tags = ['serbot']
+handler.tags = ['socket']
 handler.private = true
 
 export default handler 
