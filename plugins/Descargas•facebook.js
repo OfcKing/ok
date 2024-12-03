@@ -11,7 +11,8 @@ let handler = async (m, { conn, text }) => {
     await conn.sendMessage(m.chat, { video: { url: result.url }, caption: `✐ Aquí tienes tu video descargado de Facebook.` }, { quoted: m });
 
   } catch (e) {
-    conn.reply(m.chat, `✧ Ocurrió un error al descargar el video.`, m);
+    //conn.reply(m.chat, `✧ Ocurrió un error al descargar el video.`, m);
+    m.reply(e)
     console.log(e);
   }
 };
