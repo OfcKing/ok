@@ -524,7 +524,7 @@ console.error(e)
 
 let edadaleatoria = ['10', '28', '20', '40', '18', '21', '15', '11', '9', '17', '25'].getRandom()
 let user2 = conn.getName(m.sender)
-let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register']
+let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom()
 
 global.dfail = (type, m, conn) => {
 const msg = {
