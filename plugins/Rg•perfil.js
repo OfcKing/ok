@@ -3,7 +3,7 @@ import moment from 'moment-timezone';
 let handler = async (m, { conn }) => {
   let userId = m.sender;
   let user = global.db.data.users[userId];
-  let mentionedJid = [userId];
+  let mentionedJid = [userId, proposer, proposee];
 
   let name = conn.getName(userId);
   let cumpleanos = user.birth || 'No especificado';
@@ -30,7 +30,7 @@ let handler = async (m, { conn }) => {
   await conn.sendMessage(m.chat, { 
     text: profileText,
     contextInfo: {
-      mentionedJid: [mentionedJid, proposer, proposee],
+      mentionedJid: mentionedJid,
       externalAdReply: {
         title: '✧ Perfil de Usuario ✧',
         body: packname,
