@@ -13,8 +13,8 @@ let handler = async (m, { conn, text }) => {
 
     const result = json.items[Math.floor(Math.random() * json.items.length)];
     
-    let message = `❀ Titulo » ${result.title}\n✧ Ancho » ${result.width}\n✐ Altura » ${result.height}`;
-    await conn.sendMessage(m.chat, { image: { url: result.preview }, caption: message }, { quoted: m });
+    let message = `❀ Titulo » ${result.title}`;
+    await conn.sendMessage(m.chat, { image: { url: result.url }, caption: message }, { quoted: m });
 
   } catch (e) {
     conn.reply(m.chat, `✧ Ocurrió un error al buscar la imagen.`, m);
@@ -25,5 +25,6 @@ let handler = async (m, { conn, text }) => {
 handler.help = ['imagen'];
 handler.tags = ['descargas'];
 handler.command = ['imagen'];
+handler.register =true;
 
 export default handler;
