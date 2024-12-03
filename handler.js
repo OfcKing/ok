@@ -303,6 +303,8 @@ typeof plugin.command === 'string' ?
 plugin.command === command :
 false
 
+global.comando = command
+
 if (!isAccept) {
 continue
 }
@@ -529,15 +531,15 @@ let user2 = m.pushName || 'Anónimo'
 let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom()
 
 const msg = {
-rowner: `✐ El comando *${command}* solo puede ser usado por los creadores del bot.`, 
-owner: `✐ El comando *${command}* solo puede ser usado por los desarrolladores del bot.`, 
-mods: `✐ El comando *${command}* solo puede ser usado por los moderadores del bot.`, 
-premium: `✐ El comando *${command}* solo puede ser usado por los usuarios premium.`, 
-group: `✐ El comando *${command}* solo puede ser usado en grupos.`,
-private: `✐ El comando *${command}* solo puede ser usado al chat privado del bot.`,
-admin: `✐ El comando *${command}* solo puede ser usado por los administradores del grupo.`, 
-botAdmin: `✐ Para ejecutar el comando *${command}* debo ser administrador del grupo.`,
-unreg: `✐ El comando *${command}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » ${usedPrefix}${verifyaleatorio} ${user2}.${edadaleatoria}`,
+rowner: `✐ El comando *${comando}* solo puede ser usado por los creadores del bot.`, 
+owner: `✐ El comando *${comando}* solo puede ser usado por los desarrolladores del bot.`, 
+mods: `✐ El comando *${comando}* solo puede ser usado por los moderadores del bot.`, 
+premium: `✐ El comando *${comando}* solo puede ser usado por los usuarios premium.`, 
+group: `✐ El comando *${comando}* solo puede ser usado en grupos.`,
+private: `✐ El comando *${comando}* solo puede ser usado al chat privado del bot.`,
+admin: `✐ El comando *${comando}* solo puede ser usado por los administradores del grupo.`, 
+botAdmin: `✐ Para ejecutar el comando *${comando}* debo ser administrador del grupo.`,
+unreg: `✐ El comando *${comando}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #${verifyaleatorio} ${user2}.${edadaleatoria}`,
 restrict: `✐ Esta caracteristica está desactivada.`
 }[type];
 if (msg) return m.reply(msg).then(_ => m.react('✖️'))}
