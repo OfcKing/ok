@@ -1,27 +1,25 @@
-import fetch from 'node-fetch';
+import { igdl } from 'ruhend-scraper';
 
-const handler = async (m, { conn, text }) => {
-  if (!text) return conn.reply(m.chat, '✐ Ingresa la URL del video de Instagram.', m);
-
-  const instagramAPI = `https://deliriussapi-oficial.vercel.app/download/instagram?url=${text}`;
+const handler = async (m, { args, conn }) => {
+  if (!args[0]) {
+    return conn.reply(m.chat, '✐ Ingresa un enlace de Instagram.', m);
+  }
 
   try {
-    const res = await fetch(instagramAPI);
-    const json = await res.json();
+    const res = await igdl(args[0]);
+    const data = res.data;
 
-    if (!json || !json.url) return conn.reply(m.chat, '✐ No se pudo descargar el video. Verifica que la URL sea correcta.', m);
-
-    await conn.sendMessage(m.chat, { video: { url: json.url }, caption: '✐ Aquí tienes tu video descargado de Instagram\n> ✧ Tipo » ${json.type}' }, { quoted: m });
-
+    for (let media of data) {
+      await conn.sendFile(m.chat, media.url, 'instagram.mp4', '✐ Video de Instagram.', m);
+    }
   } catch (e) {
-    conn.reply(m.chat, '✐ Ocurrió un error al descargar el video.', m);
-    console.log(e);
+    return conn.reply(m.chat, '✐ Ocurrió un error.', m);
   }
 };
 
-handler.help = ['instagram', 'ig'];
-handler.tags = ['descargas'];
 handler.command = ['instagram', 'ig'];
+handler.tags = ['descargas'];
+handler.help = ['instagram', 'ig'];
 handler.chocolates = 1;
 handler.register = true;
 
