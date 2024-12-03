@@ -6,6 +6,8 @@ import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'
 import fetch from 'node-fetch'
 
+const handler = async (message, {command}) => {
+
 const { proto } = (await import('@whiskeysockets/baileys')).default
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(function () {
@@ -522,7 +524,6 @@ this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 console.error(e)
 }}
 
-async (message, {command}) => {
 global.dfail = (type, m, conn) => {
 const msg = {
 rowner: `✐ El comando *${command}* solo puede ser usado por los creadores del bot.`, 
@@ -537,6 +538,8 @@ unreg: `✐ El comando *${command}* solo puede ser usado por los usuarios regist
 restrict: `✐ Esta caracteristica está desactivada.`
 }[type];
 if (msg) return m.reply(msg).then(_ => m.react('✖️'))}}
+
+export default handler
 
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
