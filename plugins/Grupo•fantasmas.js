@@ -1,63 +1,36 @@
-import { areJidsSameUser } from '@whiskeysockets/baileys'
+let handler = async (m, { conn, text, participants }) => {
+  let inactiveUsers = participants.filter(member => !member.isAdmin && !member.isSuperAdmin && member.lastActive && Date.now() - member.lastActive > 7 * 24 * 60 * 60 * 1000); // 7 días de inactividad
+  let inactiveList = inactiveUsers.map(member => `@${member.id.split('@')[0]}`).join('\n');
 
-var handler = async (m, { conn, text, participants, args, command }) => {
+  if (!text) {
+    return conn.reply(m.chat, `✐ Comando no especificado. Usa "fantasmas" para ver los inactivos o "kickfantasmas" para eliminarlos.`, m);
+  }
 
-let member = participants.map(u => u.id)
-if(!text) {
-var sum = member.length
-} else {
-var sum = text} 
-var total = 0
-var sider = []
-for (let i = 0; i < sum; i++) {
-let users = m.isGroup ? participants.find(u => u.id == member[i]) : {}
-if ((typeof global.db.data.users[member[i]] == 'undefined' || global.db.data.users[member[i]].chat == 0) && !users.isAdmin && !users.isSuperAdmin) { 
-if (typeof global.db.data.users[member[i]] !== 'undefined'){
-if (global.db.data.users[member[i]].whitelist == false){
-total++
-sider.push(member[i])}
-}else {
-total++
-sider.push(member[i])}}}
-const delay = time => new Promise(res=>setTimeout(res,time))
+  if (text === 'fantasmas') {
+    if (inactiveList.length === 0) {
+      return conn.reply(m.chat, '✐ No hay usuarios inactivos.', m);
+    }
+    conn.reply(m.chat, `✐ Usuarios inactivos:\n${inactiveList}`, m, { mentions: inactiveUsers.map(u => u.id) });
+  }
 
-switch (command) {
+  if (text === 'kickfantasmas') {
+    if (inactiveList.length === 0) {
+      return conn.reply(m.chat, '✐ No hay usuarios inactivos para eliminar.', m);
+    }
 
-case 'fantasmas': 
-if(total == 0) return conn.reply(m.chat, `🎌 *Este grupo es activo, no tiene fantasmas*`, m, fake, ) 
-m.reply(`🚩 *Revisión de inactivos*\n\n⚠️ *Lista de fantasmas*\n${sider.map(v => '@' + v.replace(/@.+/, '')).join('\n')}\n\n*📝 NOTA:*\nEsto no es al 100% acertado, el bot inicia el conteo de mensajes a partir de que se active en este número`, null, { mentions: sider }) 
-break
+    for (let member of inactiveUsers) {
+      await conn.groupParticipantsUpdate(m.chat, [member.id], 'remove');
+    }
+    conn.reply(m.chat, `✐ Usuarios inactivos eliminados:\n${inactiveList}`, m, { mentions: inactiveUsers.map(u => u.id) });
+  }
+};
 
-case 'kickfantasmas':  
-if(total == 0) return conn.reply(m.chat, `🎌 *Este grupo es activo no tiene fantasmas*`, m, fake, ) 
-await m.reply(`🚩 *Eliminación de inactivos*\n\n⚠️ *Lista de fantasmas*\n${sider.map(v => '@' + v.replace(/@.+/, '')).join('\n')}\n\n❗ _El bot eliminara a los usuarios de la lista mencionada cada 10 segundos_`, null, { mentions: sider }) 
-await delay(1 * 10000)
-let chat = global.db.data.chats[m.chat]
-chat.welcome = false
-try {
+handler.help = ['kickfantasmas', 'fantasmas'];
+handler.tags = ['grupo'];
+handler.command = ['kickfantasmas', 'fantasmas'];
 
-let users = m.mentionedJid.filter(u => !areJidsSameUser(u, conn.user.id))
-let kickedGhost = sider.map(v => v.id).filter(v => v !== conn.user.jid)
-for (let user of users)
-if (user.endsWith('@s.whatsapp.net') && !(participants.find(v => areJidsSameUser(v.id, user)) || { admin: true }).admin)
-{
-let res = await conn.groupParticipantsUpdate(m.chat, [user], 'remove')
-kickedGhost.concat(res)
-await delay(1 * 10000)
-}} finally{
-chat.welcome = true
-}
-break            
-}
+handler.admin = true; 
+handler.botAdmin = true;
+handler.group = true; 
 
-}
-handler.tags = ['grupo']
-handler.command = ['fantasmas', 'kickfantasmas']
-handler.group = true
-handler.botAdmin = true
-handler.admin = true
-handler.fail = null
-
-export default handler
-
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+export default handler;
