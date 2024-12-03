@@ -16,7 +16,7 @@ let handler = async (m, { conn }) => {
   let perfil = await conn.profilePictureUrl(userId, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg');
 
   let profileText = `
-ᥫ᭡ *Perfil* @${userId.split('@')[0]}
+ᥫ᭡ *Perfil* ${name}
 
 ✧ *Cumpleaños* » ${cumpleanos}
 ✧ *Género* » ${genero}
