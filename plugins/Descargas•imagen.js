@@ -3,7 +3,7 @@ import axios from 'axios';
 let handler = async (m, { conn, text }) => {
   if (!text) return conn.reply(m.chat, `❏ Ingresa un término de búsqueda.`, m);
   
-  const api = ``;
+  const api = `https://deliriussapi-oficial.vercel.app/search/gimage?text=${text}`;
 
   try {
     const res = await axios.get(api);
@@ -13,7 +13,7 @@ let handler = async (m, { conn, text }) => {
 
     const result = json.items[Math.floor(Math.random() * json.items.length)];
     
-    let message = ``;
+    let message = `❀ Titulo » ${result.title}\n✧ Ancho » ${result.width}\n✐ Altura » ${result.height}`;
     await conn.sendMessage(m.chat, { image: { url: result.link }, caption: message }, { quoted: m });
 
   } catch (e) {
