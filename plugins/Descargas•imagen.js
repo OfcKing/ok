@@ -14,7 +14,7 @@ let handler = async (m, { conn, text }) => {
     const result = json.items[Math.floor(Math.random() * json.items.length)];
     
     let message = `❀ Titulo » ${result.title}`;
-    await conn.sendMessage(m.chat, { image: { url: result.url }, caption: message }, { quoted: m });
+    await conn.sendMessage(m.chat, { image: { url: result.image }, caption: message }, { quoted: m });
 
   } catch (e) {
     conn.reply(m.chat, `✧ Ocurrió un error al buscar la imagen.`, m);
