@@ -13,7 +13,7 @@ let handler = async (m, { conn, text }) => {
 
     const result = json.data[Math.floor(Math.random() * json.data.length)];
     
-    let message = `❀ Usuario » ${result.nombre}\n❏ Estado » ${result.id}\n🜸 Link » ${result.image}`;
+    let message = `❀ Titulo » ${result.título}\n✧ Identificación » ${result.id}\n✐ Link » ${result.image}`;
     await conn.sendMessage(m.chat, { image: { url: result.image }, caption: message }, { quoted: m });
 
   } catch (e) {
