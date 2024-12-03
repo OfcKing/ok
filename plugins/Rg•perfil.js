@@ -8,7 +8,7 @@ let handler = async (m, { conn }) => {
   let name = conn.getName(userId);
   let cumpleanos = user.birth || 'No especificado';
   let genero = user.genre || 'No especificado';
-  let pareja = user.marry ? `@${user.marry}` : 'No especificado';
+  let pareja = user.marry ? `${user.marry}` : 'No especificado';
   let exp = user.exp || 0;
   let nivel = user.level || 0;
   let chocolates = user.chocolates || 0;
