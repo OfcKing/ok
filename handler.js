@@ -52,6 +52,8 @@ if (!('genre' in user))
 user.genre = ''
 if (!('birth' in user))
 user.birth = ''
+if (!('marry' in user))
+user.marry = ''
 if (!('description' in user))
 user.description = ''
 if (!user.registered) {
@@ -87,6 +89,7 @@ afk: -1,
 afkReason: '',
 genre: '',
 birth: '',
+marry: '',
 description: '',
 banned: false,
 useDocument: false,
