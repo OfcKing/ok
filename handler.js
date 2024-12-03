@@ -6,8 +6,6 @@ import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'
 import fetch from 'node-fetch'
 
-const handler = async (message, {command}) => {
-
 const { proto } = (await import('@whiskeysockets/baileys')).default
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(function () {
@@ -305,6 +303,8 @@ typeof plugin.command === 'string' ?
 plugin.command === command :
 false
 
+global.comando = command
+
 if (!isAccept) {
 continue
 }
@@ -526,20 +526,18 @@ console.error(e)
 
 global.dfail = (type, m, conn) => {
 const msg = {
-rowner: `✐ El comando *${command}* solo puede ser usado por los creadores del bot.`, 
-owner: `✐ El comando *${command}* solo puede ser usado por los desarrolladores del bot.`, 
-mods: `✐ El comando *${command}* solo puede ser usado por los moderadores del bot.`, 
-premium: `✐ El comando *${command}* solo puede ser usado por los usuarios premium.`, 
-group: `✐ El comando *${command}* solo puede ser usado en grupos.`,
-private: `✐ El comando *${command}* solo puede ser usado al chat privado del bot.`,
-admin: `✐ El comando *${command}* solo puede ser usado por los administradores del grupo.`, 
-botAdmin: `✐ Para ejecutar el comando *${command}* debo ser administrador del grupo.`,
-unreg: `✐ El comando *${command}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #verificar Anónimo.666`,
+rowner: `✐ El comando *${comando}* solo puede ser usado por los creadores del bot.`, 
+owner: `✐ El comando *${comando}* solo puede ser usado por los desarrolladores del bot.`, 
+mods: `✐ El comando *${comando}* solo puede ser usado por los moderadores del bot.`, 
+premium: `✐ El comando *${comando}* solo puede ser usado por los usuarios premium.`, 
+group: `✐ El comando *${comando}* solo puede ser usado en grupos.`,
+private: `✐ El comando *${comando}* solo puede ser usado al chat privado del bot.`,
+admin: `✐ El comando *${comando}* solo puede ser usado por los administradores del grupo.`, 
+botAdmin: `✐ Para ejecutar el comando *${comando}* debo ser administrador del grupo.`,
+unreg: `✐ El comando *${comando}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #verificar Anónimo.666`,
 restrict: `✐ Esta caracteristica está desactivada.`
 }[type];
-if (msg) return m.reply(msg).then(_ => m.react('✖️'))}}
-
-export default handler
+if (msg) return m.reply(msg).then(_ => m.react('✖️'))}
 
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
