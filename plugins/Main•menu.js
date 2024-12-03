@@ -32,7 +32,6 @@ const defaultMenu = {
  ︶︶︶︶︶︶︶︶︶︶︶︶ 
 *┊ ✦* Cliente » %name
 *┊ ✦* Genero » %genre
-*┊ ✦* Fecha de nacimiento » %birth
 *┊ ✦* Exp » %exp
 *┊ ✦* Pais » %pais
 *┊ ✦* Chocolates » %chocolates
@@ -92,7 +91,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     let num = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + num.replace('@s.whatsapp.net', '')).getNumber('international')}`)
      let userNationalityData = api.data.result
-    let user = global.db.data.users[m.sender];
+    let genre = global.db.data.users[m.sender];
     let uptime = clockString(_uptime)
     let totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
