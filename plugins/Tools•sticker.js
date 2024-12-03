@@ -3,36 +3,34 @@ import uploadFile from '../lib/uploadFile.js';
 import uploadImage from '../lib/uploadImage.js';
 import { webp2png } from '../lib/webp2mp4.js';
 
-const handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!m.quoted) return conn.reply(m.chat, '✐ Responde a un sticker, imagen o video.', m);
+const handler = async (m, { conn, text }) => {
+  if (!m.quoted) return conn.reply(m.chat, '✐ Responde a una imagen o video.', m);
 
   let mime = m.quoted.mimetype || '';
-  if (!/webp|image|video/.test(mime)) return conn.reply(m.chat, '✐ Por favor, responde a un sticker, imagen o video.', m);
+  if (!/image|video/.test(mime)) return conn.reply(m.chat, '✐ Por favor, responde a una imagen o video.', m);
 
   let media = await m.quoted.download();
   if (!media) return conn.reply(m.chat, '✐ No se pudo descargar el archivo.', m);
 
-  if (/webp/.test(mime)) {
-    // Convertir sticker a imagen
-    const sticker = new Sticker(media, { pack: 'Bot', author: 'Sticker' });
-    const img = await sticker.toImage();
-
-    await conn.sendMessage(m.chat, { image: img, caption: '✐ Aquí está tu imagen.' }, { quoted: m });
-  } else if (/image/.test(mime)) {
-    // Convertir imagen a sticker
-    const sticker = await createSticker(media, { pack: 'Bot', author: 'Sticker' });
-
-    await conn.sendMessage(m.chat, { sticker: sticker }, { quoted: m });
-  } else if (/video/.test(mime)) {
-    // Convertir video a sticker
-    const sticker = await createSticker(media, { pack: 'Bot', author: 'Sticker' });
-
-    await conn.sendMessage(m.chat, { sticker: sticker }, { quoted: m });
+  try {
+    if (/image/.test(mime)) {
+      let img = await uploadImage(media);
+      let stiker = await sticker(false, img, 'Bot', 'Sticker');
+      await conn.sendMessage(m.chat, { sticker: stiker }, { quoted: m });
+    } else if (/video/.test(mime)) {
+      let vid = await uploadFile(media);
+      let stiker = await sticker(vid, false, 'Bot', 'Sticker');
+      await conn.sendMessage(m.chat, { sticker: stiker }, { quoted: m });
+    }
+  } catch (e) {
+    conn.reply(m.chat, '✐ Ocurrió un error al crear el sticker.', m);
+    console.log(e);
   }
 };
 
 handler.help = ['s', 'sticker'];
 handler.tags = ['tools'];
 handler.command = ['s', 'sticker'];
+handler.register = true;
 
 export default handler;
