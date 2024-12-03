@@ -15,13 +15,13 @@ const handler = async (m, { conn, text }) => {
   try {
     if (/image/.test(mime)) {
       let img = await uploadImage(media);
-      let sticker1 = `✐ YaemoriBot-MD\nAuthor:\nFecha:\nDia:\nCreador:`
-      let sticker2 = `${vs}\n${name}\n${fecha}\n${dia}\nOfcKing`
-      let stiker = await sticker(false, img, sticker1, sticker2);
+      let texto = `✐ YaemoriBot-MD\nAuthor:\nFecha:\nDia:\nCreador:`
+      let texto2 = `${vs}\n${name}\n${fecha}\n${dia}\nOfcKing`
+      let stiker = await sticker(false, img, `${texto}`, `${texto2}`);
       await conn.sendMessage(m.chat, { sticker: stiker }, { quoted: m });
     } else if (/video/.test(mime)) {
       let vid = await uploadFile(media);
-      let stiker = await sticker(vid, false, sticker1, sticker2);
+      let stiker = await sticker(vid, false, `${texto}`, `${texto2}`);
       await conn.sendMessage(m.chat, { sticker: stiker }, { quoted: m });
     }
   } catch (e) {
