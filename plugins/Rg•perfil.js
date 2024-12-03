@@ -30,7 +30,7 @@ let handler = async (m, { conn }) => {
   await conn.sendMessage(m.chat, { 
     text: profileText,
     contextInfo: {
-      mentionedJid: mentionedJid,
+      mentionedJid: [userId, user.marry],
       externalAdReply: {
         title: '✧ Perfil de Usuario ✧',
         body: packname,
