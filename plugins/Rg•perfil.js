@@ -16,7 +16,7 @@ let handler = async (m, { conn }) => {
   let perfil = await conn.profilePictureUrl(userId, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg');
 
   let profileText = `
-ᥫ᭡ *Perfil* ${name}
+ᥫ᭡ *Perfil* @${userId.split('@')[0]}
 
 ✧ *Cumpleaños* » ${cumpleanos}
 ✧ *Género* » ${genero}
@@ -30,6 +30,7 @@ let handler = async (m, { conn }) => {
   await conn.sendMessage(m.chat, { 
     text: profileText,
     contextInfo: {
+      mentionedJid: mentionedJid,
       externalAdReply: {
         title: '✧ Perfil de Usuario ✧',
         body: packname,
