@@ -15,5 +15,3 @@ handler.tags = ['anime']
 handler.command = ['waifu']
 handler.register = true 
 export default handler
-
-import fetch from 'node-fetch';
