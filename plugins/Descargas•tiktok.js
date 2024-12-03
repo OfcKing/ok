@@ -11,7 +11,7 @@ const handler = async (m, { conn, text, args }) => {
 
     if (!json || !json.url) throw new Error('API starlights no pudo obtener el video.');
 
-    await conn.sendMessage(m.chat, { video: { url: json.video }, caption: `✐ Likes » ${json.likes}\n✐ Comentarios » ${json.comment}\n✐ Autor » ${json.creator}` }, { quoted: m });
+    await conn.sendMessage(m.chat, { video: { url: json.video }, caption: `✐ Aqui tu video.` }, { quoted: m });
   } catch (e) {
     try {
 
