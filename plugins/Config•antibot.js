@@ -1,8 +1,8 @@
 import fetch from 'node-fetch';
 
 const handler = async (m, { conn, isAdmin, isOwner, usedPrefix, command }) => {
- // if (!m.isGroup) return conn.reply(m.chat, `✧ Este comando solo puede usarse en grupos`, m);
- // if (!isAdmin) return conn.reply(m.chat, `✧ Este comando solo puede ser usado por administradores`, m);
+ if (!m.isGroup) return conn.reply(m.chat, `✧ Este comando solo puede usarse en grupos`, m);
+ if (!isAdmin) return conn.reply(m.chat, `✧ Este comando solo puede ser usado por administradores`, m);
   
   let chat = global.db.data.chats[m.chat];
   
@@ -37,7 +37,7 @@ const handler = async (m, { conn, isAdmin, isOwner, usedPrefix, command }) => {
 handler.help = ['enableantibot', 'disableantibot', 'checkbots'];
 handler.tags = ['admin'];
 handler.command = ['enableantibot', 'disableantibot', 'checkbots'];
-handler.group = true
-handler.isAdmin = true
+//handler.group = true
+//handler.isAdmin = true
 
 export default handler;
