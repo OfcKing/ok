@@ -3,12 +3,10 @@ import moment from 'moment-timezone';
 let handler = async (m, { conn }) => {
   let userId = m.sender;
   let user = global.db.data.users[userId];
-  let mentionedJid = [userId];
-
   let name = conn.getName(userId);
   let cumpleanos = user.birth || 'No especificado';
   let genero = user.genre || 'No especificado';
-  let pareja = user.marry ? `${user.marry}` : 'No especificado';
+  let pareja = user.marry ? `${user.marry.split('@')[0]}` : 'No especificado';
   let exp = user.exp || 0;
   let nivel = user.level || 0;
   let chocolates = user.chocolates || 0;
@@ -27,18 +25,20 @@ let handler = async (m, { conn }) => {
 ⛁ *Chocolates totales* » ${chocolates}
   `.trim();
 
-  let mentions = [userId];
-  if (user.marry) mentions.push(user.marry);
+  let mentionedJid = [userId];
+  if (user.marry && user.marry !== 'No especificado') {
+    mentionedJid.push(user.marry);
+  }
 
   await conn.sendMessage(m.chat, { 
     text: profileText,
     contextInfo: {
-      mentionedJid: mentions,
+      mentionedJid: mentionedJid,
       externalAdReply: {
         title: '✧ Perfil de Usuario ✧',
-        body: packname,
+        body: 'Bot',
         thumbnailUrl: perfil,
-        sourceUrl: redes,
+        sourceUrl: 'https://example.com',
         mediaType: 1,
         showAdAttribution: true,
         renderLargerThumbnail: true
