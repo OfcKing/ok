@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 let handler = async (m, { conn, text }) => {
   if (!text) return conn.reply(m.chat, `❏ Ingresa un término de búsqueda.`, m);
   
-  const pinterestAPI = `https://deliriussapi-oficial.vercel.app/search/pinterestv2?text=${text}`;
+  const pinterestAPI = `https://deliriussapi-oficial.vercel.app/search/pinterestv2?query=${encodeURIComponent(text)}`;
 
   try {
     const res = await fetch(pinterestAPI);
@@ -13,8 +13,8 @@ let handler = async (m, { conn, text }) => {
 
     const result = json.data[Math.floor(Math.random() * json.data.length)];
     
-    let message = `❀ Usuario » ${result.pinner.full_name}\n❏ Tablero » ${result.board.name}\n🜸 Link » ${result.url}`;
-    await conn.sendMessage(m.chat, { image: { url: result.image.original.url }, caption: message }, { quoted: m });
+    let message = `❀ Usuario » ${result.user}\n❏ Tablero » ${result.board}\n🜸 Link » ${result.url}`;
+    await conn.sendMessage(m.chat, { image: { url: result.image }, caption: message }, { quoted: m });
 
   } catch (e) {
     conn.reply(m.chat, `✧ Ocurrió un error al buscar la imagen.`, m);
