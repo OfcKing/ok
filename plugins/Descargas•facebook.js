@@ -4,7 +4,7 @@ let handler = async (m, { conn, text }) => {
   if (!text) return conn.reply(m.chat, `❏ Ingresa la URL del video de Facebook.`, m);
 
   try {
-    res = await igdl(args[0]);
+    let res = await igdl(args[0]);
     let result = res.data;
     if (!videoData || !videoData.url) return conn.reply(m.chat, `✧ No se pudo descargar el video. Verifica que la URL sea correcta.`, m);
 
