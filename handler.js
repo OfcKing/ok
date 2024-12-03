@@ -523,7 +523,7 @@ console.error(e)
 }}
 
 let edadaleatoria = ['10', '28', '20', '40', '18', '21', '15', '11', '9', '17', '25'].getRandom()
-let user2 = ['Incógnito', 'Anónimo'].getRandom()
+let user2 = m.pushName || 'Anónimo'
 let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom()
 
 global.dfail = (type, m, conn) => {
