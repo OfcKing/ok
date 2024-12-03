@@ -17,6 +17,7 @@ const handler = async (m, { conn, text }) => {
       let img = await uploadImage(media);
       let texto = `✐ YaemoriBot-MD\nAuthor:\nFecha:\nDia:\nCreador:`
       let texto2 = `${vs}\n${name}\n${fecha}\n${dia}\nOfcKing`
+      let name = m.pushName || 'Anónimo'
       let stiker = await sticker(false, img, `${texto}`, `${texto2}`);
       await conn.sendMessage(m.chat, { sticker: stiker }, { quoted: m });
     } else if (/video/.test(mime)) {
