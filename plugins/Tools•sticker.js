@@ -1,4 +1,7 @@
-const { Sticker, createSticker, extractMetadata } = require('wa-sticker-formatter');
+import { sticker } from '../lib/sticker.js';
+import uploadFile from '../lib/uploadFile.js';
+import uploadImage from '../lib/uploadImage.js';
+import { webp2png } from '../lib/webp2mp4.js';
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!m.quoted) return conn.reply(m.chat, '✐ Responde a un sticker, imagen o video.', m);
