@@ -1,21 +1,43 @@
-export async function before(m, { conn, isAdmin, isBotAdmin }) {
-    if (!m.isGroup) return;
-    let chat = global.db.data.chats[m.chat]
-    let delet = m.key.participant
-    let bang = m.key.id
-    let bot = global.db.data.settings[this.user.jid] || {}
-    if (m.fromMe) return true;
+import fetch from 'node-fetch';
 
-    if (m.id.startsWith('3EB0') && m.id.length === 22) {
-        let chat = global.db.data.chats[m.chat];
+const handler = async (m, { conn, isAdmin, isOwner, usedPrefix, command }) => {
+ // if (!m.isGroup) return conn.reply(m.chat, `✧ Este comando solo puede usarse en grupos`, m);
+ // if (!isAdmin) return conn.reply(m.chat, `✧ Este comando solo puede ser usado por administradores`, m);
+  
+  let chat = global.db.data.chats[m.chat];
+  
+  if (!chat.antiBot && command !== 'enableantibot') {
+   // return conn.reply(m.chat, `✧ La función antibot no está activa en este grupo. Usa *${usedPrefix}enableantibot* para activarla.`, m);
+  }
+  
+  if (command === 'enableantibot') {
+    chat.antiBot = true;
+    return conn.reply(m.chat, `✧ La función antibot ha sido activada. Ahora, los bots que no sean administradores serán eliminados automáticamente.`, m);
+  }
+  
+  if (command === 'disableantibot') {
+    chat.antiBot = false;
+    return conn.reply(m.chat, `✧ La función antibot ha sido desactivada.`, m);
+  }
+  
+  let participants = await conn.groupMetadata(m.chat).catch(_ => null) || {}
+  let bots = participants.filter(member => member.isBot && !member.isAdmin);
+  
+  if (bots.length === 0) {
+    return conn.reply(m.chat, `✧ No hay bots en este grupo o todos los bots son administradores.`, m);
+  }
 
-        if (chat.antiBot) {
-         //   await conn.reply(m.chat, "     ͞ ͟͞ ͟𝗔𝗜-𝗬𝗮𝗲𝗺𝗼𝗿𝗶🌸͟ ͟͞ ͞   \n╚▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬ִ▭࣪▬▭╝\n\n𝑆𝑜𝑦 𝑨𝒊-𝒀𝒂𝒆𝒎𝒐𝒓𝒊-𝑴𝑫 𝑙𝑎 𝑚𝑒𝑗𝑜𝑟 𝑏𝑜𝑡 𝑑𝑒 𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑!!\n𝐸𝑠𝑡𝑒 𝑔𝑟𝑢𝑝𝑜 𝑛𝑜 𝑡𝑒 𝑛𝑒𝑐𝑒𝑠𝑖𝑡𝑎, 𝑎𝑑𝑖𝑜𝑠𝑖𝑡𝑜 𝑏𝑜𝑡 𝑑𝑒 𝑠𝑒𝑔𝑢𝑛𝑑𝑎.", null, rcanal);
+  for (let bot of bots) {
+    await conn.groupParticipantsUpdate(m.chat, [bot.jid], 'remove')
+  }
+  
+ // conn.reply(m.chat, `✧ Los bots que no son administradores han sido eliminados del grupo.`, m);
+};
 
-            if (isBotAdmin) {
-await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-            }
-        }
-    }
-}
+handler.help = ['enableantibot', 'disableantibot', 'checkbots'];
+handler.tags = ['admin'];
+handler.command = ['enableantibot', 'disableantibot', 'checkbots'];
+handler.group = true
+handler.isAdmin = true
+
+export default handler;
