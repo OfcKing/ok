@@ -99,24 +99,14 @@ global.db.data.chats[m.chat] = {}
 if (chat) {
 if (!('isBanned' in chat))
 chat.isBanned = false
-if (!('sAutoresponder' in chat))
-chat.sAutoresponder = ''
 if (!('welcome' in chat))
 chat.welcome = true
-if (!('autolevelup' in chat))
-chat.autolevelup = true
 if (!('autoAceptar' in chat))
 chat.autoAceptar = false
 if (!('autoRechazar' in chat))
 chat.autoRechazar = false
-if (!('autoresponder' in chat))
-chat.autoresponder = false
-if (!('audios' in chat))
-chat.audios = false
 if (!('detect' in chat))
 chat.detect = true
-if (!('antifake' in chat))
-chat.antifake = false
 if (!('antiBot' in chat))
 chat.antiBot = false
 if (!('antiBot2' in chat))
@@ -125,8 +115,6 @@ if (!('modoadmin' in chat))
 chat.modoadmin = false   
 if (!('antiLink' in chat))
 chat.antiLink = true
-if (!('modohorny' in chat))
-chat.modohorny = false
 if (!('reaction' in chat))
 chat.reaction = false
 if (!('simi' in chat))
@@ -140,15 +128,10 @@ chat.expired = 0
 } else
 global.db.data.chats[m.chat] = {
 isBanned: false,
-sAutoresponder: '',
 welcome: true,
-autolevelup: true,
-autoresponder: false,
 delete: false,
 autoAceptar: false,
 autoRechazar: false,
-antifake: false,
-audios: false,
 detect: true,
 antiBot: false,
 antiBot2: false,
@@ -156,7 +139,6 @@ modoadmin: false,
 antiLink: true,
 simi: false,
 antiver: false,
-modohorny: false, 
 reaction: false,
 expired: 0, 
 }
@@ -166,7 +148,6 @@ if (settings) {
 if (!('self' in settings)) settings.self = false
 if (!('restrict' in settings)) settings.restrict = false
 if (!('jadibotmd' in settings)) settings.jadibotmd = true
-if (!('autobio' in settings)) settings.autobio = false
 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('autoread' in settings)) settings.autoread = false
 if (!('autoread2' in settings)) settings.autoread2 = false
@@ -175,7 +156,6 @@ if (!('antiSpam' in settings)) settings.antiSpam = false
 self: false,
 restrict: false,
 jadibotmd: true,
-autobio: false,
 antiPrivate: false,
 autoread: false,
 autoread2: false,
