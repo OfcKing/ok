@@ -9,9 +9,9 @@ const handler = async (m, { conn, text }) => {
     const res = await fetch(tiktokAPI);
     const json = await res.json();
 
-    if (!json || !json.url) return conn.reply(m.chat, '✐ No se pudo descargar el video. Verifica que la URL sea correcta.', m);
+   // if (!json || !json.url) return conn.reply(m.chat, '✐ No se pudo descargar el video. Verifica que la URL sea correcta.', m);
 
-    await conn.sendMessage(m.chat, { video: { url: 'https://vm.tiktok.com/ZMk1ER1KF' }, caption: `✐ Likes » ${json.like}\n✧ Comentarios » ${json.comment}\n♲︎ Author » ${json.username}` }, { quoted: m });
+    await conn.sendMessage(m.chat, { video: { url: json.org }, caption: `✐ Likes » ${json.like}\n✧ Comentarios » ${json.comment}\n♲︎ Author » ${json.username}` }, { quoted: m });
 
   } catch (e) {
     conn.reply(m.chat, '✐ Ocurrió un error al descargar el video.', m);
