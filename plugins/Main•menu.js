@@ -31,6 +31,8 @@ const defaultMenu = {
 ┊ ❀ 「 \`𝙸𝙽𝙵𝙾 - 𝚄𝚂𝙴𝚁\` 」 ❀
  ︶︶︶︶︶︶︶︶︶︶︶︶ 
 *┊ ✦* Cliente » %name
+*┊ ✦* Genero » %genre
+*┊ ✦* Fecha de nacimiento » %birth
 *┊ ✦* Exp » %exp
 *┊ ✦* Pais » %pais
 *┊ ✦* Chocolates » %chocolates
@@ -90,6 +92,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     let num = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + num.replace('@s.whatsapp.net', '')).getNumber('international')}`)
      let userNationalityData = api.data.result
+    let user = global.db.data.users[m.sender];
     let uptime = clockString(_uptime)
     let totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
@@ -141,6 +144,8 @@ npmdesc: _package.description,
 version: _package.version,
 exp: exp - min,
 maxexp: xp,
+genre: user.genre = user.genre === 0 ? 'No especificado' : user.genre == 'Mujer' ? `${user.genre}` : user.genre == 'Hombre' ? `${user.genre}` : 'No especificado',
+birth: user.birth == user.birth === 0? 'No especificado' : `${user.birth}`,
 botofc: (conn.user.jid == global.conn.user.jid ? 'Oficial' : 'SubBot'), 
 pais: userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido',
 fecha: moment.tz('America/Bogota').format('DD/MM/YY'), 
