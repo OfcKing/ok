@@ -5,13 +5,13 @@ const handler = async (m, { conn, text, args }) => {
   if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) return conn.reply(m.chat, '✐ Enlace no válido.', m);
 
   try {
-    const tiktokAPI = `https://apis-starlights-team.koyeb.app/starlight/tiktok2?url=${text}`;
+    const tiktokAPI = `https://apis-starlights-team.koyeb.app/starlight/tiktok2?url=${args[0]}`;
     const res = await fetch(tiktokAPI);
     const json = await res.json();
 
     if (!json || !json.url) throw new Error('API starlights no pudo obtener el video.');
 
-    await conn.sendMessage(m.chat, { video: { url: json.video }, caption: `✐ Aqui tu video.` }, { quoted: m });
+    await conn.sendMessage(m.chat, { video: { url: json.video }, caption: `✐ Likes » ${json.likes}\n✐ Comentarios » ${json.comment}\n✐ Autor » ${json.creator}` }, { quoted: m });
   } catch (e) {
     try {
 
