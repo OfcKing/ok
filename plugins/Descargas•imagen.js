@@ -3,7 +3,7 @@ import axios from 'axios';
 let handler = async (m, { conn, text }) => {
   if (!text) return conn.reply(m.chat, `❏ Ingresa un término de búsqueda.`, m);
   
-  const api = `https://deliriussapi-oficial.vercel.app/search/gimage?text=${text}`;
+  const api = `https://deliriussapi-oficial.vercel.app/search/gimage?query=${text}`;
 
   try {
     const res = await axios.get(api);
