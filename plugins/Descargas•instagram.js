@@ -1,30 +1,28 @@
-import { igdl } from "ruhend-scraper"
+import fetch from 'node-fetch';
 
-let handler = async (m, { args, conn }) => { 
-if (!args[0]) {
-return conn.reply(m.chat, '🚩 Ingresa un link de Instagram.', m, rcanal)}
-try {
-await m.react(rwait)
-conn.reply(m.chat, `🕒 *Enviando El Video...*`, m, {
-contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
-title: packname,
-body: dev,
-previewType: 0, 
-thumbnail: icons,
-sourceUrl: channel }}})      
-let res = await igdl(args[0])
-let data = res.data       
-for (let media of data) {
-await new Promise(resolve => setTimeout(resolve, 2000))           
-await conn.sendFile(m.chat, media.url, 'instagram.mp4', '🚩 *Video de instagram.*\n' + textbot, m)
-}} catch {
-await m.react(error)
-conn.reply(m.chat, '🚩 Ocurrió un error.', m, fake)}}
+const handler = async (m, { conn, text }) => {
+  if (!text) return conn.reply(m.chat, '✐ Ingresa la URL del video de Instagram.', m);
 
-handler.command = ['instagram', 'ig']
-handler.tags = ['descargas']
-handler.help = ['instagram', 'ig']
-handler.chocolates = 1
-handler.register = true
+  const instagramAPI = `https://deliriussapi-oficial.vercel.app/download/instagram?url=${text}`;
 
-export default handler
+  try {
+    const res = await fetch(instagramAPI);
+    const json = await res.json();
+
+    if (!json || !json.url) return conn.reply(m.chat, '✐ No se pudo descargar el video. Verifica que la URL sea correcta.', m);
+
+    await conn.sendMessage(m.chat, { video: { url: json.url }, caption: '✐ Aquí tienes tu video descargado de Instagram\n> ✧ Tipo » ${json.type}' }, { quoted: m });
+
+  } catch (e) {
+    conn.reply(m.chat, '✐ Ocurrió un error al descargar el video.', m);
+    console.log(e);
+  }
+};
+
+handler.help = ['instagram', 'ig'];
+handler.tags = ['descargas'];
+handler.command = ['instagram', 'ig'];
+handler.chocolates = 1;
+handler.register = true;
+
+export default handler;
