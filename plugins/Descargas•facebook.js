@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 let handler = async (m, { conn, text }) => {
   if (!text) return conn.reply(m.chat, `❏ Ingresa la URL del video de Facebook.`, m);
 
-  const facebookAPI = `https://deliriussapi-oficial.vercel.app/download/facebook?url=${encodeURIComponent(text)}`;
+  const facebookAPI = `https://deliriussapi-oficial.vercel.app/download/facebook?url=${text}`;
 
   try {
     const res = await fetch(facebookAPI);
