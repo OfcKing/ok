@@ -14,7 +14,7 @@ let handler = async (m, { conn, text }) => {
 
   user.chocolates -= cost;
   user.premium = true;
-  user.premiumTime = +new Date() + amount * units[unit.toLowerCase()] * 60 * 1000; // Convertir a milisegundos
+  user.premiumTime = +new Date() + amount * units[unit.toLowerCase()] * 60 * 1000; 
   
   conn.reply(m.chat, `✐ ¡Felicitaciones! Ahora eres miembro premium por ${amount} ${unit}. Has gastado ${cost} chocolates.`, m);
 };
