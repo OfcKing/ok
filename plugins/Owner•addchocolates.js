@@ -1,4 +1,4 @@
-import db from '../lib/database.js'
+/*import db from '../lib/database.js'
 
 import MessageType from '@whiskeysockets/baileys'
 let impts = 0
@@ -28,4 +28,4 @@ handler.tags = ['owner']
 handler.command = ['addchocolates', 'addchocolatinas', 'addchocolate'] 
 handler.rowner = true
 
-export default handler
+export default handler*/
