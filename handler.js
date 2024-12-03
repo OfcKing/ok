@@ -522,10 +522,6 @@ this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 console.error(e)
 }}
 
-let edadaleatoria = ['10', '28', '20', '40', '18', '21', '15', '11', '9', '17', '25'].getRandom()
-let user2 = m.pushName || 'Anónimo'
-let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom()
-
 global.dfail = (type, m, conn) => {
 const msg = {
 rowner: `✐ El comando *${command}* solo puede ser usado por los creadores del bot.`, 
@@ -536,7 +532,7 @@ group: `✐ El comando *${command}* solo puede ser usado en grupos.`,
 private: `✐ El comando *${command}* solo puede ser usado al chat privado del bot.`,
 admin: `✐ El comando *${command}* solo puede ser usado por los administradores del grupo.`, 
 botAdmin: `✐ Para ejecutar el comando *${command}* debo ser administrador del grupo.`,
-unreg: `✐ El comando *${command}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » ${usedPrefix}${verifyaleatorio} ${user2}.${edadaleatoria}`,
+unreg: `✐ El comando *${command}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #verificar Anónimo.666`,
 restrict: `✐ Esta caracteristica está desactivada.`
 }[type];
 if (msg) return m.reply(msg).then(_ => m.react('✖️'))}
