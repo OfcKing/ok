@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 let handler = async (m, { conn, text }) => {
   if (!text) return conn.reply(m.chat, `❏ Ingresa un término de búsqueda.`, m);
   
-  const pinterestAPI = `https://deliriussapi-oficial.vercel.app/search/pinterestv2?query=${encodeURIComponent(text)}`;
+  const pinterestAPI = `https://deliriussapi-oficial.vercel.app/search/pinterestv2?text=${text}`;
 
   try {
     const res = await fetch(pinterestAPI);
