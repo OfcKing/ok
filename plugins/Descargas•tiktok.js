@@ -1,21 +1,27 @@
 import fetch from 'node-fetch';
 
-const handler = async (m, { conn, text }) => {
+const handler = async (m, { conn, text, args }) => {
   if (!text) return conn.reply(m.chat, '✐ Ingresa la URL del video de TikTok.', m);
-
-  const tiktokAPI = `https://deliriussapi-oficial.vercel.app/download/tiktok?url=${text}`;
+  if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) return conn.reply(m.chat, '✐ Enlace no válido.', m);
 
   try {
+    const tiktokAPI = `https://deliriussapi-oficial.vercel.app/download/tiktok?url=${text}`;
     const res = await fetch(tiktokAPI);
     const json = await res.json();
 
-   if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) return conn.reply(m.chat, '✐ Enlace no válido.', m);
+    if (!json || !json.url) throw new Error('API deliriussapi no pudo obtener el video.');
 
-    await conn.sendMessage(m.chat, { video: { url: json.org }, caption: `✐ Likes » ${json.like}\n✧ Comentarios » ${json.comment}\n♲︎ Author » ${json.username}` }, { quoted: m });
-
+    await conn.sendMessage(m.chat, { video: { url: json.url }, caption: `✐ Likes » ${json.like}\n✐ Comentarios » ${json.comment}\n✐ Autor » ${json.username}` }, { quoted: m });
   } catch (e) {
-    conn.reply(m.chat, '✐ Ocurrió un error al descargar el video.', m);
-    console.log(e);
+    try {
+
+      const dataFn = await conn.getFile(`${CFROSAPI}/api/tiktokv2?url=${args[0]}`);
+      const successMessage = `✧ TikTok sin marca de agua descargado con éxito.`;
+      await conn.sendMessage(m.chat, { video: dataFn.data, caption: successMessage }, { quoted: m });
+    } catch (e2) {
+      conn.reply(m.chat, '✐ Ocurrió un error al descargar el video.', m);
+      console.log(e2);
+    }
   }
 };
 
