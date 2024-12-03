@@ -3,7 +3,7 @@ import moment from 'moment-timezone';
 let handler = async (m, { conn }) => {
   let userId = m.sender;
   let user = global.db.data.users[userId];
-  let mentionedJid = [userId, proposer, proposee];
+  let mentionedJid = [userId];
 
   let name = conn.getName(userId);
   let cumpleanos = user.birth || 'No especificado';
