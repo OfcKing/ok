@@ -93,12 +93,12 @@ let handler = async (m, { conn }) => {
       title: botname,
       body: dev,
       thumbnailUrl: imagen1,
-      sourceUrl: redeshost,
+      sourceUrl: redes,
       mediaType: 1,
       renderLargerThumbnail: true
     }
   }
-}, { quoted: fkontak });
+}, { quoted: m });
 };
 
 handler.help = ['menu'];
