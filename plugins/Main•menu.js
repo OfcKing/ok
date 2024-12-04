@@ -2,10 +2,13 @@ let handler = async (m, { conn }) => {
   const img = ['https://qu.ax/zzWdD.jpg', 'https://qu.ax/LkHoh.jpg', 'https://qu.ax/JceST.jpg']
 
   let txt = `
-⏤͟͟͞͞✦ Canal: ${channel}
-⏤͟͟͞͞✦ Bot: ${packname}
+𝐇𝐨𝐥𝐚! 𝐒𝐨𝐲 Yaemori
+ᴀǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs
 
-✧ ᴘᴀʀᴀ sᴇʀ sᴜʙ-ʙᴏᴛ ᴜsᴇ: *#serbot* ᴏ *#serbot --code*
+⏤͟͟͞͞✦ Canal: ${channel}
+⏤͟͟͞͞✦ Bot: ${botname}
+
+✧ → ᴘᴀʀᴀ ᴄʀᴇᴀʀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ ɴᴜᴍᴇʀᴏ ᴜᴛɪʟɪᴢᴀ *#serbot* o *#serbot code*
 
 ✧ *Menú de Comandos* ✧
 
@@ -21,7 +24,7 @@ let handler = async (m, { conn }) => {
 ✐ *#socket • #bots*
 > ➣ Ver todos loa sockets activos.
 
-✐ *#serbot • #serbot --code*
+✐ *#serbot • #serbot code • #serbot --code*
 > ➣ Convierte en un socket.
 
 ✐ *#comprarpremium*
