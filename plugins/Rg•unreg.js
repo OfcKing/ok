@@ -1,18 +1,18 @@
-let handler = async (m, { conn, text }) => {
+import { createHash } from 'crypto';
 
-let user = global.db.data.users[m.sender]
+let handler = async function (m, { conn, args }) {
+  let user = global.db.data.users[m.sender];
 
-user.registered = false
-global.db.data.users[m.sender].money -= 100
-global.db.data.users[m.sender].chocolates -= 40
-global.db.data.users[m.sender].exp -= 300
-global.db.data.users[m.sender].joincount -= 20
+  if (!user.registered) return m.reply('✐ No estás registrado.');
 
-return conn.reply(m.chat, `🚩 Tu registro ha sido anulado correctamente.`, m, rcanal)
+  user.registered = false;
 
-}
-handler.help = ['unreg']
-handler.tags = ['rg']
-handler.command = ['unreg', 'unregister']
-handler.register = true
-export default handler
+  m.reply('✐ Registro eliminado exitosamente.');
+};
+
+handler.help = ['unreg'];
+handler.tags = ['rg'];
+handler.command = ['unreg', 'unregister', 'deregister'];
+handler.register = true;
+
+export default handler;
