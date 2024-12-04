@@ -84,7 +84,21 @@ let handler = async (m, { conn }) => {
 > ➣ Busca y descarga imágenes desde Internet.
   `.trim();
 
-  await conn.sendMessage(m.chat, {text: txt, contextInfo: { forwardingScore: 999, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterName: channelRD.name, newsletterJid: channelRD.id, }, externalAdReply: { title: botname, body: dev, thumbnailUrl: imagen1, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: true }}}, {quoted: fkontak})
+  await conn.sendMessage(m.chat, {
+  text: text,
+  contextInfo: {
+    forwardingScore: 999,
+    isForwarded: true,
+    externalAdReply: {
+      title: botname,
+      body: dev,
+      thumbnailUrl: imagen1,
+      sourceUrl: redeshost,
+      mediaType: 1,
+      renderLargerThumbnail: true
+    }
+  }
+}, { quoted: fkontak });
 };
 
 handler.help = ['menu'];
