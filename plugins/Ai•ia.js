@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-const apiEndpoint = 'https://Luminai.my.id/api/chat';
+const apiEndpoint = 'https://Luminai.my.id';
 
 let handler = async (m, { text, conn }) => {
   if (!text) return m.reply('✐ Por favor, ingresa una consulta para enviar a la API.');
