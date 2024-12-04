@@ -19,6 +19,10 @@ let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https:/
 → Cambiar el nombre del sticker.
 ✐ *#tourl*
 → Convierte imagen en url.
+✐ *#setname*
+→ Cambia el name del Bot.
+✐ *#setbanner*
+→ Cambia la imagen del menú del Bot.
 
 »  ⊹˚• *Sockets* ⊹
 
