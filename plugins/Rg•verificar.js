@@ -60,7 +60,7 @@ await m.react('🗂')
    renderLargerThumbnail: true
    }}}, { quoted: fkontak })
 
-let chtxt = `
+   let chtxt = `
 👤 *Usuario* » ${m.pushName || 'Anónimo'}
 🌎 *Pais* » ${mundo}
 🗃 *Verificación* » ${user.name}
@@ -70,21 +70,21 @@ let chtxt = `
 📆 *Fecha* » ${moment.tz('America/Bogota').format('DD/MM/YY')}
 ☁️ *Número de registro* »
 ⤷ ${sn}
-`.trim()
-await conn.sendMessage(global.channelid, { text: chtxt, contextInfo: {
-externalAdReply: {
-title: "【 🔔 𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗖𝗜𝗢́𝗡 🔔 】",
-body: '🥳 ¡Un usuario nuevo en mi base de datos!',
-thumbnailUrl: perfil,
-sourceUrl: redes,
-mediaType: 1,
-showAdAttribution: false,
-renderLargerThumbnail: false
-}}}, { quoted: null })
-};
+   `.trim()
+     await conn.sendMessage(global.channelid, { text: chtxt, contextInfo: {
+     externalAdReply: {
+     title: "【 🔔 𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗖𝗜𝗢́𝗡 🔔 】",
+     body: '🥳 ¡Un usuario nuevo en mi base de datos!',
+     thumbnailUrl: perfil,
+     sourceUrl: redes,
+     mediaType: 1,
+     showAdAttribution: false,
+     renderLargerThumbnail: false
+     }}}, { quoted: null })
+     };
 
 handler.help = ['reg'];
 handler.tags = ['rg'];
-handler.command = ['reg', 'register'];
+handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar'];
 
 export default handler;
