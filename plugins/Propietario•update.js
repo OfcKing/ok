@@ -10,7 +10,7 @@ let handler = async (m, { conn }) => {
     if (stderr) {
       return conn.reply(m.chat, `✐ Stderr: ${stderr}`, m);
     }
-    conn.reply(m.chat, `✐ Stdout: ${stdout}\n\n✐ Bot actualizado con éxito.`, m);
+    conn.reply(m.chat, `✐ Stdout: ${stdout}`, m);
   });
 };
 
