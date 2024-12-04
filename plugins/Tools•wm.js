@@ -6,9 +6,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   const sticker = await m.quoted.download();
   if (!sticker) return m.reply('✐ No se pudo descargar el sticker.');
 
-  const packname = text.trim() || 'MiPaquete';
-  const author = 'AutorDesconocido';
-  const exif = await addExif(sticker, packname, author);
+  const texto = text.trim() || 'MiPaquete';
+  const exif = await addExif(sticker, texto);
 
   await conn.sendMessage(m.chat, { sticker: exif }, { quoted: m });
 };
