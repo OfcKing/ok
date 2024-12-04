@@ -48,14 +48,6 @@ if (!user.premium)
 user.premiumTime = 0
 if (!('registered' in user))
 user.registered = false
-if (!('genre' in user))
-user.genre = ''
-if (!('birth' in user))
-user.birth = ''
-if (!('marry' in user))
-user.marry = ''
-if (!('description' in user))
-user.description = ''
 if (!user.registered) {
 if (!('name' in user))
 user.name = m.name
@@ -87,10 +79,6 @@ age: -1,
 regTime: -1,
 afk: -1,
 afkReason: '',
-genre: '',
-birth: '',
-marry: '',
-description: '',
 banned: false,
 useDocument: false,
 bank: 0,
@@ -102,14 +90,24 @@ global.db.data.chats[m.chat] = {}
 if (chat) {
 if (!('isBanned' in chat))
 chat.isBanned = false
+if (!('sAutoresponder' in chat))
+chat.sAutoresponder = ''
 if (!('welcome' in chat))
 chat.welcome = true
+if (!('autolevelup' in chat))
+chat.autolevelup = true
 if (!('autoAceptar' in chat))
 chat.autoAceptar = false
 if (!('autoRechazar' in chat))
 chat.autoRechazar = false
+if (!('autoresponder' in chat))
+chat.autoresponder = false
+if (!('audios' in chat))
+chat.audios = false
 if (!('detect' in chat))
 chat.detect = true
+if (!('antifake' in chat))
+chat.antifake = false
 if (!('antiBot' in chat))
 chat.antiBot = false
 if (!('antiBot2' in chat))
@@ -118,6 +116,8 @@ if (!('modoadmin' in chat))
 chat.modoadmin = false   
 if (!('antiLink' in chat))
 chat.antiLink = true
+if (!('modohorny' in chat))
+chat.modohorny = false
 if (!('reaction' in chat))
 chat.reaction = false
 if (!('simi' in chat))
@@ -131,10 +131,15 @@ chat.expired = 0
 } else
 global.db.data.chats[m.chat] = {
 isBanned: false,
+sAutoresponder: '',
 welcome: true,
+autolevelup: true,
+autoresponder: false,
 delete: false,
 autoAceptar: false,
 autoRechazar: false,
+antifake: false,
+audios: false,
 detect: true,
 antiBot: false,
 antiBot2: false,
@@ -142,6 +147,7 @@ modoadmin: false,
 antiLink: true,
 simi: false,
 antiver: false,
+modohorny: false, 
 reaction: false,
 expired: 0, 
 }
@@ -151,6 +157,7 @@ if (settings) {
 if (!('self' in settings)) settings.self = false
 if (!('restrict' in settings)) settings.restrict = false
 if (!('jadibotmd' in settings)) settings.jadibotmd = true
+if (!('autobio' in settings)) settings.autobio = false
 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('autoread' in settings)) settings.autoread = false
 if (!('autoread2' in settings)) settings.autoread2 = false
@@ -159,6 +166,7 @@ if (!('antiSpam' in settings)) settings.antiSpam = false
 self: false,
 restrict: false,
 jadibotmd: true,
+autobio: false,
 antiPrivate: false,
 autoread: false,
 autoread2: false,
@@ -285,8 +293,6 @@ cmd === command) :
 typeof plugin.command === 'string' ? 
 plugin.command === command :
 false
-
-global.comando = command
 
 if (!isAccept) {
 continue
@@ -507,25 +513,20 @@ this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 console.error(e)
 }}
 
-global.dfail = (type, m, usedPrefix, command, conn) => {
-
-let edadaleatoria = ['10', '28', '20', '40', '18', '21', '15', '11', '9', '17', '25'].getRandom()
-let user2 = m.pushName || 'Anónimo'
-let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom()
-
+global.dfail = (type, m, conn) => {
 const msg = {
-rowner: `✐ El comando *${comando}* solo puede ser usado por los creadores del bot.`, 
-owner: `✐ El comando *${comando}* solo puede ser usado por los desarrolladores del bot.`, 
-mods: `✐ El comando *${comando}* solo puede ser usado por los moderadores del bot.`, 
-premium: `✐ El comando *${comando}* solo puede ser usado por los usuarios premium.`, 
-group: `✐ El comando *${comando}* solo puede ser usado en grupos.`,
-private: `✐ El comando *${comando}* solo puede ser usado al chat privado del bot.`,
-admin: `✐ El comando *${comando}* solo puede ser usado por los administradores del grupo.`, 
-botAdmin: `✐ Para ejecutar el comando *${comando}* debo ser administrador del grupo.`,
-unreg: `✐ El comando *${comando}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #${verifyaleatorio} ${user2} ${edadaleatoria}`,
-restrict: `✐ Esta caracteristica está desactivada.`
+rowner: '「👑」 *Esta función solo puede ser usada por mi creador*\n\n> DevDiego.', 
+owner: '「👑」 *Esta función solo puede ser usada por mi desarrollador.', 
+mods: '「🤴🏻」 *Esta función solo puede ser usada por mis desarrolladores.*', 
+premium: '「🍧」 *Esta función solo es para usuarios Premium.', 
+group: '「🐢」 *Esta funcion solo puede ser ejecutada en grupos.*', 
+private: '「🍭」 *Esta función solo puede ser usada en chat privado.*', 
+admin: '「👑」 *Este comando solo puede ser usado por admins.*', 
+botAdmin: '「🚩」 *Para usar esta función debo ser admin.*', 
+unreg: '「🍟」 *¡Hey! no estas registrado, registrese para usar esta función*\n\n*/reg nombre.edad*\n\n*_❕ Ejemplo_* : */reg Yaemori.666*',
+restrict: '「💫」 *Esta característica esta desactivada.*'
 }[type];
-if (msg) return m.reply(msg).then(_ => m.react('✖️'))}
+if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))}
 
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
