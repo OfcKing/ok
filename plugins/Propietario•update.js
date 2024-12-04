@@ -5,11 +5,15 @@ let handler = async (m, { conn }) => {
 
   exec('git pull', (err, stdout, stderr) => {
     if (err) {
-      return conn.reply(m.chat, `✐ Error: No se pudo realizar la actualización.\nRazón: ${err.message}`, m);
+      conn.reply(m.chat, `✐ Error: No se pudo realizar la actualización.\nRazón: ${err.message}`, m);
+      return;
     }
-    if (stderr) {
-      return conn.reply(m.chat, `✐ Error: Se produjo un problema durante la actualización.\nDetalles: ${stderr}`, m);
+
+    if (stderr && !stdout.includes('Already up to date.')) {
+      conn.reply(m.chat, `✐ Error: Se produjo un problema durante la actualización.\nDetalles: ${stderr}`, m);
+      return;
     }
+
     conn.reply(m.chat, `✐ Update: ${stdout}`, m);
   });
 };
@@ -17,6 +21,6 @@ let handler = async (m, { conn }) => {
 handler.help = ['update'];
 handler.tags = ['owner'];
 handler.command = ['update'];
-handler.rowner = true;  
+handler.rowner = true;
 
 export default handler;
