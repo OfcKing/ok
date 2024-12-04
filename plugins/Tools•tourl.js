@@ -22,7 +22,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
     if (!url) return m.reply('✐ No se pudo subir la imagen.');
 
-    m.reply(`✧ Aquí está tu URL: ${url}`);
+    m.reply(`✧ Aquí está tu URL:\n> » ${url}`);
   } catch (error) {
     console.error(error);
     m.reply('✐ Hubo un error al intentar convertir la imagen en una URL.');
