@@ -1,43 +1,85 @@
-let tags = {
-  'main': '𝙸𝙽𝙵𝙾',
-  'buscador': '𝙱𝚄́𝚂𝚀𝚄𝙴𝙳𝙰𝚂',
- // 'fun': '𝙹𝚄𝙴𝙶𝙾𝚂',
- // 'serbot': '𝙹𝙰𝙳𝙸𝙱𝙾𝚃𝚂',
- // 'rpg': '𝚁𝙿𝙶',
-  'rg': '𝚁𝙴𝙶𝙸𝚂𝚃𝚁𝙾',
- // 'xp': '𝙴𝚇𝙿',
- // 'sticker': '𝚂𝚃𝙸𝙲𝙺𝙴𝚁𝚂',
- // 'anime': '𝙰𝙽𝙸𝙼𝙴𝚂',
- // 'fix': '𝙵𝙸𝚇𝙶𝙼𝚂𝙴𝚂𝙿𝙴𝙴𝙰',
-  'grupo': '𝙶𝚁𝚄𝙿𝙾𝚂',
-  'nable': '𝙴𝙽𝙰𝙱𝙻𝙴 - 𝙳𝙸𝚂𝙰𝙱𝙻𝙴', 
-  'descargas': '𝙳𝙴𝚂𝙲𝙰𝚁𝙶𝙰𝚂',
-  'tools': '𝙷𝙴𝚁𝚁𝙰𝙼𝙸𝙴𝙽𝚃𝙰𝚂',
- // 'info': '𝙸𝙽𝙵𝙾𝚁𝙼𝙰𝙲𝙸𝙾́𝙽',
- // 'nsfw': '𝙽𝚂𝙵𝚆', 
-  'owner': '𝙿𝚁𝙾𝙿𝙸𝙴𝚃𝙰𝚁𝙸𝙾', 
- // 'audio': '𝙰𝚄𝙳𝙸𝙾𝚂', 
- // 'ai': '𝙸𝙰 - 𝙰𝙸',
- // 'transformador': '𝙲𝙾𝙽𝚅𝙴𝚁𝚃𝙸𝙳𝙾𝚁𝙴𝚂',
-};
-
 let handler = async (m, { conn }) => {
-  let menuText = '「✧ Bot Menú ✧」\n\n';
-  
-  for (let tag in tags) {
-    menuText += `*${tags[tag]}*\n`;
-    let commands = Object.keys(global.db.data.sticker).filter(cmd => global.db.data.sticker[cmd].tags && global.db.data.sticker[cmd].tags.includes(tag));
-    commands.forEach(cmd => {
-      menuText += `- ${usedPrefix}${cmd}\n`;
-    });
-    menuText += '\n';
-  }
+  const imageUrl = 'https://qu.ax/QGAVS.jpg'; // Reemplaza con la URL de la imagen que desees utilizar
 
-  await conn.sendMessage(m.chat, { text: menuText }, { quoted: m });
+  let menuText = `
+✧ *Menú de Comandos* ✧
+
+✐ *#s*
+  └─ Descripción: Realiza una búsqueda en el bot.
+
+✐ *#token*
+  └─ Descripción: Obtén el token del bot.
+
+✐ *#socket*
+  └─ Descripción: Verifica el estado del socket del bot.
+
+✐ *#serbot*
+  └─ Descripción: Convierte el usuario en un bot temporal.
+
+✐ *#comprarpremium*
+  └─ Descripción: Compra una membresía premium para el bot.
+
+✐ *#reg*
+  └─ Descripción: Registra tu nombre y edad en el bot.
+
+✐ *#unreg*
+  └─ Descripción: Elimina tu registro del bot.
+
+✐ *#setgenre*
+  └─ Descripción: Establece tu género en el perfil del bot.
+
+✐ *#delgenre*
+  └─ Descripción: Elimina tu género del perfil del bot.
+
+✐ *#setbirth*
+  └─ Descripción: Establece tu fecha de nacimiento en el perfil del bot.
+
+✐ *#delbirth*
+  └─ Descripción: Elimina tu fecha de nacimiento del perfil del bot.
+
+✐ *#setdescription*
+  └─ Descripción: Establece una descripción en tu perfil del bot.
+
+✐ *#deldescription*
+  └─ Descripción: Elimina la descripción de tu perfil del bot.
+
+✐ *#profile*
+  └─ Descripción: Muestra tu perfil de usuario.
+
+✐ *#marry*
+  └─ Descripción: Propón matrimonio a otro usuario.
+
+✐ *#hidetag*
+  └─ Descripción: Menciona a todos los usuarios del grupo sin notificaciones.
+
+✐ *#tiktok*
+  └─ Descripción: Descarga videos de TikTok.
+
+✐ *#pinterest*
+  └─ Descripción: Busca y descarga imágenes de Pinterest.
+
+✐ *#play*
+  └─ Descripción: Descarga música desde YouTube.
+
+✐ *#fb*
+  └─ Descripción: Descarga videos de Facebook.
+
+✐ *#ig*
+  └─ Descripción: Descarga contenido de Instagram.
+
+✐ *#imagen*
+  └─ Descripción: Busca y descarga imágenes desde Internet.
+  `.trim();
+
+  await conn.sendMessage(m.chat, { 
+    image: { url: imageUrl },
+    caption: menuText 
+  }, { quoted: m });
 };
 
-handler.help = ['menú'];
+handler.help = ['menu'];
 handler.tags = ['main'];
-handler.command = ['menú', 'menu'];
+handler.command = ['menu', 'menú', 'help', 'ayuda'];
+handler.register = true;
 
 export default handler;
