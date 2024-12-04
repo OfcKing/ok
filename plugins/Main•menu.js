@@ -84,8 +84,8 @@ let handler = async (m, { conn }) => {
 > ➣ Busca y descarga imágenes desde Internet.
   `.trim();
 
-  await conn.sendMessage(m.chat, {
-  text: text,
+await conn.sendMessage(m.chat, {
+  text: txt,
   contextInfo: {
     forwardingScore: 999,
     isForwarded: true,
