@@ -7,6 +7,9 @@ let handler = async (m, { conn }) => {
 ✐ *#s • #sticker*
 > ➣ Realiza un sticker.
 
+✐ *#wm*
+> ➣ Cambiar el nombre del sticker.
+
 ✐ *#token • #gettoken*
 > ➣ Obtén el token del socket.
 
