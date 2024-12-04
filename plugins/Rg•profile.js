@@ -1,9 +1,12 @@
 import moment from 'moment-timezone';
 
-let handler = async (m, { conn }) => {
-  let userId = m.sender;
+let handler = async (m, { conn, args }) => {
+  let userId = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
   let user = global.db.data.users[userId];
-  let mentionedJid = [userId];
+
+  if (!user.registered) {
+    return m.reply(`✐ El usuario @${userId.split('@')[0]} no está registrado.`, null, { mentions: [userId] });
+  }
 
   let name = conn.getName(userId);
   let cumpleanos = user.birth || 'No especificado';
@@ -30,7 +33,7 @@ let handler = async (m, { conn }) => {
   await conn.sendMessage(m.chat, { 
     text: profileText,
     contextInfo: {
-      mentionedJid: [userId], 
+      mentionedJid: [userId],
       externalAdReply: {
         title: '✧ Perfil de Usuario ✧',
         body: packname,
@@ -47,6 +50,5 @@ let handler = async (m, { conn }) => {
 handler.help = ['profile'];
 handler.tags = ['main'];
 handler.command = ['profile'];
-handler.register = true;
 
 export default handler;
