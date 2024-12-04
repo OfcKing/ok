@@ -9,12 +9,15 @@ let handler = async (m, { conn }) => {
       return;
     }
 
-    if (stderr && !stdout.includes('Already up to date.')) {
-      conn.reply(m.chat, `✐ Error: Se produjo un problema durante la actualización.\nDetalles: ${stderr}`, m);
-      return;
+    if (stderr) {
+      console.warn('Advertencia durante la actualización:', stderr);
     }
 
-    conn.reply(m.chat, `✐ Update: ${stdout}`, m);
+    if (stdout.includes('Already up to date.')) {
+      conn.reply(m.chat, '✐ El bot ya está actualizado.', m);
+    } else {
+      conn.reply(m.chat, `✐ Actualización realizada con éxito.\n\n${stdout}`, m);
+    }
   });
 };
 
