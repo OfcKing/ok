@@ -1,11 +1,11 @@
 let handler = async (m, { conn }) => {
 
   let txt = `
-𝐇𝐨𝐥𝐚! 𝐒𝐨𝐲 ${namebot}
+𝐇𝐨𝐥𝐚! 𝐒𝐨𝐲 ${botname}
 ᴀǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs
 
 ⏤͟͟͞͞✦ Canal: ${channel}
-⏤͟͟͞͞✦ Bot: ${namebot}
+⏤͟͟͞͞✦ Bot: ${botname}
 
 ✧ → ᴘᴀʀᴀ ᴄʀᴇᴀʀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ ɴᴜᴍᴇʀᴏ ᴜᴛɪʟɪᴢᴀ *#serbot* o *#serbot code*
 
