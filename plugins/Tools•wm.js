@@ -15,6 +15,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   fs.writeFileSync(outputPath, sticker);
   
   await conn.sendMessage(m.chat, { sticker: { url: outputPath } }, { quoted: m });
+
+  fs.unlinkSync(outputPath);
 };
 
 handler.help = ['wm'];
