@@ -1,5 +1,5 @@
 let handler = async (m, { conn }) => {
-let img = 'https://qu.ax/QGAVS.jpg'
+global.img = 'https://qu.ax/QGAVS.jpg'
 let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
 
   let txt = `
