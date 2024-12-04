@@ -3,7 +3,7 @@ import { createHash } from 'crypto';
 let handler = async function (m, { conn, args }) {
   let user = global.db.data.users[m.sender];
 
-  if (!user.registered) return m.reply('✐ No estás registrado.');
+  if (!user.registered) return m.reply('✐ Tu no estás registrado.');
 
   user.registered = false;
 
