@@ -13,6 +13,5 @@ let handler = async function (m, { conn, args }) {
 handler.help = ['unreg'];
 handler.tags = ['rg'];
 handler.command = ['unreg', 'unregister', 'deregister'];
-handler.register = true;
 
 export default handler;
