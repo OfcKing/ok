@@ -11,7 +11,7 @@ let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https:/
 
 ✧ → ᴘᴀʀᴀ ᴄʀᴇᴀʀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ ɴᴜᴍᴇʀᴏ ᴜᴛɪʟɪᴢᴀ *#serbot* o *#serbot code*
 
-»  ⊹˚• `\`\`Tools`\`\` ⊹
+»  ⊹˚• \`\`\`Tools\`\`\` ⊹
 
 ✐ *#s • #sticker*
 → Realiza un sticker.
@@ -24,7 +24,7 @@ let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https:/
 ✐ *#setbanner*
 → Cambia la imagen del menú del Bot.
 
-»  ⊹˚• `\`\`Sockets`\`\` ⊹
+»  ⊹˚• \`\`\`Sockets\`\`\` ⊹
 
 ✐ *#token • #gettoken*
 → Obtén el token del socket.
@@ -33,7 +33,7 @@ let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https:/
 ✐ *#serbot • #serbot code • #serbot --code*
 → Conviertete en un socket.
 
-»  ⊹˚• `\`\`Rg`\`\` ⊹
+»  ⊹˚• \`\`\`Rg\`\`\` ⊹
 
 ✐ *#comprarpremium*
 → Usar el bot sin limíte
@@ -58,12 +58,12 @@ let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https:/
 ✐ *#marry*
 → Propón matrimonio a otro usuario.
 
-»  ⊹˚• `\`\`Grupo`\`\` ⊹
+»  ⊹˚• \`\`\`Grupo\`\`\` ⊹
 
 ✐ *#hidetag*
 → Envia un mensaje mencionando a todos los usuarios
 
-»  ⊹˚• `\`\`Descargas`\`\` ⊹
+»  ⊹˚• \`\`\`Descargas\`\`\` ⊹
 
 ✐ *#tiktok • #tt*
 → Descarga videos de TikTok.
