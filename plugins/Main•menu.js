@@ -56,6 +56,12 @@ let handler = async (m, { conn }) => {
 ✐ *#profile*
 > ➣ Muestra tu perfil de usuario.
 
+✐ *#setname*
+> ➣ Cambia el name del Bot.
+
+✐ *#setbanner*
+> ➣ Cambia la imagen del menú del Bot.
+
 ✐ *#marry*
 > ➣ Propón matrimonio a otro usuario.
 
