@@ -1,23 +1,23 @@
-import PhoneNumber from 'awesome-phonenumber'
+import PhoneNumber from 'awesome-phonenumber',
 
 let handler = async (m, { conn, args }) => {
 
   let user = global.db.data.users[m.sender];
-  let delirius = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
+  let delirius = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`);
   let paisdata = delirius.data.result
-  let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'
-  let bio = 0, fechaBio
-  let sinDefinir = '😿 Es privada'
+  let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido';
+  let bio = 0, fechaBio;
+  let sinDefinir = '😿 Es privada';
   let biografia = await conn.fetchStatus(m.sender).catch(() => null)
   if (!biografia || !biografia[0] || biografia[0].status === null) {
-   bio = sinDefinir
-   fechaBio = "Fecha no disponible"
-} else {
-bio = biografia[0].status || sinDefinir
+   bio = sinDefinir;
+   fechaBio = "Fecha no disponible";
+   } else {
+   bio = biografia[0].status || sinDefinir
 fechaBio = biografia[0].setAt ? new Date(biografia[0].setAt).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric", }) : "Fecha no disponible"
-}
-  let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
-  let pp = await conn.profilePictureUrl(m.sender, 'image').catch((_) => 'https://qu.ax/QGAVS.jpg')
+   };
+  let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg');
+  let pp = await conn.profilePictureUrl(m.sender, 'image').catch((_) => 'https://qu.ax/QGAVS.jpg');
 
   if (user.registered) return m.reply('✐ Ya estás registrado.');
 
@@ -29,13 +29,14 @@ fechaBio = biografia[0].setAt ? new Date(biografia[0].setAt).toLocaleDateString(
 
   user.name = name;
   user.age = age;
-  user.descripcion = bio
+  user.descripcion = bio;
   user.regTime = +new Date();
   user.registered = true;
-  user.money += 100
-  user.chocolates += 40
-  user.exp += 300
-  user.joincount += 20
+  user.money += 100;
+  user.chocolates += 40;
+  user.exp += 300;
+  user.joincount += 20;
+  let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20);
 
   let mini = `🗃️ 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗔 𝗗 𝗢 🗃️\n`
   mini += `💭 *Nombre* » ${name}\n`
