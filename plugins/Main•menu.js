@@ -84,7 +84,7 @@ let handler = async (m, { conn }) => {
 > ➣ Busca y descarga imágenes desde Internet.
   `.trim();
 
-await conn.sendMessage(m.chat, {
+/*await conn.sendMessage(m.chat, {
   text: txt,
   contextInfo: {
     forwardingScore: 999,
@@ -98,7 +98,8 @@ await conn.sendMessage(m.chat, {
       renderLargerThumbnail: true
     }
   }
-}, { quoted: m });
+}, { quoted: m });*/
+   await conn.sendFile(m.chat, imagen1, 'error.jpg', txt, m);
 };
 
 handler.help = ['menu'];
