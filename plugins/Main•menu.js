@@ -92,8 +92,7 @@ let handler = async (m, { conn }) => {
 
 let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
 
-  await conn.sendMessage(m.chat, { image: { url: imagen1 }, caption: txt, contextInfo: { mentionedJid: [m.sender], isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1, }, forwardingScore: 999, externalAdReply: { title: botname, body: dev, thumbnailUrl: perfil, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false,
-}, }, gifPlayback: true, gifAttribution: 0 }, { quoted: null })
+  await conn.sendFile(m.chat, imagen1, 'menu.jpg', txt, m);
 };
 
 handler.help = ['menu'];
