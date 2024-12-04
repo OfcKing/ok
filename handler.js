@@ -48,6 +48,14 @@ if (!user.premium)
 user.premiumTime = 0
 if (!('registered' in user))
 user.registered = false
+if (!('genre' in user))
+user.genre = ''
+if (!('birth' in user))
+user.birth = ''
+if (!('marry' in user))
+user.marry = ''
+if (!('description' in user))
+user.description = ''
 if (!user.registered) {
 if (!('name' in user))
 user.name = m.name
@@ -74,6 +82,10 @@ exp: 0,
 chocolates: 10,
 muto: false,
 registered: false,
+genre: '',
+birth: '',
+marry: '',
+description: '',
 name: m.name,
 age: -1,
 regTime: -1,
