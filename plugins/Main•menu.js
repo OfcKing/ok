@@ -1,46 +1,46 @@
 let handler = async (m, { conn }) => {
-  const imageUrl = 'https://qu.ax/QGAVS.jpg'; // Reemplaza con la URL de la imagen que desees utilizar
+  const img = ['https://qu.ax/zzWdD.jpg', 'https://qu.ax/LkHoh.jpg', 'https://qu.ax/JceST.jpg']
 
-  let menuText = `
+  let txt = `
 ✧ *Menú de Comandos* ✧
 
-✐ *#s*
-  └─ Descripción: Realiza una búsqueda en el bot.
+✐ *#s • #sticker*
+  └─ Descripción: Realiza un sticker.
 
-✐ *#token*
-  └─ Descripción: Obtén el token del bot.
+✐ *#token • #gettoken*
+  └─ Descripción: Obtén el token del socket.
 
-✐ *#socket*
-  └─ Descripción: Verifica el estado del socket del bot.
+✐ *#socket • #bots*
+  └─ Descripción: Ver todos loa sockets activos.
 
-✐ *#serbot*
-  └─ Descripción: Convierte el usuario en un bot temporal.
+✐ *#serbot • #serbot --code*
+  └─ Descripción: Convierte en un socket.
 
 ✐ *#comprarpremium*
-  └─ Descripción: Compra una membresía premium para el bot.
+  └─ Descripción: Usar el bot sin limíte
 
-✐ *#reg*
+✐ *#reg • #verificar • #register*
   └─ Descripción: Registra tu nombre y edad en el bot.
 
 ✐ *#unreg*
   └─ Descripción: Elimina tu registro del bot.
 
-✐ *#setgenre*
+✐ *#setgenre • #setgenero*
   └─ Descripción: Establece tu género en el perfil del bot.
 
-✐ *#delgenre*
+✐ *#delgenre • #delgenero*
   └─ Descripción: Elimina tu género del perfil del bot.
 
-✐ *#setbirth*
+✐ *#setbirth • #setnacimiento*
   └─ Descripción: Establece tu fecha de nacimiento en el perfil del bot.
 
-✐ *#delbirth*
+✐ *#delbirth • #delnacimiento*
   └─ Descripción: Elimina tu fecha de nacimiento del perfil del bot.
 
-✐ *#setdescription*
+✐ *#setdescription • #setdesc*
   └─ Descripción: Establece una descripción en tu perfil del bot.
 
-✐ *#deldescription*
+✐ *#deldescription • #deldesc*
   └─ Descripción: Elimina la descripción de tu perfil del bot.
 
 ✐ *#profile*
@@ -52,29 +52,26 @@ let handler = async (m, { conn }) => {
 ✐ *#hidetag*
   └─ Descripción: Menciona a todos los usuarios del grupo sin notificaciones.
 
-✐ *#tiktok*
+✐ *#tiktok • #tt*
   └─ Descripción: Descarga videos de TikTok.
 
 ✐ *#pinterest*
   └─ Descripción: Busca y descarga imágenes de Pinterest.
 
-✐ *#play*
-  └─ Descripción: Descarga música desde YouTube.
+✐ *#play •#play2*
+  └─ Descripción: Descarga música/video de YouTube.
 
-✐ *#fb*
+✐ *#fb • #facebook*
   └─ Descripción: Descarga videos de Facebook.
 
-✐ *#ig*
+✐ *#ig • #instagram*
   └─ Descripción: Descarga contenido de Instagram.
 
 ✐ *#imagen*
   └─ Descripción: Busca y descarga imágenes desde Internet.
   `.trim();
 
-  await conn.sendMessage(m.chat, { 
-    image: { url: imageUrl },
-    caption: menuText 
-  }, { quoted: m });
+  await conn.sendMessage(m.chat, {text: txt, contextInfo: { forwardingScore: 999, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterName: channelRD.name, newsletterJid: channelRD.id, }, externalAdReply: { title: packname, body: dev, thumbnailUrl: img.getRandom(), sourceUrl: redes, mediaType: 1, renderLargerThumbnail: true }}}, {quoted: fkontak})
 };
 
 handler.help = ['menu'];
