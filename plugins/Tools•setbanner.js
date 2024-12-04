@@ -1,17 +1,48 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'fs';  
+import path from 'path';  
 
 let handler = async (m, { conn, isRowner }) => {
+
   if (!m.quoted || !/image/.test(m.quoted.mimetype)) return m.reply('✐ Por favor, responde a una imagen con el comando *setbanner* para actualizar la foto del menú.');
 
-  const media = await m.quoted.download();
-  if (!media) return m.reply('✐ No se pudo descargar la imagen. Asegúrate de que estás respondiendo a una imagen.');
+  try {
 
-  const bannerPath = path.join(__dirname, 'menu-banner.jpg');
-  fs.writeFileSync(bannerPath, media);
+    const media = await m.quoted.download();
 
-  global.imagen1 = bannerPath;
-  m.reply('✐ El banner del menú ha sido actualizado con éxito.');
+    if (!isImageValid(media)) {
+      return m.reply('✧ El archivo enviado no es una imagen válida.');
+    }
+
+    global.imagen1 = media;  
+
+    await conn.sendFile(m.chat, media, 'banner.jpg', '✐ Banner actualizado.', m);
+
+  } catch (error) {
+    console.error(error);
+    m.reply('✧ Hubo un error al intentar cambiar el banner.');
+  }
+};
+
+
+const isImageValid = (buffer) => {
+  const magicBytes = buffer.slice(0, 4).toString('hex');
+
+
+  if (magicBytes === 'ffd8ffe0' || magicBytes === 'ffd8ffe1' || magicBytes === 'ffd8ffe2') {
+    return true;
+  }
+
+
+  if (magicBytes === '89504e47') {
+    return true;
+  }
+
+
+  if (magicBytes === '47494638') {
+    return true;
+  }
+
+  return false; 
 };
 
 handler.help = ['setbanner'];
