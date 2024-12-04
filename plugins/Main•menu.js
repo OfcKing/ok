@@ -7,9 +7,9 @@ let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https:/
 ᴀǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs
 
 ⏤͟͟͞͞✦ Canal: ${channel}
-⏤͟͟͞͞✦ Bot: ${botname}
+⏤͟͟͞͞✦ Bot: ${botname}\n\n`
 
-✧ → ᴘᴀʀᴀ ᴄʀᴇᴀʀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ ɴᴜᴍᴇʀᴏ ᴜᴛɪʟɪᴢᴀ *#serbot* o *#serbot code*
+txt += '✧ → ᴘᴀʀᴀ ᴄʀᴇᴀʀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ ɴᴜᴍᴇʀᴏ ᴜᴛɪʟɪᴢᴀ *#serbot* o *#serbot code*
 
 »  ⊹˚• `Tools` ⊹
 
@@ -77,7 +77,7 @@ let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https:/
 → Descarga contenido de Instagram.
 ✐ *#imagen*
 → Busca y descarga imágenes desde Internet.
-  `.trim();
+  '.trim();
 
 await conn.sendMessage(m.chat, { image: { url: img }, caption: txt, contextInfo: { mentionedJid: [m.sender], isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1, }, forwardingScore: 999, externalAdReply: { title: botname, body: dev, thumbnailUrl: perfil, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false,
 }, }, gifPlayback: true, gifAttribution: 0 }, { quoted: m })
