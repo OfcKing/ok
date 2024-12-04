@@ -4,10 +4,6 @@ let handler = async (m, { conn, args }) => {
   let userId = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
   let user = global.db.data.users[userId];
 
-  if (!user.registered) {
-    return m.reply(`✐ El usuario @${userId.split('@')[0]} no está registrado.`, null, { mentions: [userId] });
-  }
-
   let name = conn.getName(userId);
   let cumpleanos = user.birth || 'No especificado';
   let genero = user.genre || 'No especificado';
