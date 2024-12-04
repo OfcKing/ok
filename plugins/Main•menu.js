@@ -36,6 +36,8 @@ const defaultMenu = {
  ︶︶︶︶︶︶︶︶︶︶︶︶ 
 *┊ ✦* Cliente » %name
 *┊ ✦* Exp » %exp
+*┊ ✦* Genéro » %genre
+*┊ ✦* Pareja » %pareja
 *┊ ✦* Pais » %pais
 *┊ ✦* Chocolates » %chocolates
 *┊ ✦* Nivel » %level
@@ -146,6 +148,8 @@ version: _package.version,
 exp: exp - min,
 maxexp: xp,
 botofc: (conn.user.jid == global.conn.user.jid ? 'Oficial' : 'SubBot'), 
+genre: user.genre || 'No especificado',
+pareja: = user.marry || 'No especificado',
 pais: userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido',
 fecha: moment.tz('America/Bogota').format('DD/MM/YY'), 
 totalexp: exp,
