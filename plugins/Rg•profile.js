@@ -48,7 +48,7 @@ let handler = async (m, { conn, args }) => {
 };
 
 handler.help = ['profile'];
-handler.tags = ['main'];
+handler.tags = ['rg'];
 handler.command = ['profile'];
 
 export default handler;
