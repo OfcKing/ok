@@ -2,6 +2,11 @@ let handler = async (m, { conn }) => {
   const img = ['https://qu.ax/zzWdD.jpg', 'https://qu.ax/LkHoh.jpg', 'https://qu.ax/JceST.jpg']
 
   let txt = `
+⏤͟͟͞͞✦ Canal: ${channel}
+⏤͟͟͞͞✦ Bot: ${packname}
+
+✧ ᴘᴀʀᴀ sᴇʀ sᴜʙ-ʙᴏᴛ ᴜsᴇ: *#serbot* ᴏ *#serbot --code*
+
 ✧ *Menú de Comandos* ✧
 
 ✐ *#s • #sticker*
