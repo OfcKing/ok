@@ -12,7 +12,7 @@ let handler = async (m, { conn, text, isRowner }) => {
       return m.reply('✧ El archivo proporcionado no es una imagen válida.');
     }
 
-    global.img = buffer;
+    global.img = text;
 
     await conn.sendFile(m.chat, buffer, 'banner.jpg', '✐ Banner actualizado.', m);
   } catch (error) {
