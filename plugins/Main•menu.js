@@ -1,7 +1,7 @@
 let handler = async (m, { conn }) => {
 
   let txt = `
-𝐇𝐨𝐥𝐚! 𝐒𝐨𝐲 Yaemori
+𝐇𝐨𝐥𝐚! 𝐒𝐨𝐲 ${namebot}
 ᴀǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs
 
 ⏤͟͟͞͞✦ Canal: ${channel}
