@@ -1,26 +1,21 @@
-import fs from 'fs';
-import path from 'path';
+import { addExif } from '../lib/sticker.js';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!m.quoted) return m.reply(`✐ Por favor, responde a un sticker con el comando *${usedPrefix + command}* seguido del nuevo nombre.`);
+  if (!m.quoted) return m.reply(`✐ Por favor, responde a un sticker con el comando *${usedPrefix + command}* seguido del nuevo nombre y autor.\nEjemplo: *${usedPrefix + command} Nuevo Nombre|Autor*`);
 
   const sticker = await m.quoted.download();
   if (!sticker) return m.reply('✐ No se pudo descargar el sticker.');
 
-  if (!text) return m.reply(`✐ Por favor, proporciona un nuevo nombre para el sticker.\nEjemplo: *${usedPrefix + command} Nuevo Nombre*`);
+  if (!text.includes('|')) return m.reply(`✐ Por favor, proporciona el nombre y autor del sticker separados por un |.\nEjemplo: *${usedPrefix + command} Nuevo Nombre|Autor*`);
 
-  const newName = text.trim();
-  
-  const outputPath = path.join(__dirname, 'temp', `${newName}.webp`);
-  fs.writeFileSync(outputPath, sticker);
-  
-  await conn.sendMessage(m.chat, { sticker: { url: outputPath } }, { quoted: m });
+  const [packname, author] = text.split('|');
+  const exif = await addExif(sticker, packname.trim(), author.trim());
 
-  fs.unlinkSync(outputPath);
+  await conn.sendMessage(m.chat, { sticker: exif }, { quoted: m });
 };
 
 handler.help = ['wm'];
-handler.tags = ['tools'];
+handler.tags = ['sticker'];
 handler.command = ['wm'];
 handler.register = true;
 
