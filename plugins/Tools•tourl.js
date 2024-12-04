@@ -32,5 +32,6 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 handler.help = ['tourl'];
 handler.tags = ['tools'];
 handler.command = ['tourl'];
+handler.register = true;
 
 export default handler;
