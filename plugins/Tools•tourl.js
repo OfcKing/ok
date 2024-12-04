@@ -6,13 +6,15 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   try {
     if (!m.quoted) return m.reply(`✐ Por favor, responde a una imagen con el comando *${usedPrefix + command}* para convertirla en una URL.`);
 
+    const mime = m.quoted.mimetype || '';
+    if (!mime.includes('image')) return m.reply('✐ El archivo citado no es una imagen.');
+
     const media = await m.quoted.download();
     if (!media) return m.reply('✐ No se pudo descargar la imagen. Asegúrate de que estás respondiendo a una imagen.');
 
-    let isImage = /image/.test(mime || '');
     let url = '';
     
-    if (isImage) {
+    if (mime.startsWith('image')) {
       url = await uploadImage(media);
     } else {
       url = await uploadFile(media);
