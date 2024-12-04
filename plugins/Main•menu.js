@@ -9,9 +9,9 @@ let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https:/
 ⏤͟͟͞͞✦ Canal: ${channel}
 ⏤͟͟͞͞✦ Bot: ${botname}\n\n`
 
-txt += '✧ → ᴘᴀʀᴀ ᴄʀᴇᴀʀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ ɴᴜᴍᴇʀᴏ ᴜᴛɪʟɪᴢᴀ *#serbot* o *#serbot code*
+✧ → ᴘᴀʀᴀ ᴄʀᴇᴀʀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ ɴᴜᴍᴇʀᴏ ᴜᴛɪʟɪᴢᴀ *#serbot* o *#serbot code*
 
-»  ⊹˚• `Tools` ⊹
+»  ⊹˚• `\`\`Tools`\`\` ⊹
 
 ✐ *#s • #sticker*
 → Realiza un sticker.
@@ -24,7 +24,7 @@ txt += '✧ → ᴘᴀʀᴀ ᴄʀᴇᴀʀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ 
 ✐ *#setbanner*
 → Cambia la imagen del menú del Bot.
 
-»  ⊹˚• `Sockets` ⊹
+»  ⊹˚• `\`\`Sockets`\`\` ⊹
 
 ✐ *#token • #gettoken*
 → Obtén el token del socket.
@@ -33,7 +33,7 @@ txt += '✧ → ᴘᴀʀᴀ ᴄʀᴇᴀʀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ 
 ✐ *#serbot • #serbot code • #serbot --code*
 → Conviertete en un socket.
 
-»  ⊹˚• `Rg` ⊹
+»  ⊹˚• `\`\`Rg`\`\` ⊹
 
 ✐ *#comprarpremium*
 → Usar el bot sin limíte
@@ -58,12 +58,12 @@ txt += '✧ → ᴘᴀʀᴀ ᴄʀᴇᴀʀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ 
 ✐ *#marry*
 → Propón matrimonio a otro usuario.
 
-»  ⊹˚• `Grupo` ⊹
+»  ⊹˚• `\`\`Grupo`\`\` ⊹
 
 ✐ *#hidetag*
 → Envia un mensaje mencionando a todos los usuarios
 
-»  ⊹˚• `Descargas` ⊹
+»  ⊹˚• `\`\`Descargas`\`\` ⊹
 
 ✐ *#tiktok • #tt*
 → Descarga videos de TikTok.
@@ -77,7 +77,7 @@ txt += '✧ → ᴘᴀʀᴀ ᴄʀᴇᴀʀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ 
 → Descarga contenido de Instagram.
 ✐ *#imagen*
 → Busca y descarga imágenes desde Internet.
-  '.trim();
+  `.trim();
 
 await conn.sendMessage(m.chat, { image: { url: img }, caption: txt, contextInfo: { mentionedJid: [m.sender], isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1, }, forwardingScore: 999, externalAdReply: { title: botname, body: dev, thumbnailUrl: perfil, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false,
 }, }, gifPlayback: true, gifAttribution: 0 }, { quoted: m })
