@@ -1,30 +1,22 @@
-import axios from 'axios';
-
-let handler = async (m, { conn, text }) => {
-  if (!text) return conn.reply(m.chat, `❏ Ingresa un término de búsqueda.`, m);
-  
-  const api = `https://deliriussapi-oficial.vercel.app/search/gimage?query=${text}`;
-
-  try {
-    const res = await axios.get(api);
-    const json = res.data;
-
-    if (!json || !json.items || !json.items.length) return conn.reply(m.chat, `✧ No se encontraron resultados para "${text}".`, m);
-
-    const result = json.items[Math.floor(Math.random() * json.items.length)];
-    
-    let message = `❀ Titulo » ${text}`;
-    await conn.sendMessage(m.chat, { image: { url: result.preview }, caption: message }, { quoted: m });
-
-  } catch (e) {
-    conn.reply(m.chat, `✧ Ocurrió un error al buscar la imagen.`, m);
-    console.log(e);
-  }
+import {googleImage} from '@bochilteam/scraper';
+const handler = async (m, {conn, text, usedPrefix, command}) => {
+if (!text) return conn.reply(m.chat, '🚩 Ingresa el texto de lo que quieres buscar', m, rcanal);
+await m.react(rwait)
+conn.reply(m.chat, '🐢 Descargando su imagen....', m, {
+contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
+title: packname,
+body: dev,
+previewType: 0, thumbnail: icons,
+sourceUrl: channel }}})
+const res = await googleImage(text);
+const image = await res.getRandom();
+const link = image;
+const messages = [['Imagen 1', dev, await res.getRandom(),
+[[]], [[]], [[]], [[]]], ['Imagen 2', dev, await res.getRandom(), [[]], [[]], [[]], [[]]], ['Imagen 3', dev, await res.getRandom(), [[]], [[]], [[]], [[]]], ['Imagen 4', dev, await res.getRandom(), [[]], [[]], [[]], [[]]]]
+await conn.sendCarousel(m.chat, `🚩 Resultado de ${text}`, '🔎 Imagen - Descargas', null, messages, m);
 };
-
 handler.help = ['imagen'];
-handler.tags = ['descargas'];
-handler.command = ['imagen'];
-handler.register =true;
-
+handler.tags = ['buscador', 'tools', 'descargas'];
+handler.command = ['image','imagen'];
+handler.register = true
 export default handler;
