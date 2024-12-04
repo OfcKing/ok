@@ -1,20 +1,22 @@
-import { execSync } from 'child_process'
-let handler = async (m, { conn, text }) => {
+import { exec } from 'child_process';
 
-try {
-await m.react(rwait)
-if (conn.user.jid == conn.user.jid) {
-let stdout = execSync('git pull' + (m.fromMe && text ? ' ' + text : ''))
-await conn.reply(m.chat, stdout.toString(), m, rcanal)
-await m.react(done)}
-} catch (e) {
-await m.react(error)
-await m.reply('🚩 Se han hecho cambios locales qué entran en conflicto con las Actualizaciones del Repositorio, Para actualizar, reinstala el Bot o realiza las actualizaciones manualmente.')
-}}
+let handler = async (m, { conn }) => {
 
-handler.help = ['update', 'actualizar']
-handler.tags = ['owner']
-handler.command = ['update', 'actualizar']
-handler.rowner = true
+  m.reply('✐ Actualizando el bot...');
+  exec('git pull && npm install', (err, stdout, stderr) => {
+    if (err) {
+      return conn.reply(m.chat, `✐ Error: ${err.message}`, m);
+    }
+    if (stderr) {
+      return conn.reply(m.chat, `✐ Stderr: ${stderr}`, m);
+    }
+    conn.reply(m.chat, `✐ Stdout: ${stdout}\n\n✐ Bot actualizado con éxito.`, m);
+  });
+};
 
-export default handler
+handler.help = ['update'];
+handler.tags = ['owner'];
+handler.command = ['update'];
+handler.rowner = true; 
+
+export default handler;
