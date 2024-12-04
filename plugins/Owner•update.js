@@ -3,7 +3,7 @@ import { exec } from 'child_process';
 let handler = async (m, { conn }) => {
 
   m.reply('✐ Actualizando el bot...');
-  exec('git pull && npm install', (err, stdout, stderr) => {
+  exec('git pull', (err, stdout, stderr) => {
     if (err) {
       return conn.reply(m.chat, `✐ Error: ${err.message}`, m);
     }
