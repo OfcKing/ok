@@ -5,7 +5,7 @@ let handler = async (m, { conn }) => {
 ᴀǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs
 
 ⏤͟͟͞͞✦ Canal: ${channel}
-⏤͟͟͞͞✦ Bot: ${botname}
+⏤͟͟͞͞✦ Bot: ${namebot}
 
 ✧ → ᴘᴀʀᴀ ᴄʀᴇᴀʀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ ɴᴜᴍᴇʀᴏ ᴜᴛɪʟɪᴢᴀ *#serbot* o *#serbot code*
 
