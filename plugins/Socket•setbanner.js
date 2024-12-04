@@ -16,6 +16,7 @@ if (new Date - global.db.data.users[m.sender].lastmiming < 60000) return conn.re
     global.imagen1 = media;
     global.imagen2 = media;  
     global.imagen3 = media;
+    global.icono = media;
 
     m.reply('✐ El banner fue actualizado');
 
