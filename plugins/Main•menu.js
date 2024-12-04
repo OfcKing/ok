@@ -5,70 +5,73 @@ let handler = async (m, { conn }) => {
 ✧ *Menú de Comandos* ✧
 
 ✐ *#s • #sticker*
-  └─ Descripción: Realiza un sticker.
+> ➣ Realiza un sticker.
 
 ✐ *#token • #gettoken*
-  └─ Descripción: Obtén el token del socket.
+> ➣ Obtén el token del socket.
 
 ✐ *#socket • #bots*
-  └─ Descripción: Ver todos loa sockets activos.
+> ➣ Ver todos loa sockets activos.
 
 ✐ *#serbot • #serbot --code*
-  └─ Descripción: Convierte en un socket.
+> ➣ Convierte en un socket.
 
 ✐ *#comprarpremium*
-  └─ Descripción: Usar el bot sin limíte
+> ➣ Usar el bot sin limíte
 
 ✐ *#reg • #verificar • #register*
-  └─ Descripción: Registra tu nombre y edad en el bot.
+> ➣ Registra tu nombre y edad en el bot.
 
 ✐ *#unreg*
-  └─ Descripción: Elimina tu registro del bot.
+> ➣ Elimina tu registro del bot.
 
 ✐ *#setgenre • #setgenero*
-  └─ Descripción: Establece tu género en el perfil del bot.
+> ➣ Establece tu género en el perfil del bot.
 
 ✐ *#delgenre • #delgenero*
-  └─ Descripción: Elimina tu género del perfil del bot.
+> ➣ Elimina tu género del perfil del bot.
 
 ✐ *#setbirth • #setnacimiento*
-  └─ Descripción: Establece tu fecha de nacimiento en el perfil del bot.
+> ➣ Establece tu fecha de nacimiento en el perfil del bot.
 
 ✐ *#delbirth • #delnacimiento*
-  └─ Descripción: Elimina tu fecha de nacimiento del perfil del bot.
+> ➣ Elimina tu fecha de nacimiento del perfil del bot.
 
 ✐ *#setdescription • #setdesc*
-  └─ Descripción: Establece una descripción en tu perfil del bot.
+> ➣ Establece una descripción en tu perfil del bot.
 
 ✐ *#deldescription • #deldesc*
-  └─ Descripción: Elimina la descripción de tu perfil del bot.
+> ➣ Elimina la descripción de tu perfil del bot.
 
 ✐ *#profile*
-  └─ Descripción: Muestra tu perfil de usuario.
+> ➣ Muestra tu perfil de usuario.
 
 ✐ *#marry*
-  └─ Descripción: Propón matrimonio a otro usuario.
+> ➣ Propón matrimonio a otro usuario.
 
 ✐ *#hidetag*
-  └─ Descripción: Menciona a todos los usuarios del grupo sin notificaciones.
+> ➣ Envia un mensaje mencionando a todos los usuarios
+
+✐ *#tourl*
+> ➣ Convierte imagen en url.
 
 ✐ *#tiktok • #tt*
-  └─ Descripción: Descarga videos de TikTok.
+> ➣ Descarga videos de TikTok.
 
 ✐ *#pinterest*
-  └─ Descripción: Busca y descarga imágenes de Pinterest.
+> ➣ Busca y descarga imágenes de Pinterest.
 
 ✐ *#play •#play2*
-  └─ Descripción: Descarga música/video de YouTube.
+> ➣ Descarga música/video de YouTube.
 
 ✐ *#fb • #facebook*
-  └─ Descripción: Descarga videos de Facebook.
+> ➣ Descarga videos de Facebook.
 
 ✐ *#ig • #instagram*
-  └─ Descripción: Descarga contenido de Instagram.
+> ➣ Descarga contenido de Instagram.
 
 ✐ *#imagen*
-  └─ Descripción: Busca y descarga imágenes desde Internet.
+> ➣ Busca y descarga imágenes desde Internet.
   `.trim();
 
   await conn.sendMessage(m.chat, {text: txt, contextInfo: { forwardingScore: 999, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterName: channelRD.name, newsletterJid: channelRD.id, }, externalAdReply: { title: packname, body: dev, thumbnailUrl: img.getRandom(), sourceUrl: redes, mediaType: 1, renderLargerThumbnail: true }}}, {quoted: fkontak})
