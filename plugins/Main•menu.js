@@ -1,4 +1,6 @@
 let handler = async (m, { conn }) => {
+const img = ['https://qu.ax/zzWdD.jpg', 'https://qu.ax/LkHoh.jpg', 'https://qu.ax/JceST.jpg']
+let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
 
   let txt = `
 𝐇𝐨𝐥𝐚! 𝐒𝐨𝐲 ${botname}
@@ -92,7 +94,8 @@ let handler = async (m, { conn }) => {
 
 let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
 
-  await conn.sendFile(m.chat, imagen1, 'menu.jpg', txt, m);
+await conn.sendMessage(m.chat, { image: { url: img.getRandom() }, caption: txt, contextInfo: { mentionedJid: [m.sender], isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1, }, forwardingScore: 999, externalAdReply: { title: botname, body: dev, thumbnailUrl: perfil, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false,
+}, }, gifPlayback: true, gifAttribution: 0 }, { quoted: m })
 };
 
 handler.help = ['menu'];
