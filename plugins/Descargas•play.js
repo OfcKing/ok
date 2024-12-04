@@ -8,7 +8,7 @@ const LimitVid = 425 * 1024 * 1024; //425MB
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 
 if (command == 'play' || command == 'mp3') {
-if (!text) return conn.reply(m.chat, ✐ Por favor, menciona el nombre de la musica que deseas descargar`,  m); 
+if (!text) return conn.reply(m.chat, `✐ Por favor, menciona el nombre de la musica que deseas descargar`,  m); 
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `✧ Descargando *${yt_play[0].title}*
@@ -62,7 +62,7 @@ console.log(e);
 }}}}}}}
 
 if (command == 'play2' || command == 'mp4') {
-if (!text) return conn.reply(m.chat, ✐ Por favor, menciona el nombre del video que deseas descargar`,  m); 
+if (!text) return conn.reply(m.chat, `✐ Por favor, menciona el nombre del video que deseas descargar`,  m); 
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `✧ Descargando *${yt_play[0].title}*
@@ -128,7 +128,7 @@ console.log(e);
 }}}}}}}}
 
 if (command == 'play3' || command == 'playdoc') {
-if (!text) return conn.reply(m.chat, ✐ Por favor, menciona el nombre del video que deseas descargar`,  m); 
+if (!text) return conn.reply(m.chat, `✐ Por favor, menciona el nombre del video que deseas descargar`,  m); 
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `✧ Descargando *${yt_play[0].title}*
@@ -180,7 +180,7 @@ console.log(e);
 }}}}}}}
 
 if (command == 'play4' || command == 'playdoc2') {
-if (!text) return conn.reply(m.chat, ✐ Por favor, menciona el nombre del video que deseas descargar`,  m); 
+if (!text) return conn.reply(m.chat, `✐ Por favor, menciona el nombre del video que deseas descargar`,  m); 
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `✧ Descargando *${yt_play[0].title}*
