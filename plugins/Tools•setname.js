@@ -1,5 +1,5 @@
-let handler = async (m, { conn, text, isRowner }) => {
-  if (!text) return m.reply('✐ Por favor, proporciona un nombre para el bot.\nEjemplo: setname Yaemori');
+let handler = async (m, { conn, command, usedPrefix, text, isRowner }) => {
+  if (!text) return m.reply('✐ Por favor, proporciona un nombre para el bot.\nEjemplo: ${usedPrefix + command} Yaemori');
 
   global.botname = text.trim();
   
