@@ -9,7 +9,7 @@ else who = m.chat
 if (!who) return m.reply(`🚩 Etiqueta o menciona a alguien`)
 if(m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
 if(!m.mentionedJid.length) m.mentionedJid.push(m.sender)
-let res = await fetch('https://nekos.life/api/tickle')
+let res = await fetch('https://nekos.life/api/v2/tickle')
 let json = await res.json()
 let name = conn.getName(m.sender)
 let name2 = conn.getName(who)
