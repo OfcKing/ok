@@ -2,7 +2,9 @@ let users = {};
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     let [eleccion, cantidad] = text.split(' ');
-    if (!eleccion || !cantidad) return m.reply(`✐ Por favor, elige cara o cruz y una cantidad de chocolates para apostar.\nEjemplo: *${usedPrefix + command} cara 50*`);
+    if (!eleccion || !cantidad) {
+        return m.reply(`✐ Por favor, elige cara o cruz y una cantidad de chocolates para apostar.\nEjemplo: *${usedPrefix + command} cara 50*`);
+    }
 
     eleccion = eleccion.toLowerCase();
     cantidad = parseInt(cantidad);
@@ -22,10 +24,11 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }
 
     let resultado = Math.random() < 0.5 ? 'cara' : 'cruz';
+    let mensaje = `✐ Has elegido *${eleccion}* y apostado *${cantidad} chocolates*.\n`;
 
     if (resultado === eleccion) {
         user.chocolates += cantidad;
-       let mensaje = `✿ La moneda ha caído en *${resultado}* y has ganado *${cantidad} chocolates*!`;
+        mensaje += `✿ La moneda ha caído en *${resultado}* y has ganado *${cantidad} chocolates*!`;
     } else {
         user.chocolates -= cantidad;
         mensaje += `✿ La moneda ha caído en *${resultado}* y has perdido *${cantidad} chocolates*!`;
