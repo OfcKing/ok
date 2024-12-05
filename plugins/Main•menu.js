@@ -35,7 +35,7 @@ const defaultMenu = {
  ︶︶︶︶︶︶︶︶︶︶︶︶ 
 *┊ ✦* Cliente » %name
 *┊ ✦* Exp » %exp
-*┊ ✦* Genéro » %genre
+*┊ ✦* Género » %genre
 *┊ ✦* Pareja » %pareja
 *┊ ✦* Pais » %pais
 *┊ ✦* Chocolates » %chocolates
