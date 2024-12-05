@@ -24,11 +24,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }
 
     let resultado = Math.random() < 0.5 ? 'cara' : 'cruz';
-    let mensaje = `✐ Has elegido *${eleccion}* y apostado *${cantidad} chocolates*.\n`;
-
+    let mensaje = `✿ La moneda ha caído en *${resultado}* y has ganado *${cantidad} chocolates*!`;
     if (resultado === eleccion) {
-        user.chocolates += cantidad;
-        mensaje += `✿ La moneda ha caído en *${resultado}* y has ganado *${cantidad} chocolates*!`;
+        user.chocolates += cantidad; 
     } else {
         user.chocolates -= cantidad;
         mensaje += `✿ La moneda ha caído en *${resultado}* y has perdido *${cantidad} chocolates*!`;
