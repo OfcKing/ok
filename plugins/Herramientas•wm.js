@@ -1,29 +1,30 @@
-import { addExif } from '../lib/sticker.js';
+import { addExif } from '../lib/sticker.js'
 
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!m.quoted) {
-    return m.reply(`✐ Por favor, responde a un sticker con el comando *${usedPrefix + command}* seguido del nuevo nombre.\nEjemplo: *${usedPrefix + command} Nuevo Nombre*`);
+let handler = async (m, { conn, text }) => {
+  if (!m.quoted) return m.reply('✐ Responde a un sticker y el nombre que quiere que le ponga al sticker.')
+  let stiker = false
+  try {
+   await m.react(rwait)
+    let [packname, ...author] = text.split('|')
+    author = (author || []).join('|')
+    let mime = m.quoted.mimetype || ''
+    if (!/webp/.test(mime)) return m.reply('✐ Responde a un sticker')
+    let img = await m.quoted.download()
+    if (!img) return m.reply('⚠ *Responde a un sticker!*')
+    stiker = await addExif(img, packname || '', author || '')
+  } catch (e) {
+    console.error(e)
+    if (Buffer.isBuffer(e)) stiker = e
+  } finally {
+  // await conn.reply(m.chat, global.wait, m)
+     if (stiker) conn.sendFile(m.chat, stiker, 'wm.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `=͟͟͞𝐘𝐚𝐞𝐦𝐨𝐫𝐢 𝐁𝐨𝐭⏤͟͟͞͞★`, body: `✐ Sticker By • YaemoriBot`, mediaType: 2, sourceUrl: redes, thumbnail: icons}}}, { quoted: m })
+  await m.react(done)
+     throw '✧ *La conversión falló.*'
   }
+}
+handler.help = ['wm *<nombre>|<autor>*']
+handler.tags = ['tools']
+handler.command = ['wm'] 
+handler.register = true
 
-  const mime = m.quoted.mimetype || '';
-  if (!/webp|mp4/.test(mime)) {
-    return m.reply('✐ Por favor, responde a un sticker válido.');
-  }
-
-  const sticker = await m.quoted.download();
-  if (!sticker) {
-    return m.reply('✐ No se pudo descargar el sticker.');
-  }
-
-  const texto = text.trim() || 'MiPaquete';
-  const exif = await addExif(sticker, texto);
-
-  await conn.sendMessage(m.chat, { sticker: exif }, { quoted: m });
-};
-
-handler.help = ['wm'];
-handler.tags = ['tools'];
-handler.command = ['wm'];
-handler.register = true;
-
-export default handler;
+export default handler
