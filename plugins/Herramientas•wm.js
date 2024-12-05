@@ -16,7 +16,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 
   const texto = text.trim() || 'MiPaquete';
-  const exif = await addExif(sticker, texto, mime);
+  const exif = await addExif(sticker, texto);
 
   await conn.sendMessage(m.chat, { sticker: exif }, { quoted: m });
 };
