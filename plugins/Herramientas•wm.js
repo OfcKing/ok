@@ -6,7 +6,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 
   const mime = m.quoted.mimetype || '';
-  if (!/webp|image/.test(mime)) {
+  if (!/webp|mp4/.test(mime)) {
     return m.reply('✐ Por favor, responde a un sticker válido.');
   }
 
@@ -16,7 +16,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 
   const texto = text.trim() || 'MiPaquete';
-  const exif = await addExif(sticker, texto);
+  const exif = await addExif(sticker, texto, mime);
 
   await conn.sendMessage(m.chat, { sticker: exif }, { quoted: m });
 };
