@@ -4,7 +4,7 @@ let handler = async (m, { conn, text }) => {
   let participants = m.isGroup ? (await conn.groupMetadata(m.chat)).participants : [];
   let mentionedJid = participants.map(p => p.id);
 
-  await conn.sendMessage(m.chat, { text: text, mentions: mentionedJid }, { quoted: m });
+  await conn.sendMessage(m.chat, { text: text, mentions: mentionedJid }, { quoted: null });
 };
 
 handler.help = ['hidetag'];
