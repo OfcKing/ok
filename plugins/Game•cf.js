@@ -24,12 +24,13 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }
 
     let resultado = Math.random() < 0.5 ? 'cara' : 'cruz';
-    let mensaje = `✿ La moneda ha caído en *${resultado}* y has ganado *${cantidad} chocolates*!`;
+    let mensaje = `✿ La moneda ha caído en`
     if (resultado === eleccion) {
         user.chocolates += cantidad; 
+    mensaje += `*${resultado}* y has ganado *${cantidad} chocolates*!`;
     } else {
         user.chocolates -= cantidad;
-        mensaje += `✿ La moneda ha caído en *${resultado}* y has perdido *${cantidad} chocolates*!`;
+        mensaje += `*${resultado}* y has perdido *${cantidad} chocolates*!`;
     }
 
     await conn.reply(m.chat, mensaje, m);
