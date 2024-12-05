@@ -19,11 +19,11 @@ const handler = async (m, { conn, text }) => {
       let texto = `✐ YaemoriBot-MD\nAuthor:\nFecha:\nDia:\nCreador:`;
       let texto2 = `${vs}\n${name}\n${fecha}\n${dia}\nOfcKing`;
       let stiker = await sticker(false, img, `${texto}`, `${texto2}`);
-      await conn.sendMessage(m.chat, { sticker: stiker }, { quoted: m });
+      conn.sendFile(m.chat, stiker, 'wm.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `=͟͟͞𝐘𝐚𝐞𝐦𝐨𝐫𝐢 𝐁𝐨𝐭⏤͟͟͞͞★`, body: `✐ Sticker By • YaemoriBot`, mediaType: 2, sourceUrl: redes, thumbnail: icons}}}, { quoted: m });
     } else if (/video/.test(mime)) {
       let vid = await uploadFile(media);
       let stiker = await sticker(vid, false, `${texto}`, `${texto2}`);
-        conn.sendFile(m.chat, stiker, 'wm.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `=͟͟͞𝐘𝐚𝐞𝐦𝐨𝐫𝐢 𝐁𝐨𝐭⏤͟͟͞͞★`, body: `✐ Sticker By • YaemoriBot`, mediaType: 2, sourceUrl: redes, thumbnail: icons}}}, { quoted: m })
+        conn.sendFile(m.chat, stiker, 'wm.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `=͟͟͞𝐘𝐚𝐞𝐦𝐨𝐫𝐢 𝐁𝐨𝐭⏤͟͟͞͞★`, body: `✐ Sticker By • YaemoriBot`, mediaType: 2, sourceUrl: redes, thumbnail: icons}}}, { quoted: m });
     }
   } catch (e) {
     conn.reply(m.chat, '✐ Ocurrió un error al crear el sticker.', m);
