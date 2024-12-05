@@ -20,7 +20,7 @@ let handler = async (m, { conn, text }) => {
 };
 
 handler.help = ['comprarpremium'];
-handler.tags = ['premium'];
+handler.tags = ['rpg'];
 handler.command = ['comprarpremium'];
 handler.register = true;
 
