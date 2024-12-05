@@ -23,7 +23,7 @@ const handler = async (m, { conn, text }) => {
     } else if (/video/.test(mime)) {
       let vid = await uploadFile(media);
       let stiker = await sticker(vid, false, `${texto}`, `${texto2}`);
-      await conn.sendMessage(m.chat, { sticker: stiker }, { quoted: m });
+        conn.sendFile(m.chat, stiker, 'wm.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `=͟͟͞𝐘𝐚𝐞𝐦𝐨𝐫𝐢 𝐁𝐨𝐭⏤͟͟͞͞★`, body: `✐ Sticker By • YaemoriBot`, mediaType: 2, sourceUrl: redes, thumbnail: icons}}}, { quoted: m })
     }
   } catch (e) {
     conn.reply(m.chat, '✐ Ocurrió un error al crear el sticker.', m);
