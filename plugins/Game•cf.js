@@ -18,13 +18,13 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     let userId = m.sender;
     if (!users[userId]) users[userId] = { chocolates: 100 };
-    let user = users[userId];
+    let user = global.db.data.users[m.sender];
     if (user.chocolates < cantidad) {
         return m.reply(`✐ No tienes suficientes chocolates para apostar. Tienes ${user.chocolates} chocolates.`);
     }
 
     let resultado = Math.random() < 0.5 ? 'cara' : 'cruz';
-    let mensaje = `✿ La moneda ha caído en`
+   let mensaje = `✿ La moneda ha caído en `
     if (resultado === eleccion) {
         user.chocolates += cantidad; 
     mensaje += `*${resultado}* y has ganado *${cantidad} chocolates*!`;
