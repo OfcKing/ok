@@ -1,7 +1,6 @@
 let users = {};
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    const user = global.db.data.users[m.sender];
     let [eleccion, cantidad] = text.split(' ');
     if (!eleccion || !cantidad) return m.reply(`✐ Por favor, elige cara o cruz y una cantidad de chocolates para apostar.\nEjemplo: *${usedPrefix + command} cara 50*`);
 
@@ -17,7 +16,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     let userId = m.sender;
     if (!users[userId]) users[userId] = { chocolates: 100 };
-
+    let user = global.db.data.users[userId];
     if (user.chocolates < cantidad) {
         return m.reply(`✐ No tienes suficientes chocolates para apostar. Tienes ${user.chocolates} chocolates.`);
     }
