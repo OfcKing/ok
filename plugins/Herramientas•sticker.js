@@ -4,7 +4,7 @@ import uploadImage from '../lib/uploadImage.js';
 import { webp2png } from '../lib/webp2mp4.js';
 
 const handler = async (m, { conn, text }) => {
-  if (!m.quoted) return conn.reply(m.chat, '✐ Responde a una imagen o video.', m);
+  if (!m.quoted) return conn.reply(m.chat, '🚩 Responde a una imagen o video.', m);
 
   let mime = m.quoted.mimetype || '';
   if (!/image|video/.test(mime)) return conn.reply(m.chat, '⚠️ Por favor, responde a una imagen o video.', m);
