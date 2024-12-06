@@ -1,5 +1,5 @@
 let handler = async (m, { conn, text }) => {
-  if (!text) return conn.reply(m.chat, '✐ Por favor, ingresa un mensaje para enviar a todos los usuarios.', m);
+  if (!text) return conn.reply(m.chat, '🚩 Por favor, ingresa un mensaje para enviar a todos los usuarios.', m);
 
   let participants = m.isGroup ? (await conn.groupMetadata(m.chat)).participants : [];
   let mentionedJid = participants.map(p => p.id);
