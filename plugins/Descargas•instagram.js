@@ -2,7 +2,7 @@ import { igdl } from 'ruhend-scraper';
 
 const handler = async (m, { args, conn }) => {
   if (!args[0]) {
-    return conn.reply(m.chat, '✐ Ingresa un enlace de Instagram.', m);
+    return conn.reply(m.chat, '🚩 Ingresa un enlace de Instagram.', m);
   }
 
   try {
@@ -10,10 +10,10 @@ const handler = async (m, { args, conn }) => {
     const data = res.data;
 
     for (let media of data) {
-      await conn.sendFile(m.chat, media.url, 'instagram.mp4', '✐ Video de Instagram.', m);
+      await conn.sendFile(m.chat, media.url, 'instagram.mp4', '✨️ Video de Instagram.', m);
     }
   } catch (e) {
-    return conn.reply(m.chat, '✐ Ocurrió un error.', m);
+    return conn.reply(m.chat, '✖️ Ocurrió un error.', m);
   }
 };
 
