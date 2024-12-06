@@ -9,7 +9,7 @@ if (user.description) {
 return conn.reply(m.chat, `🌸 Ya tienes una descripción establecida, si quieres borrar la descripcion actual usa:\n> » ${usedPrefix}deldescription`, m);
 }
 
-if (!text) return conn.reply(m.chat, `🚩 Debes especificar una descripcion valida para tu perfil.\n\n> ✨️ Ejemplo » *${usedPrefix + command} Hola, uso WhatsApp!*`, m);
+if (!text) return conn.reply(m.chat, `🚩 Debes especificar una descripcion valida para tu perfil.\n\n> Ejemplo » *${usedPrefix + command} Hola, uso WhatsApp!*`, m);
 
 user.description = text;
 
