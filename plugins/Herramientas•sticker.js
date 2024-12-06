@@ -7,10 +7,10 @@ const handler = async (m, { conn, text }) => {
   if (!m.quoted) return conn.reply(m.chat, '✐ Responde a una imagen o video.', m);
 
   let mime = m.quoted.mimetype || '';
-  if (!/image|video/.test(mime)) return conn.reply(m.chat, '✐ Por favor, responde a una imagen o video.', m);
+  if (!/image|video/.test(mime)) return conn.reply(m.chat, '⚠️ Por favor, responde a una imagen o video.', m);
 
   let media = await m.quoted.download();
-  if (!media) return conn.reply(m.chat, '✐ No se pudo descargar el archivo.', m);
+  if (!media) return conn.reply(m.chat, '🌸 No se pudo descargar el archivo.', m);
 
   try {
     if (/image/.test(mime)) {
@@ -26,7 +26,7 @@ const handler = async (m, { conn, text }) => {
         conn.sendFile(m.chat, stiker, 'wm.webp', '', m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `=͟͟͞𝐘𝐚𝐞𝐦𝐨𝐫𝐢 𝐁𝐨𝐭⏤͟͟͞͞★`, body: `✐ Sticker By • YaemoriBot`, mediaType: 2, sourceUrl: redes, thumbnail: icons}}}, { quoted: m });
     }
   } catch (e) {
-    conn.reply(m.chat, '✐ Ocurrió un error al crear el sticker.', m);
+    conn.reply(m.chat, '✖️ Ocurrió un error al crear el sticker.', m);
     console.log(e);
   }
 };
