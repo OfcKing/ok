@@ -7,6 +7,7 @@ const handler = async (m, { text, conn, args }) => {
 
   let res;
   try {
+    await m.react(rwait);
     res = await igdl(args[0]);
   } catch (e) {
     return conn.reply(m.chat, '⚠️ Error al obtener datos. Verifica el enlace.', m)
@@ -31,8 +32,10 @@ const handler = async (m, { text, conn, args }) => {
   let video = data.url;
   try {
     await conn.sendMessage(m.chat, { video: { url: video }, caption: '✨️ Video de Facebook', fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m })
+    await m.react(done);
   } catch (e) {
     return conn.reply(m.chat, '✖️ Error al enviar el video.', m)
+    await m.react(error);
   }
 }
 
