@@ -2,17 +2,17 @@ import { addExif } from '../lib/sticker.js';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!m.quoted) {
-    return m.reply(`✐ Por favor, responde a un sticker con el comando *${usedPrefix + command}* seguido del nuevo nombre.\nEjemplo: *${usedPrefix + command} Nuevo Nombre*`);
+    return m.reply(`⚠️ Por favor, responde a un sticker con el comando *${usedPrefix + command}* seguido del nuevo nombre.\nEjemplo: *${usedPrefix + command} Nuevo Nombre*`);
   }
 
   const mime = m.quoted.mimetype || '';
   if (!/webp|image/.test(mime)) {
-    return m.reply('✐ Por favor, responde a un sticker válido.');
+    return m.reply('⚠️ Por favor, responde a un sticker válido.');
   }
 
   const sticker = await m.quoted.download();
   if (!sticker) {
-    return m.reply('✐ No se pudo descargar el sticker.');
+    return m.reply('🌻 No se pudo descargar el sticker.');
   }
 
   const texto = text.trim() || 'MiPaquete';
