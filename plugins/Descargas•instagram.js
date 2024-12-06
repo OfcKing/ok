@@ -16,6 +16,7 @@ const handler = async (m, { args, conn }) => {
     }
   } catch (e) {
     return conn.reply(m.chat, '✖️ Ocurrió un error.', m);
+    await m.react(error);
   }
 };
 
