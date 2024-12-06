@@ -6,7 +6,7 @@ const handler = async (m, { conn, command, usedPrefix, text }) => {
 let user = global.db.data.users[m.sender];
 
 if (user.genre) {
-return conn.reply(m.chat, `✨️ Ya tienes un género establecido, si quieres borrar el género actual usa:\n> » ${usedPrefix}delgenre`, m);
+return conn.reply(m.chat, `🚩 Ya tienes un género establecido, si quieres borrar el género actual usa:\n> » ${usedPrefix}delgenre`, m);
 }
 
 if (!text) return conn.reply(m.chat, `🌸 Debes ingresar un género válido.\n> Ejemplo » *${usedPrefix + command} hombre*`, m);
