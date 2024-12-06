@@ -8,7 +8,7 @@ return conn.reply(m.chat, '☁️ No tienes un género asignado.', m)
 
 user.genre = '';
 
-return conn.reply(m.chat, '✨️ Se ha eliminado tu genero', m)
+return conn.reply(m.chat, '🚩 Se ha eliminado tu genero', m)
 };
 
 handler.help = ['delgenre']
