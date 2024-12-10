@@ -27,7 +27,17 @@
 - ★ **Estado de servicios:** [`Aquí`](https://estado.skyultraplus.com)
 - ★ **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
 - ★ **Comunidad:** [`Aquí`](https://chat.whatsapp.com/JPwcXvPEUwlEOyjI3BpYys)
-- ★ **Contacto:** [`Aquí`](https://wa.me/message/B3KTM5XN2JMRD1) 
+- ★ **Contacto:** [`Aquí`](https://wa.me/message/B3KTM5XN2JMRD1)
+
+### 🎇 Hosting Py
+<a href="https://dahs.hostingpy.shop/"><img src="https://files.catbox.moe/lr92z2.jpg" height="130px"></a>
+
+- ✦ **Dashboard:** [`Aquí`](https://dahs.hostingpy.shop/)
+- ✦ **Panel:** [`Aquí`](https://panel.hostingpy.shop/)
+- ✦ **Registrarse:** [`Aquí`](https://dahs.hostingpy.shop/register?ref=DevDiegoHPY)
+- ✦ **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
+- ✦ **Comunidad:** [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
+- ✦ **Contacto:** [`Aquí`](https://wa.me/595976126756) 
 
 ---
 
