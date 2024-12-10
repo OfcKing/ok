@@ -37,6 +37,8 @@
 - ★ **Comunidad:** [`Aquí`](https://chat.whatsapp.com/JPwcXvPEUwlEOyjI3BpYys)
 - ★ **Contacto:** [`Aquí`](https://wa.me/message/B3KTM5XN2JMRD1)
 
+---
+
 ### 🎇 HOSTING PY
 <a href="https://dahs.hostingpy.shop/"><img src="https://files.catbox.moe/lr92z2.jpg" height="130px"></a>
 
