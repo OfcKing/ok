@@ -40,7 +40,7 @@
 ---
 
 ### ❀ HOSTING PY
-<a href="https://dahs.hostingpy.shop/"><img src="https://files.catbox.moe/lr92z2.jpg" height="130px"></a>
+<a href="https://dahs.hostingpy.shop/"><img src="https://qu.ax/gXidW.jpg" height="130px"></a>
 
 - ✦ **Dashboard:** [`Aquí`](https://dahs.hostingpy.shop/)
 - ✦ **Panel:** [`Aquí`](https://panel.hostingpy.shop/)
