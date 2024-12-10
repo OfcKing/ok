@@ -3,7 +3,7 @@
 
 - Si quieres probar el Bot antes de instalar
 
-* <a href="https://chat.whatsapp.com/GkuIuySiMwb4qJGl3UJtcZ"><img alt="Group" src="https://img.shields.io/badge/Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
+* <a href="https://chat.whatsapp.com/GkuIuySiMwb4qJGl3UJtcZ"><img alt="Senko San" src="https://img.shields.io/badge/Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
 
 <div align="center">
   <h1 align="center">Propietario de la Bot</h1>
