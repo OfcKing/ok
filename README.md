@@ -3,6 +3,8 @@
         <img src= "https://qu.ax/nhlky.jpg">
     </p>
 
+#### > Que la magia de estas fiestas iluminen tu camino todo el año
+
 ---
 
 ## <img src="https://static.wikia.nocookie.net/nyancat/images/d/d3/Nyan-cat.gif/revision/latest/scale-to-width-down/400?cb=20131231222500&path-prefix=es" alt="Grupo" width="45" height="43"> Grupo de WhatsApp
