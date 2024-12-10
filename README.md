@@ -1,4 +1,4 @@
-> [ ★ ] Versión actual: 2.0.7
+> 「✰」 Versión actual: 2.0.7
 
 <h1 align="center">★ 𝐒𝐞𝐧𝐤𝐨 𝐒𝐚𝐧 𝐔𝐥𝐭𝐫𝐚 ★</p>
 <p>
