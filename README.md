@@ -1,4 +1,4 @@
-<h1 align="center">=͟͟͞𝐒𝐞𝐧𝐤𝐨 𝐒𝐚𝐧 𝐔𝐥𝐭𝐫𝐚⏤͟͟͞͞★</p>
+<h1 align="center">★ 𝐒𝐞𝐧𝐤𝐨 𝐒𝐚𝐧 𝐔𝐥𝐭𝐫𝐚 ★</p>
 <p>
         <img src= "https://qu.ax/nhlky.jpg">
     </p>
