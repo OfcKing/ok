@@ -2,20 +2,6 @@
 <p>
         <img src= "https://qu.ax/nhlky.jpg">
     </p>
-    <p align="center">
-        <a href="#"><img title="simple-whatsapp-bot" src="https://img.shields.io/badge/-SIMPLE--WHATSAPP--BOT-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
-    </p>
-    <p>
-        <a href="https://github.com/OfcKíng"><img title="Author"    src="https://img.shields.io/badge/Author-OfcKing-purple.svg?style=for-the-badge&logo=github"></a>
-    </p>
-    <p>
-        <a href="https://github.com/OfcKing/SenkoBot-MD/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/OfcKing/SenkoBot-MD?color=red&style=flat-square"></a>
-        <a href="https://github.com/OfcKing/SenkoBot-MD/network/members"><img title="Forks" src="http://img.shields.io/github/forks/OfcKing/SenkoBot-MD?color=red&style=flat-square"></a>
-        <a href="#"><img src="https://img.shields.io/badge/MANTENIMIENTO-SI-blue.svg"</a>
-        <img src="https://img.shields.io/github/repo-size/OfcKing/SenkoBot-MD" /> <br>
-   </p>
-   <p>
-</h1>
 
 ---
 
