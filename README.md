@@ -31,6 +31,12 @@
 
 ---
 
+### Colaboradores de la Bot
+<a
+href="https://github.com/GataNina-Li"><img src="https://github.com/GataNina-Li.png" width="130" height="100" alt="GataDios"/></a> <a
+href="https://github.com/David-Chian"><img src="https://github.com/David-Chian.png" width="130" height="100" alt="Diamomd"/></a> <a
+href="https://github.com/CheirZ"><img src="https://github.com/CheirZ.png" width="130" height="100" alt="Miguelon"/></a>
+
 <div align="center">
   <h1 align="center">Propietario de la Bot</h1>
 
