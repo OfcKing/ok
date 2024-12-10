@@ -25,6 +25,10 @@
 
 ---
 
+![github stats](https://github-readme-stats.vercel.app/api?username=OfcKingx&show_icons=true&theme=chartreuse-dark)
+
+---
+
 ### ✰ SKY ULTRA PLUS 
 
 <a href="https://dash.skyultraplus.com"><img src="https://qu.ax/wbJoB.png" height="125px"></a>
