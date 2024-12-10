@@ -3,7 +3,7 @@
         <img src= "https://qu.ax/nhlky.jpg">
     </p>
 
-#> Que la magia de estas fiestas iluminen tu camino todo el año
+## > Que la magia de estas fiestas iluminen tu camino todo el año
 
 ---
 
