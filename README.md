@@ -17,6 +17,14 @@
 
 ---
 
+## <img src="https://i.pinimg.com/originals/19/80/6e/19806e91932e6054965fc83b85241270.gif" alt="Grupo Soporte" width="42" height="42"> Grupo Soporte
+
+- Grupo soporte sobre el bot
+
+* <a href="https://chat.whatsapp.com/DiOOn3FBhKp5PCAEHYaRtN"><img alt="WhatsApp" src="https://img.shields.io/badge/Senko-Soporte-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
+
+---
+
 ### ☁️ SKY ULTRA PLUS 
 
 <a href="https://dash.skyultraplus.com"><img src="https://qu.ax/wbJoB.png" height="125px"></a>
