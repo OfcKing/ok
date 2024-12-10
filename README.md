@@ -13,6 +13,20 @@
 
 ---
 
+### ☁︎ SKY ULTRA PLUS 
+
+<a href="https://dash.skyultraplus.com"><img src="https://qu.ax/wbJoB.png" height="125px"></a>
+
+### Información sobre Sky
+★ **Dashboard:** [`Aquí`](https://dash.skyultraplus.com)
+★ **Panel:** [`Aquí`](https://panel.skyultraplus.com)
+★ **Estado de servicios:** [`Aquí`](https://estado.skyultraplus.com)
+★ **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
+★ **Comunidad:** [`Aquí`](https://chat.whatsapp.com/JPwcXvPEUwlEOyjI3BpYys)
+★ **Contacto:** [`Aquí`](https://wa.me/message/B3KTM5XN2JMRD1) 
+
+---
+
 <div align="center">
   <h1 align="center">Propietario de la Bot</h1>
 
