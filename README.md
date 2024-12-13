@@ -9,7 +9,7 @@
 
 ---
 
-> [!WARNING]
+> [!ERROR]
 > Queridos usuarios,
 > Yo **"OfcKing"**, me retiraré por un tiempo. Durante mi ausencia, no habrá actualizaciones por mi parte, pero el bot seguirá activo y nuestros colaboradores les darán soporte en el grupo de soporte de senko san!.
 > ¡Nos veremos pronto!
