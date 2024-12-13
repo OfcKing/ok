@@ -1,19 +1,15 @@
 > 「✰」 Versión actual: 1.0.6
 
+> Queridos usuarios, Yo **"OfcKing"**, me retiraré por un tiempo. Durante mi ausencia, no habrá actualizaciones por mi parte, pero el bot seguirá activo y nuestros colaboradores les darán soporte en el grupo de soporte de senko san!. ¡Nos veremos pronto! Senko San 🌟
+
+---
+
 <h1 align="center">★ 𝐒𝐞𝐧𝐤𝐨 𝐒𝐚𝐧 𝐔𝐥𝐭𝐫𝐚 ★</p>
 <p>
         <img src= "https://qu.ax/uYpQa.jpg">
     </p>
 
 #### ★ Que la magia de estas fiestas iluminen tu camino todo el año
-
----
-
-> [!WARNING]
-> Queridos usuarios,
-> Yo **"OfcKing"**, me retiraré por un tiempo. Durante mi ausencia, no habrá actualizaciones por mi parte, pero el bot seguirá activo y nuestros colaboradores les darán soporte en el grupo de soporte de senko san!.
-> ¡Nos veremos pronto!
-> Senko San 🌟
 
 ---
 
