@@ -3,73 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
+  <title>Senko San | Dashboard</title>
   <link rel="icon" href="https://github.com/SenkoBot.png" type="image/png">
   <script src="//code.tidio.co/9xsgo7lemff4gujgkjzrzcf4q8hvjx4a.js" async></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link href="/index.html" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/SenkoBot/Css@main/styles.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js?render=6Lfm6ZYqAAAAAAHDitCInwwbKfJmjCXnKQDlqcHy"></script>
-  <script>
-    grecaptcha.ready(function () {
-      grecaptcha.execute('6Lfm6ZYqAAAAAAHDitCInwwbKfJmjCXnKQDlqcHy', { action: 'docs' }).then(function (token) {
-        fetch('/verify-recaptcha', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ token })
-        }).then(res => res.json()).then(data => {
-          if (data.success) {
-            console.log('Verificación exitosa');
-          } else {
-            console.log('Verificación fallida');
-          }
-        });
-      });
-    });
-  </script>
 </head>
 <body oncontextmenu="return false">
   <div class="navbar">
-    <div class="url" onclick="window.location.href='https://wa.me/82340051'">Senko San | API</div>
+    <div class="url" onclick="window.location.href='https://wa.me/82340051'">Senko San | Dashboard</div>
     <div class="icons">
       <div class="notification">
         <i class="fas fa-bell"></i>
         <div class="notification-badge">+1</div>
-        <div class="notification-popup">API Gratuita, pero puedes donar si quieres 🤗</div>
+        <div class="notification-popup">¡Mantente al tanto de nuestras actualizaciones! 🤗</div>
       </div>
       <div class="menu">
         <i class="fas fa-bars"></i>
         <div class="menu-content">
           <input type="text" placeholder="Buscar..." oninput="filterMenu(this)">
-          <a href="/index.html">Descargadores</a>
-          <a href="/index.html">Buscadores</a>
-          <a href="/index.html">Anime</a>
-          <a href="/index.html">Inteligencia artificial</a>
-          <a href="/index.html">Otros</a>
-          <a href="/index.html">Juegos</a>
-          <a href="/index.html">Canvas</a>
+          <a href="#">Inicio</a>
+          <a href="#">Información</a>
+          <a href="#">Estadísticas</a>
+          <a href="#">Soporte</a>
+          <a href="#">Contacto</a>
         </div>
       </div>
       <i class="fas fa-adjust" onclick="toggleTheme()"></i>
     </div>
   </div>
   <div class="dashboard">
-    <h1>Dashboard</h1>
+    <h1>Dashboard de Senko San</h1>
     <div class="alert">
       <i class="fas fa-tools"></i>
-      Senko San | API contamos con apis funcionales y épicas 🤗
-    </div>
-    <div class="anuncio">
-      <script type="text/javascript">
-        atOptions = {
-          'key': '928dea1c6b161f1bd5776d32d20b6c4c',
-          'format': 'iframe',
-          'height': 300,
-          'width': 160,
-          'params': {}
-        };
-      </script>
-      <script async src="//www.highperformanceformat.com/928dea1c6b161f1bd5776d32d20b6c4c/invoke.js"></script>
+      ¡Bienvenidos al dashboard de Senko San! Aquí encontrarás toda la información relevante y actualizaciones importantes.
     </div>
     <div class="cards">
       <div class="card usage">
@@ -95,26 +63,76 @@
       </div>
       <div class="card total-requests">
         <div>
-          <div class="title">Total de Solicitudes a esta web</div>
+          <div class="title">Total de Solicitudes</div>
           <div id="total-requests">0</div>
         </div>
         <div class="icon"><i class="fas fa-database"></i></div>
       </div>
-      <div class="alert">
-        <img src="https://github.com/SenkoBot.png" alt="Logo SenkoBot" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 50%;">
-        <span>
-          Senko San: ¡Tenemos unas APIs tan potentes y funcionales que te sorprenderás! 🚀✨
-          ¿Puedes agradecernos? 🤔 Sigue nuestro canal de <a href="https://whatsapp.com/channel/0029VadxAUkKLaHjPfS1vP36" target="_blank" style="color: #4e9ce0; text-decoration: underline;">WhatsApp</a> 📱
-          o dona en nuestro <a href="https://www.paypal.me/sansenko" target="_blank" style="color: #4e9ce0; text-decoration: underline;">Paypal</a>. 💖🙌
-        </span>
-      </div>
+    </div>
+    <div class="alert">
+      <img src="https://github.com/SenkoBot.png" alt="Logo SenkoBot" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 50%;">
+      <span>
+        Senko San: ¡Tenemos unas APIs tan potentes y funcionales que te sorprenderás! 🚀✨
+        ¿Puedes agradecernos? 🤔 Sigue nuestro canal de <a href="https://whatsapp.com/channel/0029VadxAUkKLaHjPfS1vP36" target="_blank" style="color: #4e9ce0; text-decoration: underline;">WhatsApp</a> 📱
+        o dona en nuestro <a href="https://www.paypal.me/sansenko" target="_blank" style="color: #4e9ce0; text-decoration: underline;">Paypal</a>. 💖🙌
+      </span>
     </div>
     <canvas id="apiUsageChart"></canvas>
   </div>
   <footer class="footer">
-    © Senko San • API ッ
+    © Senko San • Dashboard ッ
   </footer>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/gh/SenkoBot/Css@main/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const userIp = document.getElementById('user-ip');
+      const batteryStatus = document.getElementById('battery-status');
+      const totalRequests = document.getElementById('total-requests');
+ 
+      const ipData = await fetch('https://api.ipify.org?format=json').then(response => response.json());
+      userIp.textContent = ipData.ip;
+      
+      navigator.getBattery().then(battery => {
+        batteryStatus.textContent = `${Math.floor(battery.level * 100)}%`;
+      });
+      
+      totalRequests.textContent = 1234; 
+
+      const ctx = document.getElementById('apiUsageChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+          datasets: [{
+            label: 'Uso de la API',
+            data: [10, 20, 30, 40, 50, 60],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    });
+
+    function filterMenu(input) {
+      const filter = input.value.toLowerCase();
+      const links = document.querySelectorAll('.menu-content a');
+      links.forEach(link => {
+        const text = link.textContent.toLowerCase();
+        link.style.display = text.includes(filter) ? '' : 'none';
+      });
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+    }
+  </script>
 </body>
 </html>
