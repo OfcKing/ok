@@ -9,11 +9,6 @@
 
 ---
 
->[!WARNING]
-> Queridos usuarios, Yo **"OfcKing"**, me retiraré por un tiempo. Durante mi ausencia, no habrá actualizaciones por mi parte, pero el bot seguirá activo y nuestros colaboradores les darán soporte en el grupo de soporte de senko san!. ¡Nos veremos pronto! Senko San 🌟
-
----
-
 ## <img src="https://static.wikia.nocookie.net/nyancat/images/d/d3/Nyan-cat.gif/revision/latest/scale-to-width-down/400?cb=20131231222500&path-prefix=es" alt="Grupo" width="45" height="43"> Grupo de WhatsApp
 
 - Grupo oficial del Bot
