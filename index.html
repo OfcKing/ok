@@ -5,7 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Senko San | Dashboard</title>
   <link rel="icon" href="https://github.com/SenkoBot.png" type="image/png">
+  <script src="//code.tidio.co/9xsgo7lemff4gujgkjzrzcf4q8hvjx4a.js" async></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="/api/styles" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6Lfm6ZYqAAAAAAHDitCInwwbKfJmjCXnKQDlqcHy"></script>
+  <script>
+    grecaptcha.ready(function () {
+      grecaptcha.execute('6Lfm6ZYqAAAAAAHDitCInwwbKfJmjCXnKQDlqcHy', { action: 'docs' }).then(function (token) {
+        fetch('/verify-recaptcha', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token })
+        }).then(res => res.json()).then(data => {
+          if (data.success) {
+            console.log('Verificación exitosa');
+          } else {
+            console.log('Verificación fallida');
+          }
+        });
+      });
+    });
+  </script>
   <style>
     body {
       margin: 0;
@@ -176,7 +197,6 @@
       margin-top: 0;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body oncontextmenu="return false">
   <div class="navbar">
@@ -185,7 +205,7 @@
       <div class="notification">
         <i class="fas fa-bell"></i>
         <div class="notification-badge">+1</div>
-        <div class="notification-popup">¡Mantente al tanto de nuestras actualizaciones! 🤗</div>
+        <div class="notification-popup">API Gratuita, pero puedes donar si quieres 🤗</div>
       </div>
       <div class="menu">
         <i class="fas fa-bars"></i>
@@ -231,8 +251,8 @@
       </div>
       <div class="card total-requests">
         <div>
-          <div class="title">Total de Solicitudes</div>
-          <div id="total-requests">Cargando...</div>
+          <div class="title">Total de Solicitudes a esta web</div>
+          <div id="total-requests">0</div>
         </div>
         <div class="icon"><i class="fas fa-database"></i></div>
       </div>
@@ -242,23 +262,4 @@
       <span>
         Senko San: ¡Tenemos unas APIs tan potentes y funcionales que te sorprenderás! 🚀✨
         ¿Puedes agradecernos? 🤔 Sigue nuestro canal de <a href="https://whatsapp.com/channel/0029VadxAUkKLaHjPfS1vP36" target="_blank">WhatsApp</a> 📱
-        o dona en nuestro <a href="https://www.paypal.me/sansenko" target="_blank">Paypal</a>. 💖🙌
-      </span>
-    </div>
-    <div class="contacto">
-      <h2>Contacto</h2>
-      <p>Para cualquier consulta, puedes contactarnos a través de nuestro canal de <a href="https://whatsapp.com/channel/0029VadxAUkKLaHjPfS1vP36" target="_blank">WhatsApp</a>.</p>
-    </div>
-    <div class="soporte">
-      <h2>Soporte</h2>
-      <p>Si necesitas soporte técnico, visita nuestro <a href="https://www.paypal.me/sansenko" target="_blank">sitio de soporte</a>.</p>
-    </div>
-    <canvas id="apiUsageChart"></canvas>
-  </div>
-  <footer class="footer">
-    © Senko San • Dashboard ッ
-  </footer>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      const userIp = document.getElementById('user-ip');[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/bluuweb/bootstrap-5-udemy/tree/6e8204823765693074d6c9c7f99d8de3955417ec/10-parcel%2FREADME.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "2")
+        o dona en nuestro <a href="https://www.paypal.me/sansenko" target="_blank">Paypal</a[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/1880akshay/hackwebers2020/tree/c9c538da7b7c56b01bb2fc06ee7e12dcb27dd71e/frontend%2Fsrc%2Fscreens%2FstudentDashboard.js?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "2")
