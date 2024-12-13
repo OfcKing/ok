@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="icon" href="https://github.com/SenkoBot.png" type="image/png">
+  <script src="//code.tidio.co/9xsgo7lemff4gujgkjzrzcf4q8hvjx4a.js" async></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="/api/styles" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6Lfm6ZYqAAAAAAHDitCInwwbKfJmjCXnKQDlqcHy"></script>
+  <script>
+    grecaptcha.ready(function () {
+      grecaptcha.execute('6Lfm6ZYqAAAAAAHDitCInwwbKfJmjCXnKQDlqcHy', { action: 'docs' }).then(function (token) {
+        fetch('/verify-recaptcha', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token })
+        }).then(res => res.json()).then(data => {
+          if (data.success) {
+            console.log('Verificación exitosa');
+          } else {
+            console.log('Verificación fallida');
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body oncontextmenu="return false">
+  <div class="navbar">
+    <div class="url" onclick="window.location.href='https://wa.me/82340051'">Senko San | API</div>
+    <div class="icons">
+      <div class="notification">
+        <i class="fas fa-bell"></i>
+        <div class="notification-badge">+1</div>
+        <div class="notification-popup">API Gratuita, pero puedes donar si quieres 🤗</div>
+      </div>
+      <div class="menu">
+        <i class="fas fa-bars"></i>
+        <div class="menu-content">
+          <input type="text" placeholder="Buscar..." oninput="filterMenu(this)">
+          <a href="/downloaders">Descargadores</a>
+          <a href="/search">Buscadores</a>
+          <a href="/anime">Anime</a>
+          <a href="/ai">Inteligencia artificial</a>
+          <a href="/oterr">Otros</a>
+          <a href="/juegos">Juegos</a>
+          <a href="/canvas">Canvas</a>
+        </div>
+      </div>
+      <i class="fas fa-adjust" onclick="toggleTheme()"></i>
+    </div>
+  </div>
+  <div class="dashboard">
+    <h1>Dashboard</h1>
+    <div class="alert">
+      <i class="fas fa-tools"></i>
+      Senko San | API contamos con apis funcionales y épicas 🤗
+    </div>
+    <div class="anuncio">
+      <script type="text/javascript">
+        atOptions = {
+          'key': '928dea1c6b161f1bd5776d32d20b6c4c',
+          'format': 'iframe',
+          'height': 300,
+          'width': 160,
+          'params': {}
+        };
+      </script>
+      <script async src="//www.highperformanceformat.com/928dea1c6b161f1bd5776d32d20b6c4c/invoke.js"></script>
+    </div>
+    <div class="cards">
+      <div class="card usage">
+        <div>
+          <div class="title">Solicitudes por usuario</div>
+          <div>75 <span>/minuto</span></div>
+        </div>
+        <div class="icon"><i class="fas fa-chart-line"></i></div>
+      </div>
+      <div class="card ip">
+        <div>
+          <div class="title">Tu IP</div>
+          <div id="user-ip">Cargando...</div>
+        </div>
+        <div class="icon"><i class="fas fa-network-wired"></i></div>
+      </div>
+      <div class="card battery">
+        <div>
+          <div class="title">Batería</div>
+          <div id="battery-status">Cargando...</div>
+        </div>
+        <div class="icon"><i class="fas fa-battery-half"></i></div>
+      </div>
+      <div class="card total-requests">
+        <div>
+          <div class="title">Total de Solicitudes a esta web</div>
+          <div id="total-requests">0</div>
+        </div>
+        <div class="icon"><i class="fas fa-database"></i></div>
+      </div>
+      <div class="alert">
+        <img src="https://github.com/SenkoBot.png" alt="Logo SenkoBot" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 50%;">
+        <span>
+          Senko San: ¡Tenemos unas APIs tan potentes y funcionales que te sorprenderás! 🚀✨
+          ¿Puedes agradecernos? 🤔 Sigue nuestro canal de <a href="https://whatsapp.com/channel/0029VadxAUkKLaHjPfS1vP36" target="_blank" style="color: #4e9ce0; text-decoration: underline;">WhatsApp</a> 📱
+          o dona en nuestro <a href="https://www.paypal.me/sansenko" target="_blank" style="color: #4e9ce0; text-decoration: underline;">Paypal</a>. 💖🙌
+        </span>
+      </div>
+    </div>
+    <canvas id="apiUsageChart"></canvas>
+  </div>
+  <footer class="footer">
+    © Senko San • API ッ
+  </footer>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/SenkoBot/Css@main/script.js"></script>
+</body>
+</html>
