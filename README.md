@@ -13,7 +13,7 @@
 > Queridos usuarios,
 > Yo, OfcKing, me tomaré un tiempo de descanso y, por un período, dejaré de proporcionar actualizaciones. Durante este tiempo, el bot quedará en manos de colaboradores dedicados. Agradezco su comprensión y apoyo mientras me alejo un poco del mundo de los bots.
 > ¡Nos veremos pronto!
-> OfcKing 🌟
+> Senko San 🌟
 
 ---
 
