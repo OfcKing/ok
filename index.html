@@ -20,7 +20,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 165, 0, 0.8);
+      color: white;
     }
 
     .url {
@@ -157,6 +158,17 @@
       color: #4e9ce0;
       text-decoration: underline;
     }
+
+    .contacto, .soporte {
+      padding: 20px;
+      background: rgba(255, 223, 186, 0.8);
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+
+    .contacto h2, .soporte h2 {
+      margin-top: 0;
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -176,8 +188,8 @@
           <a href="#">Inicio</a>
           <a href="#">Información</a>
           <a href="#">Estadísticas</a>
-          <a href="#">Soporte</a>
-          <a href="#">Contacto</a>
+          <a href="#" class="contacto">Contacto</a>
+          <a href="#" class="soporte">Soporte</a>
         </div>
       </div>
       <i class="fas fa-adjust" onclick="toggleTheme()"></i>
@@ -227,33 +239,17 @@
         o dona en nuestro <a href="https://www.paypal.me/sansenko" target="_blank">Paypal</a>. 💖🙌
       </span>
     </div>
+    <div class="contacto">
+      <h2>Contacto</h2>
+      <p>Para cualquier consulta, puedes contactarnos a través de nuestro canal de <a href="https://whatsapp.com/channel/0029VadxAUkKLaHjPfS1vP36" target="_blank">WhatsApp</a>.</p>
+    </div>
+    <div class="soporte">
+      <h2>Soporte</h2>
+      <p>Si necesitas soporte técnico, visita nuestro <a href="https://www.paypal.me/sansenko" target="_blank">sitio de soporte</a>.</p>
+    </div>
     <canvas id="apiUsageChart"></canvas>
   </div>
   <footer class="footer">
     © Senko San • Dashboard ッ
   </footer>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      const userIp = document.getElementById('user-ip');
-      const batteryStatus = document.getElementById('battery-status');
-      const totalRequests = document.getElementById('total-requests');
-      
-      try {
-        const ipData = await fetch('https://api.ipify.org?format=json').then(response => response.json());
-        userIp.textContent = ipData.ip;
-      } catch (error) {
-        userIp.textContent = 'No se pudo obtener la IP';
-      }
-     
-      if (navigator.getBattery) {
-        navigator.getBattery().then(battery => {
-          batteryStatus.textContent = `${Math.floor(battery.level * 100)}%`;
-        }).catch(() => {
-          batteryStatus.textContent = 'No se pudo obtener el estado de la batería';
-        });
-      } else {
-        batteryStatus.textContent = 'No disponible';
-      }
-      
-     [43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/bluuweb/bootstrap-5-udemy/tree/6e8204823765693074d6c9c7f99d8de3955417ec/10-parcel%2FREADME.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "2")
+  <script src="https://kit.fontawesome.com/a076d[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/bluuweb/bootstrap-5-udemy/tree/6e8204823765693074d6c9c7f99d8de3955417ec/10-parcel%2FREADME.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "2")
