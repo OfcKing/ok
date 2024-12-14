@@ -279,7 +279,6 @@
     document.addEventListener('DOMContentLoaded', async () => {
       const userIp = document.getElementById('user-ip');
       const batteryStatus = document.getElementById('battery-status');
-      const totalRequests = document.getElementById('total-requests');
 
       try {
         const ipData = await fetch('https://api.ipify.org?format=json').then(response => response.json());
