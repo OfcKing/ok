@@ -10,9 +10,9 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: url('https://qu.ax/CNVhK.jpg') no-repeat center center fixed;
-      background-size: cover;
+      background: #000;
       color: #fff;
+      transition: background 0.3s, color 0.3s;
     }
 
     .navbar {
@@ -20,7 +20,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
-      background: rgba(17, 17, 17, 0.8);
+      background: #111;
       color: white;
     }
 
@@ -56,7 +56,7 @@
       position: absolute;
       top: 30px;
       right: 0;
-      background: rgba(255, 255, 255, 0.9);
+      background: white;
       color: #000;
       padding: 10px;
       border: 1px solid #ccc;
@@ -76,7 +76,7 @@
       position: absolute;
       top: 30px;
       right: 0;
-      background: rgba(255, 255, 255, 0.9);
+      background: white;
       color: #000;
       padding: 10px;
       border: 1px solid #ccc;
@@ -99,7 +99,7 @@
     }
 
     .menu a:hover {
-      background: rgba(240, 240, 240, 0.9);
+      background: #f0f0f0;
     }
 
     .menu:hover .menu-content {
@@ -108,21 +108,23 @@
 
     .dashboard {
       padding: 20px;
-      background: rgba(17, 17, 17, 0.8);
+      background: #111;
       color: #fff;
       border-radius: 10px;
       margin: 20px auto;
       max-width: 1200px;
+      transition: background 0.3s, color 0.3s;
     }
 
     .alert {
       display: flex;
       align-items: center;
-      background: rgba(51, 51, 51, 0.8);
+      background: #333;
       padding: 15px;
       margin-bottom: 20px;
       border-radius: 5px;
       color: #fff;
+      transition: background 0.3s, color 0.3s;
     }
 
     .cards {
@@ -134,7 +136,7 @@
     .card {
       flex: 1;
       min-width: 200px;
-      background: rgba(34, 34, 34, 0.8);
+      background: #222;
       padding: 15px;
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -142,6 +144,7 @@
       justify-content: space-between;
       align-items: center;
       color: #fff;
+      transition: background 0.3s, color 0.3s;
     }
 
     .card .title {
@@ -152,10 +155,11 @@
     .footer {
       text-align: center;
       padding: 20px;
-      background: rgba(17, 17, 17, 0.8);
+      background: #111;
       margin-top: 20px;
       border-radius: 5px;
       color: #fff;
+      transition: background 0.3s, color 0.3s;
     }
 
     .alert img {
@@ -169,25 +173,52 @@
 
     .contacto, .soporte {
       padding: 20px;
-      background: rgba(34, 34, 34, 0.8);
+      background: #222;
       margin-top: 20px;
       border-radius: 5px;
       color: #fff;
+      transition: background 0.3s, color 0.3s;
     }
 
     .contacto h2, .soporte h2 {
       margin-top: 0;
       color: #00cc00;
     }
+
+    .light-theme {
+      background: #fff;
+      color: #000;
+    }
+
+    .light-theme .navbar,
+    .light-theme .dashboard,
+    .light-theme .alert,
+    .light-theme .card,
+    .light-theme .footer,
+    .light-theme .contacto,
+    .light-theme .soporte {
+      background: #f9f9f9;
+      color: #000;
+    }
+
+    .light-theme .card .title {
+      color: #007700;
+    }
+
+    .light-theme .alert span a {
+      color: #007700;
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+    }
+
     document.addEventListener('DOMContentLoaded', async () => {
       const userIp = document.getElementById('user-ip');
       const batteryStatus = document.getElementById('battery-status');
       const totalRequests = document.getElementById('total-requests');
-      const apiStatus = document.getElementById('api-status');
-      const owner = document.getElementById('owner');
 
       try {
         const ipData = await fetch('https://api.ipify.org?format=json').then(response => response.json());
@@ -206,12 +237,7 @@
         batteryStatus.textContent = 'No disponible';
       }
 
-      totalRequests.textContent = 1234;
-
-      apiStatus.textContent = 'Todas las APIs están operativas'; 
-
-      owner.textContent = 'OfcKing'; 
-
+      totalRequests.textContent = 1234; 
       const ctx = document.getElementById('apiUsageChart').getContext('2d');
       new Chart(ctx, {
         type: 'line',
@@ -242,10 +268,6 @@
         link.style.display = text.includes(filter) ? '' : 'none';
       });
     }
-
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
-    }
   </script>
 </head>
 <body oncontextmenu="return false">
@@ -271,6 +293,4 @@
       <i class="fas fa-adjust" onclick="toggleTheme()"></i>
     </div>
   </div>
-  <div class="dashboard">
-    <h1>Dashboard de Senko San</h1>
-   [43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+ [43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/bluuweb/bootstrap-5-udemy/tree/6e8204823765693074d6c9c7f99d8de3955417ec/10-parcel%2FREADME.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "2")
