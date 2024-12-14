@@ -6,7 +6,6 @@
   <title>Senko San | Dashboard</title>
   <link rel="icon" href="https://github.com/SenkoBot.png" type="image/png">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link href="/api/styles" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -180,37 +179,9 @@
       margin-top: 0;
       color: #00cc00;
     }
-
-    .light-theme {
-      background: #fff;
-      color: #000;
-    }
-
-    .light-theme .navbar,
-    .light-theme .dashboard,
-    .light-theme .alert,
-    .light-theme .card,
-    .light-theme .footer,
-    .light-theme .contacto,
-    .light-theme .soporte {
-      background: rgba(255, 255, 255, 0.9);
-      color: #000;
-    }
-
-    .light-theme .card .title {
-      color: #007700;
-    }
-
-    .light-theme .alert span a {
-      color: #007700;
-    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
-    }
-
     document.addEventListener('DOMContentLoaded', async () => {
       const userIp = document.getElementById('user-ip');
       const batteryStatus = document.getElementById('battery-status');
@@ -265,6 +236,10 @@
         link.style.display = text.includes(filter) ? '' : 'none';
       });
     }
+
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+    }
   </script>
 </head>
 <body oncontextmenu="return false">
@@ -284,4 +259,19 @@
           <a href="#">Información</a>
           <a href="#">Estadísticas</a>
           <a href="#" class="contacto">Contacto</a>
-          <a href="#" class="soporte">Soporte</[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/bluuweb/bootstrap-5-udemy/tree/6e8204823765693074d6c9c7f99d8de3955417ec/10-parcel%2FREADME.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "2")
+          <a href="#" class="soporte">Soporte</a>
+        </div>
+      </div>
+      <i class="fas fa-adjust" onclick="toggleTheme()"></i>
+    </div>
+  </div>
+  <div class="dashboard">
+    <h1>Dashboard de Senko San</h1>
+    <div class="alert">
+      <i class="fas fa-tools"></i>
+      ¡Bienvenidos al dashboard de Senko San! Aquí encontrarás toda la información relevante y actualizaciones importantes.
+    </div>
+    <div class="cards">
+      <div class="card usage">
+        <div>
+          <div class="title">Solicitudes por usuario</div[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
