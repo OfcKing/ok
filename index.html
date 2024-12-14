@@ -3,271 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Senko San | Dashboard</title>
-  <link rel="icon" href="https://github.com/SenkoBot.png" type="image/png">
+  <title>Dashboard</title>
+  <link rel="icon" href="https://github.com/OfcKing.png" type="image/png">
+  <script src="//code.tidio.co/9xsgo7lemff4gujgkjzrzcf4q8hvjx4a.js" async></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #000;
-      color: #fff;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background: #111;
-      color: white;
-    }
-
-    .url {
-      cursor: pointer;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    .icons {
-      display: flex;
-      align-items: center;
-    }
-
-    .notification {
-      position: relative;
-      margin-right: 20px;
-    }
-
-    .notification-badge {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      background: red;
-      color: white;
-      border-radius: 50%;
-      padding: 2px 5px;
-      font-size: 12px;
-    }
-
-    .notification-popup {
-      display: none;
-      position: absolute;
-      top: 30px;
-      right: 0;
-      background: white;
-      color: #000;
-      padding: 10px;
-      border: 1px solid #ccc;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .notification:hover .notification-popup {
-      display: block;
-    }
-
-    .menu {
-      position: relative;
-    }
-
-    .menu-content {
-      display: none;
-      position: absolute;
-      top: 30px;
-      right: 0;
-      background: white;
-      color: #000;
-      padding: 10px;
-      border: 1px solid #ccc;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      z-index: 1;
-    }
-
-    .menu input[type="text"] {
-      margin-bottom: 10px;
-      width: 100%;
-      padding: 5px;
-      border: 1px solid #ccc;
-    }
-
-    .menu a {
-      display: block;
-      padding: 5px 0;
-      text-decoration: none;
-      color: #000;
-    }
-
-    .menu a:hover {
-      background: #f0f0f0;
-    }
-
-    .menu:hover .menu-content {
-      display: block;
-    }
-
-    .dashboard {
-      padding: 20px;
-      background: #111;
-      color: #fff;
-      border-radius: 10px;
-      margin: 20px auto;
-      max-width: 1200px;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .alert {
-      display: flex;
-      align-items: center;
-      background: #333;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      color: #fff;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .card {
-      flex: 1;
-      min-width: 200px;
-      background: #222;
-      padding: 15px;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #fff;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .card .title {
-      font-weight: bold;
-      color: #00cc00;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-      margin-top: 20px;
-      border-radius: 5px;
-      color: #fff;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .alert img {
-      border-radius: 50%;
-    }
-
-    .alert span a {
-      color: #4e9ce0;
-      text-decoration: underline;
-    }
-
-    .contacto, .soporte {
-      padding: 20px;
-      background: #222;
-      margin-top: 20px;
-      border-radius: 5px;
-      color: #fff;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .contacto h2, .soporte h2 {
-      margin-top: 0;
-      color: #00cc00;
-    }
-
-    .light-theme {
-      background: #fff;
-      color: #000;
-    }
-
-    .light-theme .navbar,
-    .light-theme .dashboard,
-    .light-theme .alert,
-    .light-theme .card,
-    .light-theme .footer,
-    .light-theme .contacto,
-    .light-theme .soporte {
-      background: #f9f9f9;
-      color: #000;
-    }
-
-    .light-theme .card .title {
-      color: #007700;
-    }
-
-    .light-theme .alert span a {
-      color: #007700;
-    }
-  </style>
+  <link href="/api/styles" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6Lfm6ZYqAAAAAAHDitCInwwbKfJmjCXnKQDlqcHy"></script>
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
-    }
-
-    document.addEventListener('DOMContentLoaded', async () => {
-      const userIp = document.getElementById('user-ip');
-      const batteryStatus = document.getElementById('battery-status');
-      const totalRequests = document.getElementById('total-requests');
-
-      try {
-        const ipData = await fetch('https://api.ipify.org?format=json').then(response => response.json());
-        userIp.textContent = ipData.ip;
-      } catch (error) {
-        userIp.textContent = 'No se pudo obtener la IP';
-      }
-
-      if (navigator.getBattery) {
-        navigator.getBattery().then(battery => {
-          batteryStatus.textContent = `${Math.floor(battery.level * 100)}%`;
-        }).catch(() => {
-          batteryStatus.textContent = 'No se pudo obtener el estado de la batería';
-        });
-      } else {
-        batteryStatus.textContent = 'No disponible';
-      }
-
-      totalRequests.textContent = 1234; 
-      const ctx = document.getElementById('apiUsageChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
-          datasets: [{
-            label: 'Uso de la API',
-            data: [10, 20, 30, 40, 50, 60],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
+    grecaptcha.ready(function () {
+      grecaptcha.execute('6Lfm6ZYqAAAAAAHDitCInwwbKfJmjCXnKQDlqcHy', { action: 'docs' }).then(function (token) {
+        fetch('/verify-recaptcha', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token })
+        }).then(res => res.json()).then(data => {
+          if (data.success) {
+            console.log('Verificación exitosa');
+          } else {
+            console.log('Verificación fallida');
           }
-        }
+        });
       });
     });
-
-    function filterMenu(input) {
-      const filter = input.value.toLowerCase();
-      const links = document.querySelectorAll('.menu-content a');
-      links.forEach(link => {
-        const text = link.textContent.toLowerCase();
-        link.style.display = text.includes(filter) ? '' : 'none';
-      });
-    }
   </script>
 </head>
 <body oncontextmenu="return false">
@@ -277,20 +35,84 @@
       <div class="notification">
         <i class="fas fa-bell"></i>
         <div class="notification-badge">+1</div>
-        <div class="notification-popup">Mantente al tanto de nuestras actualizaciones! 🤗</div>
+        <div class="notification-popup">🎄 Feliz navidad.</div>
       </div>
       <div class="menu">
         <i class="fas fa-bars"></i>
         <div class="menu-content">
           <input type="text" placeholder="Buscar..." oninput="filterMenu(this)">
-          <a href="#">Inicio</a>
-          <a href="#">Información</a>
-          <a href="#">Estadísticas</a>
-          <a href="#" class="contacto">Contacto</a>
-          <a href="#" class="soporte">Soporte</a>
+          <a href="#">Descargadores</a>
+          <a href="#">Buscadores</a>
+          <a href="#">Anime</a>
+          <a href="#">Inteligencia artificial</a>
+          <a href="#">Otros</a>
+          <a href="#">Juegos</a>
+          <a href="#">Canvas</a>
         </div>
       </div>
       <i class="fas fa-adjust" onclick="toggleTheme()"></i>
     </div>
   </div>
- [43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/bluuweb/bootstrap-5-udemy/tree/6e8204823765693074d6c9c7f99d8de3955417ec/10-parcel%2FREADME.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "2")
+  <div class="dashboard">
+    <h1>Dashboard</h1>
+    <div class="alert">
+      <i class="fas fa-tools"></i>
+      🚀 Super Senko San
+    </div>
+    <div class="anuncio">
+      <script type="text/javascript">
+        atOptions = {
+          'key': '928dea1c6b161f1bd5776d32d20b6c4c',
+          'format': 'iframe',
+          'height': 300,
+          'width': 160,
+          'params': {}
+        };
+      </script>
+      <script async src="//www.highperformanceformat.com/928dea1c6b161f1bd5776d32d20b6c4c/invoke.js"></script>
+    </div>
+    <div class="cards">
+      <div class="card usage">
+        <div>
+          <div class="title">Solicitudes por usuario</div>
+          <div>75 <span>/minuto</span></div>
+        </div>
+        <div class="icon"><i class="fas fa-chart-line"></i></div>
+      </div>
+      <div class="card ip">
+        <div>
+          <div class="title">Tu IP</div>
+          <div id="user-ip">Cargando...</div>
+        </div>
+        <div class="icon"><i class="fas fa-network-wired"></i></div>
+      </div>
+      <div class="card battery">
+        <div>
+          <div class="title">Batería</div>
+          <div id="battery-status">Cargando...</div>
+        </div>
+        <div class="icon"><i class="fas fa-battery-half"></i></div>
+      </div>
+      <div class="card total-requests">
+        <div>
+          <div class="title">Total de Solicitudes a esta web</div>
+          <div id="total-requests">0</div>
+        </div>
+        <div class="icon"><i class="fas fa-database"></i></div>
+      </div>
+      <div class="alert">
+        <img src="https://github.com/OfcKing.png" alt="Logo OfcKing" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 50%;">
+        <span>
+          🎄 Feliz navidad" target="_blank" style="color: #4e9ce0; text-decoration: underline;">WhatsApp</a> prospero año nuevo <a href="2025" target="_blank" style="color: #4e9ce0; text-decoration: underline;">Paypal</a>. 💖🙌
+        </span>
+      </div>
+    </div>
+    <canvas id="apiUsageChart"></canvas>
+  </div>
+  <footer class="footer">
+    © Senko San | Dashboard ッ
+  </footer>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Eliasar54/Css@main/script.js"></script>
+</body>
+</html>
