@@ -7,7 +7,8 @@
   <link rel="icon" href="https://github.com/OfcKing.png" type="image/png">
   <script src="//code.tidio.co/9xsgo7lemff4gujgkjzrzcf4q8hvjx4a.js" async></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
@@ -249,103 +250,4 @@
           <div class="title">Solicitudes por usuario</div>
           <div>75 <span>/minuto</span></div>
         </div>
-        <div class="icon"><i class="fas fa-chart-line"></i></div>
-      </div>
-      <div class="card ip">
-        <div>
-          <div class="title">Tu IP</div>
-          <div id="user-ip">Cargando...</div>
-        </div>
-        <div class="icon"><i class="fas fa-network-wired"></i></div>
-      </div>
-      <div class="card battery">
-        <div>
-          <div class="title">Batería</div>
-          <div id="battery-status">Cargando...</div>
-        </div>
-        <div class="icon"><i class="fas fa-battery-half"></i></div>
-      </div>
-      <div class="card total-requests">
-        <div>
-          <div class="title">Total de Solicitudes a esta web</div>
-          <div id="total-requests">0</div>
-        </div>
-        <div class="icon"><i class="fas fa-database"></i></div>
-      </div>
-      <div class="alert">
-        <img src="https://github.com/OfcKing.png" alt="Logo OfcKing" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 50%;">
-        <span>
-          🎄 Feliz navidad y próspero año nuevo <a href="https://www.paypal.me/sansenko" target="_blank" style="color: #4e9ce0; text-decoration: underline;">Paypal</a>. 💖🙌
-        </span>
-      </div>
-    </div>
-    <canvas id="apiUsageChart"></canvas>
-  </div>
-  <footer class="footer">
-    © Senko San | Dashboard ッ
-  </footer>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/gh/Eliasar54/Css@main/script.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      const userIp = document.getElementById('user-ip');
-      const batteryStatus = document.getElementById('battery-status');
-      const totalRequests = document.getElementById('total-requests');
-
-
-      try {
-        const ipData = await fetch('https://api.ipify.org?format=json').then(response => response.json());
-        userIp.textContent = ipData.ip;
-      } catch (error) {
-        userIp.textContent = 'No se pudo obtener la IP';
-      }
-
-      if (navigator.getBattery) {
-        navigator.getBattery().then(battery => {
-          batteryStatus.textContent = `${Math.floor(battery.level * 100)}%`;
-        }).catch(() => {
-          batteryStatus.textContent = 'No se pudo obtener el estado de la batería';
-        });
-      } else {
-        batteryStatus.textContent = 'No disponible';
-      }
-
-      totalRequests.textContent = 1234; 
-
-      const ctx = document.getElementById('apiUsageChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
-          datasets: [{
-            label: 'Uso de la API',
-            data: [10, 20, 30, 40, 50, 60],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      });
-    });
-
-    function filterMenu(input) {
-      const filter = input.value.toLowerCase();
-      const links = document.querySelectorAll('.menu-content a');
-      links.forEach(link => {
-        const text = link.textContent.toLowerCase();
-        link.style.display = text.includes(filter) ? '' : 'none';
-      });
-    }
-
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
-    }
-  </script>
-</body>
-</html>
+        <div class="icon"><i class="fas fa-chart-line[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/bluuweb/bootstrap-5-udemy/tree/6e8204823765693074d6c9c7f99d8de3955417ec/10-parcel%2FREADME.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "2")
