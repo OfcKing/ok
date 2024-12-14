@@ -7,7 +7,7 @@
   <link rel="icon" href="https://github.com/OfcKing.png" type="image/png">
   <script src="//code.tidio.co/9xsgo7lemff4gujgkjzrzcf4q8hvjx4a.js" async></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-     body {
+    body {
       margin: 0;
       font-family: 'Arial', sans-serif;
       background-color: #121212;
@@ -197,7 +197,7 @@
       max-width: 100%;
       margin-top: 20px;
     }
-  </style>
+  </style> src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body oncontextmenu="return false">
   <div class="navbar">
@@ -291,7 +291,7 @@
       const batteryStatus = document.getElementById('battery-status');
       const totalRequests = document.getElementById('total-requests');
 
-      // Obtener IP del usuario
+
       try {
         const ipData = await fetch('https://api.ipify.org?format=json').then(response => response.json());
         userIp.textContent = ipData.ip;
@@ -299,7 +299,6 @@
         userIp.textContent = 'No se pudo obtener la IP';
       }
 
-      // Obtener estado de la batería
       if (navigator.getBattery) {
         navigator.getBattery().then(battery => {
           batteryStatus.textContent = `${Math.floor(battery.level * 100)}%`;
@@ -310,10 +309,8 @@
         batteryStatus.textContent = 'No disponible';
       }
 
-      // Ejemplo de actualización de solicitudes totales
-      totalRequests.textContent = 1234; // Aquí puedes obtener datos reales de tu servidor
+      totalRequests.textContent = 1234; 
 
-      // Inicializar gráfico
       const ctx = document.getElementById('apiUsageChart').getContext('2d');
       new Chart(ctx, {
         type: 'line',
