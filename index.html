@@ -266,7 +266,7 @@
       <div class="alert">
         <img src="https://github.com/OfcKing.png" alt="Logo OfcKing" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 50%;">
         <span>
-          🎄 Feliz navidad y próspero año nuevo <a href="https://www.paypal.me/sansenko" target="_blank" style="color: #4e9ce0; text-decoration: underline;">Paypal</a>. 💖🙌
+          🎄 Feliz navidad y próspero año nuevo
         </span>
       </div>
     </div>
@@ -279,6 +279,7 @@
     document.addEventListener('DOMContentLoaded', async () => {
       const userIp = document.getElementById('user-ip');
       const batteryStatus = document.getElementById('battery-status');
+      const totalRequests = document.getElementById('total-requests');
 
       try {
         const ipData = await fetch('https://api.ipify.org?format=json').then(response => response.json());
