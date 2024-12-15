@@ -41,7 +41,7 @@ say('Senko\nSan', {
 font: 'block',
 align: 'center',
 colors: ['red']
-});
+})
 
 say('Senko San\nOfxKing × Sara', {
 font: 'console',
