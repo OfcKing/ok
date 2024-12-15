@@ -18,16 +18,16 @@
     "eslint": "eslint .",
     "eslintfix": "eslint --fix ."
   },
-  "homepage": "https://github.com/OfcKing",
+  "homepage": "https://github.com/OfcKing/SenkoBot-MD",
   "author": {
     "name": "OfcKing"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OfcKing.git"
+    "url": "git+https://github.com/OfcKing/SenkoBot-MD.git"
   },
   "bugs": {
-    "url": "https://github.com/OfcKing/issues"
+    "url": "https://github.com/OfcKing/SenkoBot-MD/issues"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
