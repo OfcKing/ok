@@ -29,8 +29,6 @@ global.prems = []
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.libreria = 'Baileys'
-global.baileys = 'V 6.7.5'
 global.vs = '1.0.6'
 global.vsJB = '5.0'
 global.nameqr = 'Ai Senko - MD'
