@@ -47,9 +47,9 @@ global.textbot = 'Senko San ✐'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.img1 = fs.readFileSync('./icons/Menu.jpg')
-global.img2 = fs.readFileSync('./icons/Menu2.jpg')
-global.img3 = fs.readFileSync('./icons/Menu3.jpg')
+global.imagen1 = fs.readFileSync('./icons/Menu.jpg')
+global.imagen2 = fs.readFileSync('./icons/Menu2.jpg')
+global.imagen3 = fs.readFileSync('./icons/Menu3.jpg')
 global.catalogo = fs.readFileSync('./icons/catalogo.jpg')
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
