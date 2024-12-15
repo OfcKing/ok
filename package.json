@@ -2,7 +2,7 @@
   "name": "SenkoBot-MD",
   "version": "1.0.6",
   "description": "Super SenkoBot",
-  "main": "index.js",
+  "main": "/senko/start.js",
   "type": "module",
   "directories": {
     "lib": "lib",
