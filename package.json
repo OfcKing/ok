@@ -6,7 +6,6 @@
   "type": "module",
   "directories": {
     "lib": "lib",
-    "src": "src",
     "plugins": "plugins"
   },
   "scripts": {
