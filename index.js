@@ -67,7 +67,7 @@ global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.
 
 global.timestamp = {start: new Date}
 
-const __dirname = global.__dirname(import.meta.url)
+//const __dirname = global.__dirname(import.meta.url)
 
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 global.prefix = new RegExp('^[#]')
