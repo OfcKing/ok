@@ -33,16 +33,8 @@ const {CONNECTING} = ws
 const {chain} = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 
-global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') {
-return rmPrefix ? /file:\/\/\//.test(pathURL) ? fileURLToPath(pathURL) : pathURL : pathToFileURL(pathURL).toString();
-}; global.__dirname = function dirname(pathURL) {
-return path.dirname(global.__filename(pathURL, true))
-}; global.__require = function require(dir = import.meta.url) {
-return createRequire(dir)
-}
-
 //let __dirname = dirname(fileURLToPath(import.meta.url))
-const __dirname = global.__dirname(import.meta.url)
+global.__dirname = global.__dirname(import.meta.url)
 let require = createRequire(__dirname)
 let { say } = cfonts
 
@@ -69,19 +61,17 @@ colors: ['yellow']
 protoType()
 serialize()
 
-/*global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') {
+global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') {
 return rmPrefix ? /file:\/\/\//.test(pathURL) ? fileURLToPath(pathURL) : pathURL : pathToFileURL(pathURL).toString();
 }; global.__dirname = function dirname(pathURL) {
 return path.dirname(global.__filename(pathURL, true))
 }; global.__require = function require(dir = import.meta.url) {
 return createRequire(dir)
-}*/
+}
 
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({...query, ...(apikeyqueryname ? {[apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name]} : {})})) : '');
 
 global.timestamp = {start: new Date}
-
-//const __dirname = global.__dirname(import.meta.url)
 
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 global.prefix = new RegExp('^[#]')
