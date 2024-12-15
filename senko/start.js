@@ -33,9 +33,8 @@ const {CONNECTING} = ws
 const {chain} = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 
-//let __dirname = dirname(fileURLToPath(import.meta.url))
-global.__dirname = global.__dirname(import.meta.url)
-let require = createRequire(__dirname)
+//const senkosan = dirname(fileURLToPath(import.meta.url))
+//let require = createRequire(senkosan)
 let { say } = cfonts
 
 console.log(chalk.bold.greenBright(`\n🜸 Iniciando Senko San - MD\n`))
@@ -72,6 +71,8 @@ return createRequire(dir)
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({...query, ...(apikeyqueryname ? {[apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name]} : {})})) : '');
 
 global.timestamp = {start: new Date}
+
+const __dirname = global.__dirname(import.meta.url)
 
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 global.prefix = new RegExp('^[#]')
