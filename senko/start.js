@@ -43,10 +43,16 @@ align: 'center',
 colors: ['red']
 })
 
-say('Senko San\nOfxKing × Sara', {
+say(`Multi Device`, {
+font: 'chrome',
+align: 'center',
+colors: ['red']
+})
+
+say(`Developed By • OfcKing`, {
 font: 'console',
 align: 'center',
-gradient: ['red', 'magenta']
+colors: ['yellow']
 })
 
 protoType()
