@@ -1,9 +1,8 @@
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '1'
 import './settings.js'
-import { join, dirname } from 'path';
-import { setupMaster, fork } from 'cluster';
-import { watchFile, unwatchFile } from 'fs';
-import cfonts from 'cfonts';
+import { setupMaster, fork } from 'cluster'
+import { watchFile, unwatchFile } from 'fs'
+import cfonts from 'cfonts'
 import {createRequire} from 'module'
 import {fileURLToPath, pathToFileURL} from 'url'
 import {platform} from 'process'
@@ -20,6 +19,7 @@ import boxen from 'boxen'
 import P from 'pino'
 import pino from 'pino'
 import Pino from 'pino'
+import path, { join, dirname } from 'path'
 import {Boom} from '@hapi/boom'
 import {makeWASocket, protoType, serialize} from '../lib/simple.js'
 import {Low, JSONFile} from 'lowdb'
