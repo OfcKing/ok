@@ -38,10 +38,10 @@ let require = createRequire(__dirname)
 let { say } = cfonts
 
 say('Senko\nSan', {
-font: 'chrome',
+font: 'block',
 align: 'center',
-gradient: ['red', 'magenta']
-})
+colors: ['red']
+});
 
 say('Senko San\nOfxKing × Sara', {
 font: 'console',
