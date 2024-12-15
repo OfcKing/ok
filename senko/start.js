@@ -51,7 +51,7 @@ align: 'center',
 colors: ['red']
 })
 
-say(`Developed By • OfcKing`, {
+say(`Senko San × OfcKing`, {
 font: 'console',
 align: 'center',
 colors: ['yellow']
