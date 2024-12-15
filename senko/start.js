@@ -33,7 +33,8 @@ const {CONNECTING} = ws
 const {chain} = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 
-let __dirname = dirname(fileURLToPath(import.meta.url))
+//let __dirname = dirname(fileURLToPath(import.meta.url))
+const __dirname = global.__dirname(import.meta.url)
 let require = createRequire(__dirname)
 let { say } = cfonts
 
