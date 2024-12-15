@@ -1,5 +1,5 @@
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '1'
-import './senko/settings.js'
+import './settings.js'
 import { join, dirname } from 'path';
 import { setupMaster, fork } from 'cluster';
 import { watchFile, unwatchFile } from 'fs';
