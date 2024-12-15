@@ -37,6 +37,8 @@ let __dirname = dirname(fileURLToPath(import.meta.url))
 let require = createRequire(__dirname)
 let { say } = cfonts
 
+console.log(chalk.bold.cyanBright(`\n🜸 Iniciando Senko San - MD`))
+
 say('Senko\nSan', {
 font: 'block',
 align: 'center',
