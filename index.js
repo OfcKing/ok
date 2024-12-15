@@ -18,11 +18,6 @@ font: 'block',
 align: 'center',
 colors: ['red']
 });
-say(`Super Senko San`, {
-font: 'console',
-align: 'center',
-colors: ['yellow']
-});
 var isRunning = false;
 function start(file) {
 if (isRunning) return;
