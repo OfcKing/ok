@@ -10,11 +10,11 @@
     "plugins": "plugins"
   },
   "scripts": {
-    "start": "node index.js",
-    "qr": "node index.js qr",
-    "code": "node index.js code",
+    "start": "node senko/start.js",
+    "qr": "node senko/start.js qr",
+    "code": "node senko/start.js code",
     "test": "node test.js",
-    "test2": "nodemon index.js",
+    "test2": "nodemon senko/start.js",
     "eslint": "eslint .",
     "eslintfix": "eslint --fix ."
   },
