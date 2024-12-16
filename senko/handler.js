@@ -1,4 +1,4 @@
-import { smsg } from '../lib/simple.js'
+import { smsg } from './lib/simple.js'
 import { format } from 'util' 
 import { fileURLToPath } from 'url'
 import path, { join } from 'path'
@@ -474,7 +474,7 @@ stat.lastSuccess = now
 }}}
 
 try {
-if (!opts['noprint']) await (await import(`../lib/print.js`)).default(m, this)
+if (!opts['noprint']) await (await import(`./lib/print.js`)).default(m, this)
 } catch (e) { 
 console.log(m, m.quoted, e)}
 let settingsREAD = global.db.data.settings[this.user.jid] || {}  
