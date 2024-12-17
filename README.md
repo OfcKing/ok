@@ -25,18 +25,6 @@
 
 ---
 
-### ❀ HOSTING PY
-<a href="https://dahs.hostingpy.shop/"><img src="https://qu.ax/gXidW.jpg" height="130px"></a>
-
-- ✦ **Dashboard:** [`Aquí`](https://dahs.hostingpy.shop/)
-- ✦ **Panel:** [`Aquí`](https://panel.hostingpy.shop/)
-- ✦ **Registrarse:** [`Aquí`](https://dahs.hostingpy.shop/register?ref=DevDiegoHPY)
-- ✦ **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
-- ✦ **Comunidad:** [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
-- ✦ **Contacto:** [`Aquí`](https://wa.me/595976126756) 
-
----
-
 <div align="center">
   <h1 align="center">Propietario de la Bot</h1>
 
