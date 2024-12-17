@@ -362,7 +362,7 @@ END:VCARD
           isForwarded: true,
           forwardedNewsletterMessageInfo: {
             newsletterJid: '120363263466636910@newsletter',
-            newsletterName: 'YaemoriBot ¡New Channe! 🌻', 
+            newsletterName: 'Senko San - MD ✨️', 
             serverMessageId: '' }, 
                 ...options
                 }
