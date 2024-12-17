@@ -39,10 +39,10 @@ let { say } = cfonts
 
 console.log(chalk.bold.greenBright(`\n🜸 Iniciando Senko San - MD\n`))
 
-say('Senko\nSan', {
+say('Senko Bot', {
 font: 'block',
 align: 'center',
-colors: ['red']
+colors: ['white']
 })
 
 say(`Multi Device`, {
