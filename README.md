@@ -28,16 +28,24 @@
 ### ❀ SKY ULTRA PLUS
 <a href="https://dahs.skyultraplus.com"><img src="https://qu.ax/wbJoB.png" height="130px"></a>
 
+<details>
+ <summary><b>✰ Enlaces Importantes</b></summary>
+
 - ✦ **Dashboard:** [`Aquí`](https://dahs.skyultraplus.com)
 - ✦ **Panel:** [`Aquí`](https://panel.skyultraplus)
 - ✦ **Registrarse:** [`Aquí`](https://dash.skyultraplus.com/register?ref=SENKO)
 - ✦ **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
 - ✦ **Contacto:** [`Aquí`](https://wa.me/message/MEKOUFBEOG5ED1) 
 
+</details>
+
 ---
 
 ### ❀ HOSTING PY
 <a href="https://dahs.hostingpy.shop/"><img src="https://qu.ax/gXidW.jpg" height="130px"></a>
+
+<details>
+ <summary><b>✰ Enlaces Importantes</b></summary>
 
 - ✦ **Dashboard:** [`Aquí`](https://dahs.hostingpy.shop/)
 - ✦ **Panel:** [`Aquí`](https://panel.hostingpy.shop/)
@@ -45,6 +53,8 @@
 - ✦ **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
 - ✦ **Comunidad:** [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
 - ✦ **Contacto:** [`Aquí`](https://wa.me/595976126756) 
+
+</details>
 
 ---
 
