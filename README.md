@@ -26,7 +26,7 @@
 ---
 
 ### ❀ SKY ULTRA PLUS
-<a href="https://dahs.skyultraplus.com"><img src="" height="130px"></a>
+<a href="https://dahs.skyultraplus.com"><img src="https://qu.ax/wbJoB.png" height="130px"></a>
 
 - ✦ **Dashboard:** [`Aquí`](https://dahs.skyultraplus.com)
 - ✦ **Panel:** [`Aquí`](https://panel.skyultraplus)
