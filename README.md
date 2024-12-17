@@ -34,7 +34,7 @@
 - ✦ **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
 - ✦ **Contacto:** [`Aquí`](https://wa.me/message/MEKOUFBEOG5ED1) 
 
-<details><summary>**🜸 Ajustes del Servidor**</summary><img src="https://qu.ax/EXBXU.jpg"></details>
+<details><summary> **🜸 Ajustes del Servidor**</summary><img src="https://qu.ax/EXBXU.jpg"></details>
 
 ---
 
