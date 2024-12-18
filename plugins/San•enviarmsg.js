@@ -2,10 +2,10 @@
 
 import { generateWAMessageFromContent } from '@whiskeysockets/baileys';
 import * as fs from 'fs';
-import { sticker } from '../lib/sticker.js';
-import uploadFile from '../lib/uploadFile.js';
-import uploadImage from '../lib/uploadImage.js';
-import { webp2png } from '../lib/webp2mp4.js';
+import { sticker } from '../senko/lib/sticker.js';
+import uploadFile from '../senko/lib/uploadFile.js';
+import uploadImage from '../senko/lib/uploadImage.js';
+import { webp2png } from '../senko/lib/webp2mp4.js';
 
 const id = global.channelid
 const idgp = "120363351999685409@g.us"; 
@@ -21,7 +21,7 @@ var handler = async (m, { conn, text }) => {
         quoted = m.quoted ? m.quoted : m;
         mime = (quoted.msg || quoted).mimetype || '';
         isMedia = /image|video|sticker|audio/.test(mime);
-        htextos = `${text ? text : ""}`;
+        htextos = `${text ? text : ''}`;
 
         if (isMedia && quoted.mtype === 'imageMessage') {
             mediax = await quoted.download?.();
