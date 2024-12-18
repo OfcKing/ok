@@ -93,5 +93,5 @@ ${chalk.red('╰───────────═┅═───────�
 
 let file = global.__filename(import.meta.url)
 watchFile(file, () => {
-  console.log(chalk.redBright("Update 'lib/print.js'"))
+  console.log(chalk.redBright("Update 'senko/lib/print.js'"))
 })
