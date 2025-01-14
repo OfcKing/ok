@@ -29,14 +29,13 @@ console.log(`Error : ${e}`)
 
 global.asistencia = 'https://wa.me/message/O4QPPHZOFDOJI1'
 var canal = 'https://whatsapp.com/channel/0029VaQD7LAJP216tu9liI2A'
-var canal2 = 'https://whatsapp.com/channel/0029VayCRH2Jf05m1wzaBi1Y'
 var youtube = 'https://www.youtube.com/@OfcDiego'
 var tt = 'https://tiktok.com/@dev_diego'
 var gmail = 'thesenkobot@gmail.com'
-var dash = 'https://dash.skyultraplus.com'
-var panel = 'https://panel.skyultraplus.com'
+var dash = 'https://dash.cafirexos.com'
+var panel = 'https://panel.cafirexos.com'
 
-global.redes = [canal, canal2, youtube, tt, gmail, dash, panel].getRandom()
+global.redes = [canal, youtube, tt, gmail, dash, panel].getRandom()
     
 global.d = new Date(new Date + 3600000)
 global.locale = 'es'
